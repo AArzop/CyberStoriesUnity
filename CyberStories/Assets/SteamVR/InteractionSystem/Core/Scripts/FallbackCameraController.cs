@@ -65,15 +65,6 @@ namespace Valve.VR.InteractionSystem
 				Vector3 offset = mousePosition - startMousePosition;
 				transform.localEulerAngles = startEulerAngles + new Vector3( -offset.y * 360.0f / Screen.height, offset.x * 360.0f / Screen.width, 0.0f );
 			}
-
-            /* Joystick */
-            float xJoystickValue = JoystickCameraSpeed * (Math.Abs(Input.GetAxis("Right Joystick X")) > DeltaJoystick ?
-                                       Input.GetAxis("Right Joystick X") : 0f);
-            float yJoystickValue = JoystickCameraSpeed * (Math.Abs(Input.GetAxis("Right Joystick Y")) > DeltaJoystick ?
-                                       Input.GetAxis("Right Joystick Y") : 0f);
-
-            transform.localEulerAngles += new Vector3(yJoystickValue * 360.0f / Screen.height, xJoystickValue * 360.0f / Screen.width, 0.0f);
-
         }
 
 
