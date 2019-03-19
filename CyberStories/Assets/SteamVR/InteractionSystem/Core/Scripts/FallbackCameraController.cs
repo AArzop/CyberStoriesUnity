@@ -23,7 +23,6 @@ namespace Valve.VR.InteractionSystem
 		private Vector3 startEulerAngles;
 		private Vector3 startMousePosition;
 		private float realTime;
-        private readonly float DeltaJoystick = 0.1f;
 
         //-------------------------------------------------
         void OnEnable()
