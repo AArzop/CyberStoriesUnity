@@ -44,4 +44,9 @@ public class HomeApplication : BaseApplication
     {
 
     }
+
+    public void ChangeApplication(int index)
+    {
+        GlobalScreen.SwitchApplication(index);
+    }
 }
