@@ -3,6 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using CyberStories.BusinessManagement;
+using CyberStories.Controllers.Leaderboard;
 
 namespace CyberStories.Controllers
 {
@@ -12,6 +13,8 @@ namespace CyberStories.Controllers
         public Canvas UIHeaderCanvas;
 
         public Text DescriptionText;
+
+        public LeaderboardController LeaderboardController;
 
         private string _currentTag;
         #endregion
@@ -49,7 +52,7 @@ namespace CyberStories.Controllers
             // Update leaderboard
             IList<DBO.Player> players = Player.GetBestPlayersByLevel(_currentTag);
 
-            // TODO: Display on leaderboard
+            LeaderboardController.UpdateLeaderboard(players);
         }
 
 

@@ -5,7 +5,7 @@ namespace CyberStories.DataAccess
     public static class Player
     {
         /// <summary>
-        /// Get X best players from the server on the level <paramref name="level"/>
+        /// Get the 3 best players from the server on the level <paramref name="level"/>
         /// </summary>
         /// <param name="level">The level to get the players</param>
         /// <returns></returns>
@@ -22,9 +22,9 @@ namespace CyberStories.DataAccess
                 },
                 new DBO.Player
                 {
-                    Id = 1,
+                    Id = 2,
                     Name = "Bis",
-                    Score = 90
+                    Score = 7
                 }
             };
         }
