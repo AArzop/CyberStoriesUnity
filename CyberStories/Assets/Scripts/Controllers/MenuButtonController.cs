@@ -8,16 +8,8 @@ namespace CyberStories.Controllers
         private bool _isMenuButtonActive;
 
         public bool isLevel;
-        private static Color DefaultHighlightedColor;
-        private static Color DefaultNormalColor;
-        private static Color DefaultSelectedColor;
-
-        static MenuButtonController()
-        {
-            DefaultHighlightedColor = Color.yellow;
-            DefaultNormalColor = Color.white;
-            DefaultSelectedColor = Color.blue;
-        }
+        public Sprite UnselectedSprite;
+        public Sprite SelectedSprite;
 
         public bool IsMenuButtonActive
         {
@@ -27,23 +19,15 @@ namespace CyberStories.Controllers
                 if (_isMenuButtonActive == value)
                     return;
                 _isMenuButtonActive = value;
-                Button button = GetComponent<Button>();
-                ColorBlock colorBlock = button.colors;
-
-                if (_isMenuButtonActive)
-                    colorBlock.normalColor = DefaultSelectedColor;
-                else
-                    colorBlock.normalColor = DefaultNormalColor;
-                button.colors = colorBlock;
+                Image image = GetComponent<Image>();
+                Sprite currentSprite = _isMenuButtonActive ? SelectedSprite : UnselectedSprite;
+                image.sprite = currentSprite;
             }
         }
 
         public void Start()
         {
             _isMenuButtonActive = false;
-            ColorBlock colorBlock = GetComponent<Button>().colors;
-            colorBlock.highlightedColor = DefaultHighlightedColor;
-            GetComponent<Button>().colors = colorBlock;
         }
 
         public void Exit()
