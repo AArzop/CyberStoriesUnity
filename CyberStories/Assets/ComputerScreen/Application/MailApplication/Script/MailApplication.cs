@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MailApplication : BaseApplication
 {
@@ -15,6 +15,17 @@ public class MailApplication : BaseApplication
 
     private int currentIndexInList = 0;
     private List<Mail> currentMailList;
+
+    private Mail mailSelected;
+
+
+    public GameObject bodyCanvas;
+    public Text mailHeaderObjectText;
+    public Text mailHeaderDateText;
+    public Text mailHeaderSourceText;
+    public Text mailBodyText;
+    public Button mailLinkButton;
+    public Text mailLinkText;
 
     private enum Filter
     {
@@ -33,6 +44,9 @@ public class MailApplication : BaseApplication
         currentMailList = newMails;
         currentIndexInList = 0;
         LoadMailItem(currentMailList, currentIndexInList);
+
+        mailSelected = null;
+        SelectMail(null);
     }
 
     private void LoadMailItem(List<Mail> mails, int firstIndex)
@@ -46,11 +60,9 @@ public class MailApplication : BaseApplication
 
     private void ChangeFilter(Filter newFilter)
     {
-        if (currentFilter == newFilter)
-            return;
-
         currentFilter = newFilter;
         currentIndexInList = 0;
+        SelectMail(null);
 
         switch (newFilter)
         {
@@ -71,6 +83,41 @@ public class MailApplication : BaseApplication
 
             default:
                 break;
+        }
+    }
+
+    public void SelectMail(Mail mail)
+    {
+        mailSelected = mail;
+
+        if (mail != null)
+        {
+            bodyCanvas.SetActive(true);
+            mailHeaderSourceText.text = mail.Source;
+            mailHeaderObjectText.text = mail.Object;
+            mailHeaderDateText.text = mail.dateTime.ToShortDateString();
+            mailBodyText.text = mail.body;
+
+            if (mail.isThereLink)
+            {
+                mailLinkButton.gameObject.SetActive(true);
+                mailLinkText.text = mail.link;
+            }
+            else
+            {
+                mailLinkButton.gameObject.SetActive(false);
+                mailLinkText.text = "";
+            }
+        }
+        else
+        {
+            bodyCanvas.SetActive(false);
+            mailHeaderSourceText.text = "";
+            mailHeaderObjectText.text = "";
+            mailHeaderDateText.text = "";
+            mailBodyText.text = "";
+            mailLinkButton.gameObject.SetActive(false);
+            mailLinkText.text = "";
         }
     }
 
@@ -102,19 +149,47 @@ public class MailApplication : BaseApplication
 
     public void FilterButtonNewMail()
     {
-        ChangeFilter(Filter.newMail);
+        if (currentFilter != Filter.newMail)
+            ChangeFilter(Filter.newMail);
     }
 
     public void FilterButtonArchive()
     {
-        ChangeFilter(Filter.ArchivedMail);
+        if (currentFilter != Filter.ArchivedMail)
+            ChangeFilter(Filter.ArchivedMail);
     }
 
     public void FilterButtonDelete()
     {
-        ChangeFilter(Filter.DeletedMail);
+        if (currentFilter != Filter.DeletedMail)
+            ChangeFilter(Filter.DeletedMail);
     }
 
+    public void SelectedMailButtonArchive()
+    {
+        if (mailSelected && currentFilter != Filter.ArchivedMail)
+        {
+            currentMailList.Remove(mailSelected);
+            archMails.Add(mailSelected);
+            archMails.Sort((m1, m2) => m2.dateTime.CompareTo(m1.dateTime));
+            ChangeFilter(currentFilter);
+        }
+    }
 
+    public void SelectedMailButtonDelete()
+    {
+        if (mailSelected && currentFilter != Filter.DeletedMail)
+        {
+            currentMailList.Remove(mailSelected);
+            delMails.Add(mailSelected);
+            delMails.Sort((m1, m2) => m2.dateTime.CompareTo(m1.dateTime));
+            ChangeFilter(currentFilter);
+        }
+    }
+
+    public void LinkButton()
+    {
+        GlobalScreen.LinkClicked(mailSelected);
+    }
     #endregion
 }

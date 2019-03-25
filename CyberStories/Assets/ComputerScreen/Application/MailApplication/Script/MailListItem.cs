@@ -11,6 +11,8 @@ public class MailListItem : MonoBehaviour
     public Text dateText;
     public Text objectText;
 
+    public MailApplication app;
+
     private void Start()
     {
         ChangeMail(mail);
@@ -37,10 +39,7 @@ public class MailListItem : MonoBehaviour
 
     public void SelectMail()
     {
-        if (mail != null)
-        {
-
-        }
+        app.SelectMail(mail);
     }
 
 }

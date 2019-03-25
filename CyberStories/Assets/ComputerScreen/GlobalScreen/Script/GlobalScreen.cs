@@ -54,4 +54,9 @@ public class GlobalScreen : MonoBehaviour
         currentApplication = app;
         currentIndex = index;
     }
+
+    public void LinkClicked(Mail mail)
+    {
+
+    }
 }

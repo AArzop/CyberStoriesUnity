@@ -394,7 +394,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 47038010893104626}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 47038010893104636}
+        m_MethodName: SelectMail
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &47038010893104636
@@ -414,6 +425,7 @@ MonoBehaviour:
   sourceText: {fileID: 47038010186582001}
   dateText: {fileID: 47038009894320497}
   objectText: {fileID: 47038009454906055}
+  app: {fileID: 0}
 --- !u!1 &47038011031113933
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,7 +15,9 @@ public class LocalizationManager
 
     private Language currentLanguage;
     private Dictionary<uint, string> locaDictionnary;
+    private Dictionary<string, string> locaMailDictionanary;
     private const string fileName = "loca.csv";
+    private const string mailLocafileName = "locaMail.csv";
     private bool loadSuccessfull = false;
 
     #endregion
@@ -32,6 +34,16 @@ public class LocalizationManager
             return;
         }
         LoadLocalizationFile();
+
+        locaMailDictionanary = new Dictionary<string, string>();
+        path = Path.Combine(Application.dataPath + "/GlobalManager/LocalizationManager", mailLocafileName);
+        if (!File.Exists(path))
+        {
+            loadSuccessfull = false;
+            Debug.Assert(false, "LocaMail.csv is missing");
+            return;
+        }
+        LoadMailLocalizationFile();
     }
 
     private void LoadLocalizationFile()
@@ -51,6 +63,25 @@ public class LocalizationManager
         loadSuccessfull = true;
     }
 
+    private void LoadMailLocalizationFile()
+    {
+        locaMailDictionanary.Clear();
+        string path = Path.Combine(Application.dataPath + "/GlobalManager/LocalizationManager", mailLocafileName);
+
+        string fileData = File.ReadAllText(path);
+        string[] lines = fileData.Split("\n"[0]);
+
+        for (uint id = 1; id < lines.Length - 1; ++id)
+        {
+            lines[id] = lines[id].Replace('~', '\n');
+            System.Console.WriteLine(lines[id]);
+            string[] loc = lines[id].Split(";"[0]);
+
+            locaMailDictionanary.Add(loc[0], loc[(int)currentLanguage]);
+        }
+        loadSuccessfull = true;
+    }
+
     public void ChangeLanguage(Language language)
     {
         currentLanguage = language;
@@ -64,4 +95,13 @@ public class LocalizationManager
 
         return "*** LOCA ERROR ****";
     }
+
+    public string GetMailLocalization(string key)
+    {
+        if (loadSuccessfull)
+            return locaMailDictionanary[key];
+
+        return "*** LOCA ERROR ****";
+    }
+
 }
