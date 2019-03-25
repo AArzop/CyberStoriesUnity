@@ -4,28 +4,32 @@ using UnityEngine.UI;
 
 public class MailApplication : BaseApplication
 {
+    // List of mails, one by filter
     public List<Mail> newMails;
     public List<Mail> archMails;
     public List<Mail> delMails;
 
-    public int nbMailDisplayed = 6;
+    // Nb item in UI
+    private const int nbMailDisplayed = 6;
     public List<MailListItem> mailItemUI;
 
+    // Current state of the application
     private Filter currentFilter;
-
     private int currentIndexInList = 0;
     private List<Mail> currentMailList;
 
+    // Current mail which is displayed
     private Mail mailSelected;
 
-
-    public GameObject bodyCanvas;
-    public Text mailHeaderObjectText;
-    public Text mailHeaderDateText;
-    public Text mailHeaderSourceText;
-    public Text mailBodyText;
-    public Button mailLinkButton;
-    public Text mailLinkText;
+    #region UI
+        public GameObject bodyCanvas;
+        public Text mailHeaderObjectText;
+        public Text mailHeaderDateText;
+        public Text mailHeaderSourceText;
+        public Text mailBodyText;
+        public Button mailLinkButton;
+        public Text mailLinkText;
+    #endregion
 
     private enum Filter
     {
@@ -37,6 +41,7 @@ public class MailApplication : BaseApplication
     public override void ResetApplication()
     {}
 
+    // Called on scene load, set all text
     private void Awake()
     {
         const int nbFilter = 3;
@@ -57,7 +62,7 @@ public class MailApplication : BaseApplication
         }
     }
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update, set default state of the application
     void Start()
     {
         currentFilter = Filter.newMail;
@@ -69,6 +74,7 @@ public class MailApplication : BaseApplication
         SelectMail(null);
     }
 
+    // Assign a mail (or null) on each mail Item in list
     private void LoadMailItem(List<Mail> mails, int firstIndex)
     {
         for (int i = 0; i < nbMailDisplayed; i++)
@@ -78,6 +84,7 @@ public class MailApplication : BaseApplication
         }
     }
 
+    // Change the current filter
     private void ChangeFilter(Filter newFilter)
     {
         currentFilter = newFilter;
@@ -106,6 +113,7 @@ public class MailApplication : BaseApplication
         }
     }
 
+    // Select a mail which is going to be displayed on the right side
     public void SelectMail(Mail mail)
     {
         mailSelected = mail;
@@ -141,6 +149,7 @@ public class MailApplication : BaseApplication
         }
     }
 
+    // A function for each button
     #region ButtonFunction
 
     public void NavButtonUp()

@@ -697,7 +697,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &341610490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -725,7 +725,6 @@ MonoBehaviour:
   - {fileID: 515109361}
   archMails: []
   delMails: []
-  nbMailDisplayed: 6
   mailItemUI:
   - {fileID: 1682519302}
   - {fileID: 231362094}
@@ -2467,7 +2466,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &583214513
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2639,7 +2638,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &606596446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3411,7 +3410,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -3440,7 +3439,7 @@ RectTransform:
   m_GameObject: {fileID: 866108061}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
+  m_LocalScale: {x: 0.003, y: 0.003, z: 0.003}
   m_Children: []
   m_Father: {fileID: 606596450}
   m_RootOrder: 3
@@ -4000,7 +3999,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Name
+  m_Text: Mail
 --- !u!222 &979800852
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6071,7 +6070,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Name
+  m_Text: Option
 --- !u!222 &1556229901
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7097,7 +7096,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Name
+  m_Text: Web
 --- !u!222 &1974991991
 CanvasRenderer:
   m_ObjectHideFlags: 0

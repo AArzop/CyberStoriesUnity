@@ -11,6 +11,7 @@ public class HomeApplication : BaseApplication
     {
     }
 
+    // Display hour on UI
     private void SetHour()
     {
         var now = System.DateTime.Now;
