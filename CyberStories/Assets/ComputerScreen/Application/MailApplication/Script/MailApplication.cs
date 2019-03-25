@@ -37,6 +37,26 @@ public class MailApplication : BaseApplication
     public override void ResetApplication()
     {}
 
+    private void Awake()
+    {
+        const int nbFilter = 3;
+
+        for (int i = 1; i <= nbFilter; ++i)
+        {
+            GameObject filterCanvas = GameObject.Find("Filter" + i.ToString() + "Button");
+            if (filterCanvas)
+            {
+                Text t = filterCanvas.gameObject.GetComponentInChildren<Text>();
+                if (i == 1)
+                    t.text = GlobalManager.GetLocalization(LocaConst.Loca_New);
+                else if (i == 2)
+                    t.text = GlobalManager.GetLocalization(LocaConst.Loca_MailArchive);
+                else
+                    t.text = GlobalManager.GetLocalization(LocaConst.Loca_MailDelete);
+            }
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
