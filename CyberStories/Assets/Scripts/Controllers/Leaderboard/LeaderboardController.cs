@@ -8,7 +8,7 @@ namespace CyberStories.Controllers.Leaderboard
 
         public void UpdateLeaderboard(IList<DBO.Player> players)
         {
-            LeaderboardPlayerController[] playerControllers = GetComponentsInChildren<LeaderboardPlayerController>();
+            LeaderboardPlayerController[] playerControllers = GetComponentsInChildren<LeaderboardPlayerController>(true);
             int maxPlayer = playerControllers.Length;
             if (players.Count < playerControllers.Length)
             {
@@ -27,7 +27,7 @@ namespace CyberStories.Controllers.Leaderboard
         /// <param name="player">The player to be added on the leaderboard</param>
         private void UpdatePlayer(int rank, DBO.Player player)
         {
-            LeaderboardPlayerController playerController = GetComponentsInChildren<LeaderboardPlayerController>()[rank];
+            LeaderboardPlayerController playerController = GetComponentsInChildren<LeaderboardPlayerController>(true)[rank];
             playerController.PlayerNameText.text = player.Name;
             playerController.PlayerScoreText.text = player.Score.ToString();
             playerController.IsActive = true;
@@ -35,7 +35,7 @@ namespace CyberStories.Controllers.Leaderboard
 
         private void SetLeaderboardPlayerVisibility(int rankMin, bool isVisible)
         {
-            LeaderboardPlayerController[] playerControllers = GetComponentsInChildren<LeaderboardPlayerController>();
+            LeaderboardPlayerController[] playerControllers = GetComponentsInChildren<LeaderboardPlayerController>(true);
 
             for (int i = rankMin; i < playerControllers.Length; ++i)
                 playerControllers[i].IsActive = false;

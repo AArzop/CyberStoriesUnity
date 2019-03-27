@@ -12,21 +12,44 @@ namespace CyberStories.DataAccess
         public static IList<DBO.Player> GetBestPlayersByLevel(string level)
         {
             // TODO : Get data from db
-            return new List<DBO.Player>
-            {
-                new DBO.Player
+            if (level == "Level 1")
+                return new List<DBO.Player>
                 {
-                    Id = 1,
-                    Name = "Toto",
-                    Score = 50
-                },
-                new DBO.Player
+                    new DBO.Player
+                    {
+                        Id = 1,
+                        Name = "Toto",
+                        Score = 50
+                    },
+                    new DBO.Player
+                    {
+                        Id = 2,
+                        Name = "Bis",
+                        Score = 7
+                    }
+                };
+            else
+                return new List<DBO.Player>
                 {
-                    Id = 2,
-                    Name = "Bis",
-                    Score = 7
-                }
-            };
+                    new DBO.Player
+                    {
+                        Id = 3,
+                        Name = "Abc",
+                        Score = 50
+                    },
+                    new DBO.Player
+                    {
+                        Id = 4,
+                        Name = "def",
+                        Score = 7
+                    },
+                    new DBO.Player
+                    {
+                        Id = 5,
+                        Name = "last",
+                        Score = 0
+                    }
+                };
         }
     }
 }

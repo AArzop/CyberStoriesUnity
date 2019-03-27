@@ -32,7 +32,7 @@ namespace CyberStories.Controllers
 
             // Get all active button controllers
             List<MenuButtonController> buttons = UIHeaderCanvas.GetComponentsInChildren<Button>()
-                                                               .Where(button => button != current)
+                                                               .Where(button => button != current && button.GetComponent<MenuButtonController>() != null)
                                                                .Select(button => button.GetComponent<MenuButtonController>())
                                                                .Where(button => button.IsMenuButtonActive)
                                                                .ToList();
