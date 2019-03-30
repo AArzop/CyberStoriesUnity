@@ -218,7 +218,7 @@ public class MailApplication : BaseApplication
 
     public void LinkButton()
     {
-        GlobalScreen.LinkClicked(mailSelected);
+        GlobalScreen.LinkClicked(mailSelected.link);
     }
     #endregion
 }

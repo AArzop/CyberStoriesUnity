@@ -55,8 +55,13 @@ public class GlobalScreen : MonoBehaviour
         currentIndex = index;
     }
 
-    public void LinkClicked(Mail mail)
+    public void LinkClicked(string url)
     {
-
+        SwitchApplication(1);
+        WebApplication webApplication = currentApplication as WebApplication;
+        if (webApplication != null)
+        {
+            webApplication.Redirect(url);
+        }
     }
 }

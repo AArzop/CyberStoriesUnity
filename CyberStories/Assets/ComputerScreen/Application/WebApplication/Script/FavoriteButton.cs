@@ -27,7 +27,6 @@ public class FavoriteButton : MonoBehaviour
         }
         else
         {
-            img.sprite = null;
             Color c = Color.white;
             c.a = 0f;
             img.color = c;

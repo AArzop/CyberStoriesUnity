@@ -7,5 +7,7 @@ public abstract class BaseWebSite : MonoBehaviour
     public string Name;
     public Sprite Icon;
 
-    public string Url { get; set; }
+    public string Url;
+
+    public abstract void ResetWebSite();
 }
