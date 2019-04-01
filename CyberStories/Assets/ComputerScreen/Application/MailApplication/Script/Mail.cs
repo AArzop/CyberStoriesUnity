@@ -17,17 +17,18 @@ public class Mail : MonoBehaviour
     public string Object { get; set; }
     public string Source { get; set; }
     public string body { get; set; }
-    public string link;
+    public string link { get; set; }
+    public string linkKey;
 
-    private void Start()
+    private void Awake()
     {
-        
-        Object = GlobalManager.GetMailLocalization(ObjectKey);
-        Source = GlobalManager.GetMailLocalization(SourceKey);
-        body = GlobalManager.GetMailLocalization(bodyKey);
+        Object = GlobalManager.GetAppLocalization(ObjectKey);
+        Source = GlobalManager.GetAppLocalization(SourceKey);
+        body = GlobalManager.GetAppLocalization(bodyKey);
+        if (isThereLink)
+            link = GlobalManager.GetAppLocalization(linkKey);
 
         if (dateTimeStr != string.Empty)
             dateTime = DateTime.ParseExact(dateTimeStr, "M/d/yyyy hh:mm", System.Globalization.CultureInfo.InvariantCulture);
-            
     }
 }

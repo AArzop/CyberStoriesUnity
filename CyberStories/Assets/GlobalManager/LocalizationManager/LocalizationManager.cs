@@ -15,9 +15,9 @@ public class LocalizationManager
 
     private Language currentLanguage;
     private Dictionary<uint, string> locaDictionnary;
-    private Dictionary<string, string> locaMailDictionanary;
+    private Dictionary<string, string> locaAppDictionanary;
     private const string fileName = "loca.csv";
-    private const string mailLocafileName = "locaMail.csv";
+    private const string appLocaFileName = "AppLoca.csv";
     private bool loadSuccessfull = false;
 
     #endregion
@@ -35,15 +35,15 @@ public class LocalizationManager
         }
         LoadLocalizationFile();
 
-        locaMailDictionanary = new Dictionary<string, string>();
-        path = Path.Combine(Application.dataPath + "/GlobalManager/LocalizationManager", mailLocafileName);
+        locaAppDictionanary = new Dictionary<string, string>();
+        path = Path.Combine(Application.dataPath + "/GlobalManager/LocalizationManager", appLocaFileName);
         if (!File.Exists(path))
         {
             loadSuccessfull = false;
             Debug.Assert(false, "LocaMail.csv is missing");
             return;
         }
-        LoadMailLocalizationFile();
+        LoadAppLocalizationFile();
     }
 
     private void LoadLocalizationFile()
@@ -63,10 +63,10 @@ public class LocalizationManager
         loadSuccessfull = true;
     }
 
-    private void LoadMailLocalizationFile()
+    private void LoadAppLocalizationFile()
     {
-        locaMailDictionanary.Clear();
-        string path = Path.Combine(Application.dataPath + "/GlobalManager/LocalizationManager", mailLocafileName);
+        locaAppDictionanary.Clear();
+        string path = Path.Combine(Application.dataPath + "/GlobalManager/LocalizationManager", appLocaFileName);
 
         string fileData = File.ReadAllText(path);
         string[] lines = fileData.Split("\n"[0]);
@@ -77,7 +77,7 @@ public class LocalizationManager
             System.Console.WriteLine(lines[id]);
             string[] loc = lines[id].Split(";"[0]);
 
-            locaMailDictionanary.Add(loc[0], loc[(int)currentLanguage]);
+            locaAppDictionanary.Add(loc[0], loc[(int)currentLanguage]);
         }
         loadSuccessfull = true;
     }
@@ -96,10 +96,10 @@ public class LocalizationManager
         return "*** LOCA ERROR ****";
     }
 
-    public string GetMailLocalization(string key)
+    public string GetAppLocalization(string key)
     {
         if (loadSuccessfull)
-            return locaMailDictionanary[key];
+            return locaAppDictionanary[key];
 
         return "*** LOCA ERROR ****";
     }

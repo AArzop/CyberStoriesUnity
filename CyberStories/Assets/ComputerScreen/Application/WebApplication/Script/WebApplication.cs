@@ -22,7 +22,10 @@ public class WebApplication : BaseApplication
         history = new List<string>();
 
         foreach (var Site in webSites)
+        {
+            Site.Load();
             urlToWebSite.Add(Site.Url, Site);
+        }
 
         for (int i = 0; i < favoriteButtons.Count; i++)
         {

@@ -15,11 +15,11 @@ public class GlobalManager
         return locaManager.GetLocalization(locaID);
     }
 
-    public static string GetMailLocalization(string key)
+    public static string GetAppLocalization(string key)
     {
         if (locaManager == null)
             return "***";
-        return locaManager.GetMailLocalization(key);
+        return locaManager.GetAppLocalization(key);
     }
 
     public void ChangeLanguage(LocalizationManager.Language language)
