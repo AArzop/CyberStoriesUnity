@@ -1,15 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using CyberStories.BusinessManagement;
+using CyberStories.Controllers.Leaderboard;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using CyberStories.BusinessManagement;
-using CyberStories.Controllers.Leaderboard;
 
 namespace CyberStories.Controllers
 {
     public class MenuManagerController : MonoBehaviour
     {
         #region fields
+        private static readonly IDictionary<string, string> ScenesByTag = new Dictionary<string, string>
+        {
+            { "Level 1", "OfficeScene" }
+        };
+
         public Canvas UIHeaderCanvas;
 
         public Text DescriptionText;
@@ -55,6 +61,13 @@ namespace CyberStories.Controllers
             LeaderboardController.UpdateLeaderboard(players);
         }
 
+        public void PlayButtonClicked()
+        {
+            if (_currentTag == null)
+                return;
+            if (ScenesByTag.TryGetValue(_currentTag, out string sceneName))
+                SceneManager.LoadScene(sceneName);      // TODO: Crash
+        }
 
     }
 }

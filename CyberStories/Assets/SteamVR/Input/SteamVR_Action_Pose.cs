@@ -561,6 +561,11 @@ namespace Valve.VR
         /// </summary>
         public virtual void UpdateValue(bool skipStateAndEventUpdates)
         {
+            if (OpenVR.Input == null)
+            {
+                Debug.LogWarning("<b>[SteamVR]</b> OpenVR.Input is null in SteamVR_Action_Pose.cs");
+                return;
+            }
             lastChanged = changed;
             lastPoseActionData = poseActionData;
             lastLocalPosition = localPosition;
