@@ -44,8 +44,8 @@ public class MailApplication : BaseApplication
     // Called on scene load, set all text
     private void Awake()
     {
+        // Replace text by loca
         const int nbFilter = 3;
-
         for (int i = 1; i <= nbFilter; ++i)
         {
             GameObject filterCanvas = GameObject.Find("Filter" + i.ToString() + "Button");

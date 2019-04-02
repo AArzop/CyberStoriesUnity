@@ -23,18 +23,13 @@ public class MailListItem : MonoBehaviour
         mail = newMail;
         if (mail != null)
         {
-            style.SetActive(true);
+            gameObject.SetActive(true);
             sourceText.text = mail.Source;
             dateText.text = mail.dateTime.ToShortDateString() + ", " + mail.dateTime.ToShortTimeString();
             objectText.text = mail.Object;
         }
         else
-        {
-            style.SetActive(false);
-            sourceText.text = "";
-            dateText.text = "";
-            objectText.text = "";
-        }
+            gameObject.SetActive(false);
     }
 
     public void SelectMail()
