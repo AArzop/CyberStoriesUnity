@@ -2,3 +2,10 @@ Variable Name;Francais;English
 Loca_New;Nouveau;New
 Loca_MailArchive;Archive;Archived
 Loca_MailDelete;Supprime;Deleted
+Mail_From1;Test@test.com;Test@test.com
+Mail_From2;Mail@mail.com;Mail@mail.com
+Mail_Obj1;Object1;Object1
+Mail_Obj2;Another mail;Another mail
+Mail_Body1;Bonjour,~~je suis un mail et ceci est le body;Bonjour,~~je suis un mail et ceci est le body
+Mail_Body2;Bonjour,~~rgiehjgiurhbuigiuergibu;Bonjour,~~rgiehjgiurhbuigiuergibu
+Mail_Url1;www.google.com;www.google.com

@@ -22,11 +22,11 @@ public class Mail : MonoBehaviour
 
     private void Awake()
     {
-        Object = GlobalManager.GetAppLocalization(ObjectKey);
-        Source = GlobalManager.GetAppLocalization(SourceKey);
-        body = GlobalManager.GetAppLocalization(bodyKey);
+        Object = GlobalManager.GetLocalization(ObjectKey);
+        Source = GlobalManager.GetLocalization(SourceKey);
+        body = GlobalManager.GetLocalization(bodyKey);
         if (isThereLink)
-            link = GlobalManager.GetAppLocalization(linkKey);
+            link = GlobalManager.GetLocalization(linkKey);
 
         if (dateTimeStr != string.Empty)
             dateTime = DateTime.ParseExact(dateTimeStr, "M/d/yyyy hh:mm", System.Globalization.CultureInfo.InvariantCulture);

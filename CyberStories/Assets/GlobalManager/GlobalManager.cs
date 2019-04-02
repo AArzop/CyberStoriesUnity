@@ -10,16 +10,12 @@ public class GlobalManager
         isLoading = true;
     }
 
-    public static string GetLocalization(uint locaID)
+    public static string GetLocalization(string key)
     {
-        return locaManager.GetLocalization(locaID);
-    }
+        if (locaManager != null)
+            return locaManager.GetLocalization(key);
 
-    public static string GetAppLocalization(string key)
-    {
-        if (locaManager == null)
-            return "***";
-        return locaManager.GetAppLocalization(key);
+        return "*** ERROR ***";
     }
 
     public void ChangeLanguage(LocalizationManager.Language language)

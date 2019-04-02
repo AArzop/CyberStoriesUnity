@@ -53,11 +53,11 @@ public class MailApplication : BaseApplication
             {
                 Text t = filterCanvas.gameObject.GetComponentInChildren<Text>();
                 if (i == 1)
-                    t.text = GlobalManager.GetLocalization(LocaConst.Loca_New);
+                    t.text = GlobalManager.GetLocalization("Loca_New");
                 else if (i == 2)
-                    t.text = GlobalManager.GetLocalization(LocaConst.Loca_MailArchive);
+                    t.text = GlobalManager.GetLocalization("Loca_MailArchive");
                 else
-                    t.text = GlobalManager.GetLocalization(LocaConst.Loca_MailDelete);
+                    t.text = GlobalManager.GetLocalization("Loca_MailDelete");
             }
         }
     }

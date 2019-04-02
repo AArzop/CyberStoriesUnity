@@ -16,9 +16,9 @@ public abstract class BaseWebSite : MonoBehaviour
 
     public void Load()
     {
-        Url = GlobalManager.GetAppLocalization(UrlKey);
+        Url = GlobalManager.GetLocalization(UrlKey);
         if (isThereNextSite)
-            nextUrl = GlobalManager.GetAppLocalization(nextUrlKey);
+            nextUrl = GlobalManager.GetLocalization(nextUrlKey);
 
         gameObject.SetActive(false);
     }
