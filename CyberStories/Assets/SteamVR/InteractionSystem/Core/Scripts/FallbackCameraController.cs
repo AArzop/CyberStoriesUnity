@@ -6,6 +6,7 @@
 
 using UnityEngine;
 using System.Collections;
+using System;
 
 namespace Valve.VR.InteractionSystem
 {
@@ -17,12 +18,14 @@ namespace Valve.VR.InteractionSystem
 		public float shiftSpeed = 16.0f;
 		public bool showInstructions = true;
 
+        public float JoystickCameraSpeed = 40.0f;
+
 		private Vector3 startEulerAngles;
 		private Vector3 startMousePosition;
 		private float realTime;
 
-		//-------------------------------------------------
-		void OnEnable()
+        //-------------------------------------------------
+        void OnEnable()
 		{
 			realTime = Time.realtimeSinceStartup;
 		}
@@ -31,31 +34,13 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		void Update()
 		{
-			float forward = 0.0f;
-			if ( Input.GetKey( KeyCode.W ) || Input.GetKey( KeyCode.UpArrow ) )
-			{
-				forward += 1.0f;
-			}
-			if ( Input.GetKey( KeyCode.S ) || Input.GetKey( KeyCode.DownArrow ) )
-			{
-				forward -= 1.0f;
-			}
-
-			float right = 0.0f;
-			if ( Input.GetKey( KeyCode.D ) || Input.GetKey( KeyCode.RightArrow ) )
-			{
-				right += 1.0f;
-			}
-			if ( Input.GetKey( KeyCode.A ) || Input.GetKey( KeyCode.LeftArrow ) )
-			{
-				right -= 1.0f;
-			}
+            float forward = Input.GetAxis("Vertical");
+            float right = Input.GetAxis("Horizontal");
 
 			float currentSpeed = speed;
+            // Acceleration
 			if ( Input.GetKey( KeyCode.LeftShift ) || Input.GetKey( KeyCode.RightShift ) )
-			{
 				currentSpeed = shiftSpeed;
-			}
 
 			float realTimeNow = Time.realtimeSinceStartup;
 			float deltaRealTime = realTimeNow - realTime;
@@ -65,6 +50,7 @@ namespace Valve.VR.InteractionSystem
 
 			transform.position += transform.TransformDirection( delta );
 
+            /* Mouse */
 			Vector3 mousePosition = Input.mousePosition;
 
 			if ( Input.GetMouseButtonDown( 1 ) /* right mouse */)
@@ -78,7 +64,7 @@ namespace Valve.VR.InteractionSystem
 				Vector3 offset = mousePosition - startMousePosition;
 				transform.localEulerAngles = startEulerAngles + new Vector3( -offset.y * 360.0f / Screen.height, offset.x * 360.0f / Screen.width, 0.0f );
 			}
-		}
+        }
 
 
 		//-------------------------------------------------
@@ -87,7 +73,7 @@ namespace Valve.VR.InteractionSystem
 			if ( showInstructions )
 			{
 				GUI.Label( new Rect( 10.0f, 10.0f, 600.0f, 400.0f ),
-					"WASD/Arrow Keys to translate the camera\n" +
+					"ZQSD/Arrow Keys to translate the camera\n" +
 					"Right mouse click to rotate the camera\n" +
 					"Left mouse click for standard interactions.\n" );
 			}
