@@ -2,12 +2,12 @@
 public class GlobalManager
 {
     private static LocalizationManager locaManager = null;
-    public static bool isLoading = false;
+    public static BaseQuestManager questManager { get; set; }
 
     public static void SetupManager()
     {
         locaManager = new LocalizationManager();
-        isLoading = true;
+        questManager = null;
     }
 
     public static string GetLocalization(string key)
@@ -21,5 +21,10 @@ public class GlobalManager
     public void ChangeLanguage(LocalizationManager.Language language)
     {
         locaManager.ChangeLanguage(language);
+    }
+
+    public static void ResetGlobalManager()
+    {
+        questManager = null;
     }
 }
