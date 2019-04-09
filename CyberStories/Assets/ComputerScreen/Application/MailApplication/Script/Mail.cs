@@ -5,20 +5,22 @@ using UnityEngine;
 
 public class Mail : MonoBehaviour
 {
+    #region Keys
     public string ObjectKey;
     public string SourceKey;
     public string bodyKey;
     public string dateTimeStr;
-
     public bool isThereLink;
+    public string linkKey;
+    #endregion
+
+    public bool isPhishingMail;
 
     public DateTime dateTime { get; set; }
-
     public string Object { get; set; }
     public string Source { get; set; }
     public string body { get; set; }
     public string link { get; set; }
-    public string linkKey;
 
     private void Awake()
     {
