@@ -206,10 +206,11 @@ public class MailApplication : BaseApplication
             currentMailList.Remove(mailSelected);
             archMails.Add(mailSelected);
             archMails.Sort((m1, m2) => m2.dateTime.CompareTo(m1.dateTime));
-            ChangeFilter(currentFilter);
 
             if (sendMessageOnArchiv)
-                messageDestination.gameObject.SendMessage("OnArchivedMail", mailSelected);
+                messageDestination.GetCurrentStep().gameObject.SendMessage("OnArchivedMail", mailSelected);
+
+            ChangeFilter(currentFilter);
         }
     }
 
@@ -220,10 +221,11 @@ public class MailApplication : BaseApplication
             currentMailList.Remove(mailSelected);
             delMails.Add(mailSelected);
             delMails.Sort((m1, m2) => m2.dateTime.CompareTo(m1.dateTime));
-            ChangeFilter(currentFilter);
 
             if (sendMessageOnDelete)
-                messageDestination.gameObject.SendMessage("OnDeletedMail", mailSelected);
+                messageDestination.GetCurrentStep().gameObject.SendMessage("OnDeletedMail", mailSelected);
+
+            ChangeFilter(currentFilter);
         }
     }
 
