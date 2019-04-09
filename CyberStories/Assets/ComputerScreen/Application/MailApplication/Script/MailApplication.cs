@@ -9,6 +9,11 @@ public class MailApplication : BaseApplication
     public List<Mail> archMails;
     public List<Mail> delMails;
 
+    public bool sendMessageOnArchiv = false;
+    public bool sendMessageOnDelete = false;
+
+    public BaseQuestManager messageDestination;
+
     // Nb item in UI
     private const int nbMailDisplayed = 6;
     public List<MailListItem> mailItemUI;
@@ -202,6 +207,9 @@ public class MailApplication : BaseApplication
             archMails.Add(mailSelected);
             archMails.Sort((m1, m2) => m2.dateTime.CompareTo(m1.dateTime));
             ChangeFilter(currentFilter);
+
+            if (sendMessageOnArchiv)
+                messageDestination.gameObject.SendMessage("OnArchivedMail", mailSelected);
         }
     }
 
@@ -213,6 +221,9 @@ public class MailApplication : BaseApplication
             delMails.Add(mailSelected);
             delMails.Sort((m1, m2) => m2.dateTime.CompareTo(m1.dateTime));
             ChangeFilter(currentFilter);
+
+            if (sendMessageOnDelete)
+                messageDestination.gameObject.SendMessage("OnDeletedMail", mailSelected);
         }
     }
 
