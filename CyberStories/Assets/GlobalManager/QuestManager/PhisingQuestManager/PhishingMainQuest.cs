@@ -11,6 +11,11 @@ public class PhishingMainQuest : BaseQuest
     private const float successScore = 10f;
     private const float failScore = -10f;
 
+    private void Awake()
+    {
+        mailTreated = new Dictionary<Mail, bool>();
+    }
+
     public override void SetupQuest()
     {
     }
