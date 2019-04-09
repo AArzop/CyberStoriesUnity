@@ -12,6 +12,9 @@ public abstract class BaseWebSite : MonoBehaviour
     public string nextUrl { get; set; }
     public string Url { get; set; }
 
+    public bool sendMessageOnEnter = false;
+    public BaseQuestManager messageDestination;
+
     public abstract void ResetWebSite();
 
     public void Load()
@@ -21,5 +24,11 @@ public abstract class BaseWebSite : MonoBehaviour
             nextUrl = GlobalManager.GetLocalization(nextUrlKey);
 
         gameObject.SetActive(false);
+    }
+
+    protected void SendMessageToQuestManager()
+    {
+        if (sendMessageOnEnter)
+            messageDestination.SendMessage("OnWebSiteEnter", this);
     }
 }
