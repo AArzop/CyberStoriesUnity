@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ namespace CyberStories.Controllers.Register
         public InputField EmailInput;
         public Text ErrorLabel;
 
+        // TODO: Localization
         private static readonly string ErrorMessage = "Email non valide";
 
         public void ValidateClick()
@@ -31,7 +33,14 @@ namespace CyberStories.Controllers.Register
             var email = EmailInput.text;
             try
             {
-                return new System.Net.Mail.MailAddress(email).Address == email;
+                // return new System.Net.Mail.MailAddress(email).Address == email;
+
+                // https://docs.microsoft.com/en-us/dotnet/standard/base-types/how-to-verify-that-strings-are-in-valid-email-format
+                return Regex.IsMatch(email,
+                    @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
+                    @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-0-9a-z]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$",
+                    RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
+
             }
             catch (Exception)
             {
