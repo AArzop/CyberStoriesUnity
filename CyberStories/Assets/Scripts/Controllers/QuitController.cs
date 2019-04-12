@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CyberStories.Controllers
+namespace CyberStories.Controllers.Register
 {
     public class QuitController : MonoBehaviour
     {
