@@ -29,6 +29,6 @@ public abstract class BaseWebSite : MonoBehaviour
     protected void SendMessageToQuestManager()
     {
         if (sendMessageOnEnter)
-            messageDestination.GetCurrentStep().gameObject.SendMessage("OnWebSiteEnter", this);
+            messageDestination.gameObject.SendMessage("OnWebSiteEnter", this);
     }
 }

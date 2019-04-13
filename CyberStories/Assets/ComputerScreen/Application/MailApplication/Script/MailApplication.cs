@@ -208,7 +208,7 @@ public class MailApplication : BaseApplication
             archMails.Sort((m1, m2) => m2.dateTime.CompareTo(m1.dateTime));
 
             if (sendMessageOnArchiv)
-                messageDestination.GetCurrentStep().gameObject.SendMessage("OnArchivedMail", mailSelected);
+                messageDestination.gameObject.SendMessage("OnArchivedMail", mailSelected);
 
             ChangeFilter(currentFilter);
         }
@@ -223,7 +223,7 @@ public class MailApplication : BaseApplication
             delMails.Sort((m1, m2) => m2.dateTime.CompareTo(m1.dateTime));
 
             if (sendMessageOnDelete)
-                messageDestination.GetCurrentStep().gameObject.SendMessage("OnDeletedMail", mailSelected);
+                messageDestination.gameObject.SendMessage("OnDeletedMail", mailSelected);
 
             ChangeFilter(currentFilter);
         }
