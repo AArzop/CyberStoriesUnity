@@ -7,6 +7,7 @@ TagManager:
   - Level 1
   - Level 2
   - Level 3
+  - Ball
   layers:
   - Default
   - TransparentFX
