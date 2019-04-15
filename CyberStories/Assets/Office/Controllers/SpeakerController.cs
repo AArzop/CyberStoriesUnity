@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CyberStories.Controllers
+namespace CyberStories.Office.Controllers
 {
     public class SpeakerController : MonoBehaviour
     {
