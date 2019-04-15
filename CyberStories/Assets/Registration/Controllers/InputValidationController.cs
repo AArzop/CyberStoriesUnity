@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace CyberStories.Controllers.Register
+namespace CyberStories.Registration.Controllers
 {
     public class InputValidationController : MonoBehaviour
     {
