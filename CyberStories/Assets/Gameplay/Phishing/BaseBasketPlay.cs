@@ -18,10 +18,10 @@ public abstract class BaseBasketPlay : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
-            var a = GameObject.Find(other.name);
-            BasketGameBall ball = a.GetComponent<BasketGameBall>();
+            var obj = GameObject.Find(other.name);
+            BasketGameBall ball = obj.GetComponent<BasketGameBall>();
             if (ball != null && !ball.isGrabbed)
-                game.endBasketGame();
+                game.EndBasketGame();
         }
     }
 
