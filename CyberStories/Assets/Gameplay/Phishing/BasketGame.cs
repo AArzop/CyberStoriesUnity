@@ -24,7 +24,10 @@ public class BasketGame : MonoBehaviour
 
     private void Start()
     {
-        basketplayScore = new List<float>(GamePrefab.Count);
+        basketplayScore = new List<float>();
+        foreach (var item in GamePrefab)
+            basketplayScore.Add(0f);
+
         isPlaying = false;
     }
 
@@ -55,7 +58,40 @@ public class BasketGame : MonoBehaviour
     // Compute score thanks to time between grab and shoot and distance between goal and player
     private float ComputeScore(float distance, TimeSpan time)
     {
-        return 1f;
+        // if player manages to score, score will be at least 10
+        // Score: 45 => distance + 45 => time + 10 => success
+        float score = 10f;
+
+        const float minDistance = 0f;
+        const float maxDistance = 10f;
+
+        if (distance >= maxDistance)
+            distance = maxDistance;
+        else if (distance < minDistance) // should never happened
+            distance = minDistance;
+
+        score += ((distance - minDistance) / (maxDistance - minDistance)) * 45;
+
+        TimeSpan minTime = new TimeSpan(0, 0, 8);
+        TimeSpan maxTime = new TimeSpan(0, 1, 4);
+
+        if (time < minTime)
+            score += 45f;
+        else if (time > maxTime)
+            score += 1f;
+        else
+        {
+            time.Add(new TimeSpan(0, 0, 0, 0, 500));
+            int nbSecond = (int) time.TotalSeconds;
+            int minSecond = (int) minTime.TotalSeconds;
+            int maxSecond = (int) maxTime.TotalSeconds;
+
+            float coef = (nbSecond / minSecond) / (maxSecond / minSecond);
+
+            score += 45f * (1f - coef);
+        }
+
+        return score;
     }
 
     // Reset + compute score
@@ -64,7 +100,7 @@ public class BasketGame : MonoBehaviour
         TimeSpan launchingTime = DateTime.Now - ball.launchTime;
         float shootDistance = Vector3.Distance(ball.launchPosition, currentGame.GetGoalPosition());
 
-        basketplayScore[currentIndex] = Math.Max(currentGame.multiplicator * ComputeScore(shootDistance, launchingTime), basketplayScore[currentIndex]);
+        basketplayScore[currentIndex] = Math.Max(ComputeScore(shootDistance, launchingTime), basketplayScore[currentIndex]);
 
         ResetBasketGame(1.5f);
     }

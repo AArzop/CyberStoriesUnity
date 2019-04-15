@@ -7,8 +7,6 @@ public abstract class BaseBasketPlay : MonoBehaviour
     private BasketGame game;
     public BoxCollider goal;
 
-    public float multiplicator = 1f;
-
     protected void Awake()
     {
         game = FindObjectOfType<BasketGame>();
