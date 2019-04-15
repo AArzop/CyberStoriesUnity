@@ -12,7 +12,7 @@ public class BasketGameBall : MonoBehaviour
     private void Awake()
     {
         launchPosition = Vector3.zero;
-        launchTime = DateTime.MinValue;
+        launchTime = DateTime.Now;
         isGrabbed = false;
     }
 
@@ -25,6 +25,5 @@ public class BasketGameBall : MonoBehaviour
     {
         isGrabbed = false;
         launchPosition = gameObject.transform.position;
-        launchTime = DateTime.Now;
     }
 }
