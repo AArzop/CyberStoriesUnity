@@ -1,0 +1,2 @@
+1: Open  "Assets/Office/Scene/Office" to get the whole scene;
+2: To limit the poly count ,we use texture for Railing . I recommand you to download the free double silde shader  for railing material, Link: https://assetstore.unity.com/packages/vfx/shaders/double-sided-shaders-23087
