@@ -5,8 +5,10 @@ using UnityEngine;
 public class PhishingMainQuest : BaseQuest
 {
     public MailApplication mailApp;
-
     private Dictionary<Mail, bool> mailTreated;
+
+    public List<BaseWebSite> webSites;
+    private Dictionary<BaseWebSite, bool> siteConsulted;
 
     private const float successScore = 10f;
     private const float failScore = -10f;
@@ -14,6 +16,9 @@ public class PhishingMainQuest : BaseQuest
     private void Awake()
     {
         mailTreated = new Dictionary<Mail, bool>();
+        siteConsulted = new Dictionary<BaseWebSite, bool>();
+        foreach (var site in webSites)
+            siteConsulted[site] = false;
     }
 
     public override void SetupQuest()
@@ -22,11 +27,17 @@ public class PhishingMainQuest : BaseQuest
 
     public override void CheckQuest()
     {
-        if (mailApp.newMails.Count == 0)
+        if (mailApp.newMails.Count != 0)
+            return;
+
+        foreach (var pair in siteConsulted)
         {
-            EndQuest();
-            questManager.FullfillStep();
+            if (!pair.Value)
+                return;
         }
+
+        EndQuest();
+        questManager.FullfillStep();
     }
 
     public override void EndQuest()
@@ -62,6 +73,10 @@ public class PhishingMainQuest : BaseQuest
 
     public void OnWebSiteEnter(BaseWebSite site)
     {
-
+        if (siteConsulted.ContainsKey(site))
+        {
+            siteConsulted[site] = true;
+            CheckQuest();
+        }
     }
 }
