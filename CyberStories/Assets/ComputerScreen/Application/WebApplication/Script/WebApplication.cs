@@ -61,6 +61,8 @@ public class WebApplication : BaseApplication
         history.Add(webSite.Url);
 
         DisplayWebSite();
+
+        currentWebSite.SendMessageToQuestManager();
     }
 
     private void DisplayWebSite()

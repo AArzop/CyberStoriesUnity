@@ -26,7 +26,7 @@ public abstract class BaseWebSite : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    protected void SendMessageToQuestManager()
+    public void SendMessageToQuestManager()
     {
         if (sendMessageOnEnter)
             messageDestination.gameObject.SendMessage("OnWebSiteEnter", this);
