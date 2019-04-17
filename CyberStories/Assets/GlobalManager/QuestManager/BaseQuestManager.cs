@@ -49,10 +49,7 @@ public abstract class BaseQuestManager : MonoBehaviour
         }
     }
 
-    protected void EndLevel()
-    {
-
-    }
+    protected abstract void EndLevel();
 
     public abstract float GetLevelEvaluation();
 }

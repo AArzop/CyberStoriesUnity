@@ -45,4 +45,8 @@ public class PhishingQuestManager : BaseQuestManager
     {
         currentStep.gameObject.SendMessage("OnWebSiteEnter", site);
     }
+
+    protected override void EndLevel()
+    {
+    }
 }
