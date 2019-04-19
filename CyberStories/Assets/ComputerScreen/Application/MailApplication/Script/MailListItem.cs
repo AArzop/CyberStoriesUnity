@@ -24,7 +24,7 @@ public class MailListItem : MonoBehaviour
         if (mail != null)
         {
             gameObject.SetActive(true);
-            sourceText.text = mail.Source;
+            sourceText.text = mail.Source.Substring(0, mail.Source.IndexOf('@')).Replace('.', ' ');
             dateText.text = mail.dateTime.ToShortDateString() + ", " + mail.dateTime.ToShortTimeString();
             objectText.text = mail.Object;
         }
