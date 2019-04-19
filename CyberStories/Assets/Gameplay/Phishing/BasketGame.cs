@@ -12,9 +12,9 @@ public class BasketGame : MonoBehaviour
     public List<float> basketplayScore;
     private int currentIndex;
 
-    // Location of spawn for each prefab
-    public Vector3 ballSpawnPosition;
-    public Vector3 goalSpawnPosition;
+    // Location and rotation of prefab when it will be generated
+    public GameObject ballSpawn;
+    public GameObject goalSpawn;
 
     // object in scene which has been generated from prefab
     private BasketGameBall ball;
@@ -38,8 +38,8 @@ public class BasketGame : MonoBehaviour
             ResetBasketGame(0f);
 
         currentIndex = UnityEngine.Random.Range(0, GamePrefab.Count);
-        currentGame = Instantiate(GamePrefab[currentIndex], goalSpawnPosition, Quaternion.identity);
-        ball = Instantiate(BallPrefab, ballSpawnPosition, Quaternion.identity);
+        currentGame = Instantiate(GamePrefab[currentIndex], goalSpawn.transform.position, goalSpawn.transform.rotation);
+        ball = Instantiate(BallPrefab, ballSpawn.transform.position, ballSpawn.transform.rotation);
         isPlaying = true;
     }
 
