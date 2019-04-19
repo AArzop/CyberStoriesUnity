@@ -64,6 +64,6 @@ public class LocalizationManager
         if (locaDictionnary.ContainsKey(key))
             return locaDictionnary[key];
 
-        return "*** LOCA ERROR ****";
+        return "*** UNFOUND LOCA ****";
     }
 }

@@ -15,7 +15,7 @@ public class GlobalManager
         if (locaManager != null)
             return locaManager.GetLocalization(key);
 
-        return "*** ERROR ***";
+        return "*** CANNOT OPEN FILE ***";
     }
 
     public void ChangeLanguage(LocalizationManager.Language language)
