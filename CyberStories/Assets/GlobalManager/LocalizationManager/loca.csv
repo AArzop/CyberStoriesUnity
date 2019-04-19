@@ -2,11 +2,28 @@ Variable Name;Francais;English
 Loca_New;Nouveau;New
 Loca_MailArchive;Archive;Archived
 Loca_MailDelete;Supprime;Deleted
-Mail_From1;Test@test.com;Test@test.com
-Mail_From2;Mail@mail.com;Mail@mail.com
-Mail_Obj1;Object1;Object1
-Mail_Obj2;Another mail;Another mail
-Mail_Body1;Bonjour,~~je suis un mail et ceci est le body;Bonjour,~~je suis un mail et ceci est le body
-Mail_Body2;Bonjour,~~rgiehjgiurhbuigiuergibu;Bonjour,~~rgiehjgiurhbuigiuergibu
-Mail_Url1;www.google.com;www.google.com
-Mail_Url2;www.amazon.fr;www.amazon.fr
+Mail_Colleague1;Jack.Pot@entreprise.com;Jack.Pot@entreprise.com
+Mail_Colleague2;Jessica.Jones@entreprise.com;Jessica.Jones@entreprise.com
+MailObj_RetardPayement;Retard payement;
+MailBody_RetardPayement;Salut~On vient de recevoir une relance de la part d'Orange.~Apparement la derniere facture n'est pas passee.~Peux-tu t'en occuper?~~Merci;
+Mail_PhishingOrange;orange.service.client@service.orange.fr;
+MailObj_PhishingOrange;[URGENT] Retard de payement;
+MailBody_PhishingOrange;Bonjour~~Le reglement de votre derniere facture n'a pas ete effectue.~~Veuillez le regulariser au plus vite sous  peine de penalites de retard ainsi~qu'une coupure de tout nos services.~Vous pouvez regler votre facture en suivant le lien ci-dessous.~~Cordialement~Le service Orange;
+Url_PhishingOrangeLogin;https://sevice.orange.fr/login/;
+Mail_PhishingBanque;Service.Banque@banque.com;
+MailObj_PhishingBanque;Une erreur sur votre compte a ete detectee;
+MailBody_PhishingBanque;Bonjour~~Suite a une erreur de notre part, votre compte banquaire va etre debite de~~            254,62€.~~~Veuillez suivre le lien suivant pour avoir plus d'informations et~confirmer le virement:~~Cordialement;
+Url_PhishingBanqueLogin;https://mabanque.com/login/;
+MailObj_Cafe;Cafe?;
+MailBody_Cafe;Un petit cafe?;
+Mail_Entreprise;groupe.entreprise@entreprise.com;
+MailObj_ReservationSalle;Reservation salle reunion;
+MailBody_ReservationSalle;Bonjour~~La salle de conference est reserve ce lundi de 9h a 16h.~~Merci;
+Mail_News;alerte.news@news.com;
+MailObj_News;Nouvel article;
+MailBody_News;Un nouvel article est paru traitant de XXX.~~Cliquez sur le lien suivant pour le lire:;
+Url_News;https://news/XXX/;
+Mail_Arnaque;truc@arnaque.com;
+MailObj_Arnaque;[URGENT] J'ai besoin de votre aide;
+MailBody_Arnaque;Bonjour à toi~~Je me presente, je suis XXX et j'ai vraiment besoin de ton aide.~~Je viens d'hériter de la fortune de mon défunt oncle mais on essaie de me voler.~J'ai donc besoin de ton aide.~ Je vais t'envoyer l'intégralité de la somme, et tu n'auras qu'à me rendre la~moitié quelques jours plus tard par securité.~~J'ai vraiment besoin de ton aide. Donne moi tes coordonnées au lien suivant~~~Merci pour tout.;
+Url_Arnaque;http://onvousvole.com/arnaque/;

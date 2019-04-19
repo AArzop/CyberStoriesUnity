@@ -112,6 +112,61 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &34518930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 34518931}
+  - component: {fileID: 34518932}
+  m_Layer: 5
+  m_Name: MailColleague
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &34518931
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34518930}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 414408803}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.00000059604645, y: -0.00000011920929}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &34518932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34518930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa02bcbd93183746a0f048054733edc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectKey: MailObj_Cafe
+  SourceKey: Mail_Colleague2
+  bodyKey: MailBody_Cafe
+  dateTimeStr: 
+  isThereLink: 0
+  linkKey: 
+  isPhishingMail: 0
 --- !u!1 &106160748
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,6 +248,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a01b033d2b72114d934d995f8cc2645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &127210031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 127210032}
+  - component: {fileID: 127210033}
+  m_Layer: 5
+  m_Name: MailReservationSalle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &127210032
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127210031}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 414408803}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.000000834465, y: -0.00000011920929}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &127210033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127210031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa02bcbd93183746a0f048054733edc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectKey: MailObj_ReservationSalle
+  SourceKey: Mail_Entreprise
+  bodyKey: MailBody_ReservationSalle
+  dateTimeStr: 
+  isThereLink: 0
+  linkKey: 
+  isPhishingMail: 0
 --- !u!1 &300925532
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,6 +395,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &414408803 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1356930791572932611, guid: d11e755f47234754e8593f0eda1393f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1356930792873517797}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &567820078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 567820079}
+  m_Layer: 0
+  m_Name: GoalSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &567820079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567820078}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0.94, y: 0.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1369092347}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &703930881
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,6 +635,61 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &802163890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 802163891}
+  - component: {fileID: 802163892}
+  m_Layer: 5
+  m_Name: MailArnaque
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &802163891
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802163890}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 414408803}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.000000834465, y: -0.00000011920929}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &802163892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802163890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa02bcbd93183746a0f048054733edc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectKey: MailObj_Arnaque
+  SourceKey: Mail_Arnaque
+  bodyKey: MailBody_Arnaque
+  dateTimeStr: 
+  isThereLink: 1
+  linkKey: Url_Arnaque
+  isPhishingMail: 1
 --- !u!1001 &863573480
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -665,6 +866,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1090375642}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1194200942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1194200943}
+  m_Layer: 0
+  m_Name: BallSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1194200943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194200942}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.45, y: 0.877, z: -0.627}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1369092347}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1218621434 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 217428260, guid: d11e755f47234754e8593f0eda1393f3,
@@ -721,6 +952,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1886033815}
+  - {fileID: 1194200943}
+  - {fileID: 567820079}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -743,8 +976,63 @@ MonoBehaviour:
   - {fileID: 590394471, guid: 2b3f4e25cf456c7408a8994fcbc9dfc1, type: 3}
   - {fileID: 590394471, guid: 8348c651de4459249878e1a3ebab13ed, type: 3}
   basketplayScore: []
-  ballSpawnPosition: {x: 0, y: 1, z: 0}
-  goalSpawnPosition: {x: 1, y: 1, z: 1}
+  ballSpawn: {fileID: 1194200942}
+  goalSpawn: {fileID: 567820078}
+--- !u!1 &1385363792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1385363793}
+  - component: {fileID: 1385363794}
+  m_Layer: 5
+  m_Name: MailNews
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1385363793
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385363792}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 414408803}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.0000011920929, y: -0.00000011920929}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1385363794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385363792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa02bcbd93183746a0f048054733edc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectKey: MailObj_News
+  SourceKey: Mail_News
+  bodyKey: MailBody_News
+  dateTimeStr: 
+  isThereLink: 1
+  linkKey: Url_News
+  isPhishingMail: 0
 --- !u!1001 &1451900725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -919,6 +1207,116 @@ Transform:
   m_Father: {fileID: 1369092347}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2081100380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2081100381}
+  - component: {fileID: 2081100382}
+  m_Layer: 5
+  m_Name: MailPhishingBanque
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2081100381
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081100380}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 414408803}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.00000059604645, y: -0.00000011920929}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2081100382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081100380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa02bcbd93183746a0f048054733edc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectKey: MailObj_PhishingBanque
+  SourceKey: Mail_PhishingBanque
+  bodyKey: MailBody_PhishingBanque
+  dateTimeStr: 
+  isThereLink: 1
+  linkKey: Url_PhishingBanqueLogin
+  isPhishingMail: 1
+--- !u!1 &2109752029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2109752030}
+  - component: {fileID: 2109752031}
+  m_Layer: 5
+  m_Name: MailPhishingOrange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2109752030
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109752029}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 414408803}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.00000023841858, y: -0.00000011920929}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2109752031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109752029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa02bcbd93183746a0f048054733edc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectKey: MailObj_PhishingOrange
+  SourceKey: Mail_PhishingOrange
+  bodyKey: MailBody_PhishingOrange
+  dateTimeStr: 05/08/2015 07:56
+  isThereLink: 1
+  linkKey: Url_PhishingOrangeLogin
+  isPhishingMail: 1
 --- !u!1001 &1356930792873517797
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -936,6 +1334,19 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 519813895, guid: d11e755f47234754e8593f0eda1393f3, type: 3}
+      propertyPath: sendMessageOnEnter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 519813895, guid: d11e755f47234754e8593f0eda1393f3, type: 3}
+      propertyPath: messageDestination
+      value: 
+      objectReference: {fileID: 1369092346}
+    - target: {fileID: 1356930793080843551, guid: d11e755f47234754e8593f0eda1393f3,
+        type: 3}
+      propertyPath: newMails.Array.size
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1356930793080843551, guid: d11e755f47234754e8593f0eda1393f3,
         type: 3}
       propertyPath: sendMessageOnArchiv
@@ -948,6 +1359,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1356930793080843551, guid: d11e755f47234754e8593f0eda1393f3,
         type: 3}
+      propertyPath: messageDestination
+      value: 
+      objectReference: {fileID: 1369092346}
+    - target: {fileID: 1356930793080843551, guid: d11e755f47234754e8593f0eda1393f3,
+        type: 3}
+      propertyPath: newMails.Array.data[1]
+      value: 
+      objectReference: {fileID: 2109752031}
+    - target: {fileID: 1356930793080843551, guid: d11e755f47234754e8593f0eda1393f3,
+        type: 3}
+      propertyPath: newMails.Array.data[2]
+      value: 
+      objectReference: {fileID: 34518932}
+    - target: {fileID: 1356930793080843551, guid: d11e755f47234754e8593f0eda1393f3,
+        type: 3}
+      propertyPath: newMails.Array.data[3]
+      value: 
+      objectReference: {fileID: 2081100382}
+    - target: {fileID: 1356930793080843551, guid: d11e755f47234754e8593f0eda1393f3,
+        type: 3}
+      propertyPath: newMails.Array.data[4]
+      value: 
+      objectReference: {fileID: 127210033}
+    - target: {fileID: 1356930793080843551, guid: d11e755f47234754e8593f0eda1393f3,
+        type: 3}
+      propertyPath: newMails.Array.data[5]
+      value: 
+      objectReference: {fileID: 1385363794}
+    - target: {fileID: 1356930793080843551, guid: d11e755f47234754e8593f0eda1393f3,
+        type: 3}
+      propertyPath: newMails.Array.data[6]
+      value: 
+      objectReference: {fileID: 802163892}
+    - target: {fileID: 217428260, guid: d11e755f47234754e8593f0eda1393f3, type: 3}
+      propertyPath: sendMessageOnEnter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 217428260, guid: d11e755f47234754e8593f0eda1393f3, type: 3}
       propertyPath: messageDestination
       value: 
       objectReference: {fileID: 1369092346}
@@ -1065,21 +1514,29 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 519813895, guid: d11e755f47234754e8593f0eda1393f3, type: 3}
-      propertyPath: sendMessageOnEnter
-      value: 1
+    - target: {fileID: 1094266310, guid: d11e755f47234754e8593f0eda1393f3, type: 3}
+      propertyPath: SourceKey
+      value: Mail_Colleague1
       objectReference: {fileID: 0}
-    - target: {fileID: 519813895, guid: d11e755f47234754e8593f0eda1393f3, type: 3}
-      propertyPath: messageDestination
-      value: 
-      objectReference: {fileID: 1369092346}
-    - target: {fileID: 217428260, guid: d11e755f47234754e8593f0eda1393f3, type: 3}
-      propertyPath: sendMessageOnEnter
-      value: 1
+    - target: {fileID: 1094266310, guid: d11e755f47234754e8593f0eda1393f3, type: 3}
+      propertyPath: ObjectKey
+      value: MailObj_RetardPayement
       objectReference: {fileID: 0}
-    - target: {fileID: 217428260, guid: d11e755f47234754e8593f0eda1393f3, type: 3}
-      propertyPath: messageDestination
+    - target: {fileID: 1094266310, guid: d11e755f47234754e8593f0eda1393f3, type: 3}
+      propertyPath: bodyKey
+      value: MailBody_RetardPayement
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094266310, guid: d11e755f47234754e8593f0eda1393f3, type: 3}
+      propertyPath: isThereLink
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094266310, guid: d11e755f47234754e8593f0eda1393f3, type: 3}
+      propertyPath: linkKey
       value: 
-      objectReference: {fileID: 1369092346}
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094266310, guid: d11e755f47234754e8593f0eda1393f3, type: 3}
+      propertyPath: isPhishingMail
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d11e755f47234754e8593f0eda1393f3, type: 3}
