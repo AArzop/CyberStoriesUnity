@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/Registration/RegisterScene.unity
     guid: deb66f6ff19af6342b06fa33d9cab838
   - enabled: 1
-    path: Assets/Office/OfficeScene.unity
-    guid: d63593cc2753d734a9927de1e8746271
-  - enabled: 1
     path: Assets/Menu/MenuScene.unity
     guid: 9a127c8b49edd2045afe4c3f8af0c94c
+  - enabled: 1
+    path: Assets/Office/Scene/Office.unity
+    guid: 41e77f6e25b468b4b880e7393ff5afd3
   m_configObjects: {}

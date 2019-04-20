@@ -13,7 +13,7 @@ namespace CyberStories.Menu.Controllers
         #region fields
         private static readonly IDictionary<string, string> ScenesByTag = new Dictionary<string, string>
         {
-            { "Level 1", "OfficeScene" }
+            { "Level 1", "Office" }
         };
 
         public Canvas UIHeaderCanvas;
