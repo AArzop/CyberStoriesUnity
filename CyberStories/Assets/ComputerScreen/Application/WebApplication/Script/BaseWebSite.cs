@@ -2,7 +2,8 @@
 
 public abstract class BaseWebSite : MonoBehaviour
 {
-    public string Name;
+    public WebApplication app;
+
     public Sprite Icon;
 
     public string UrlKey;
@@ -30,5 +31,11 @@ public abstract class BaseWebSite : MonoBehaviour
     {
         if (sendMessageOnEnter)
             messageDestination.gameObject.SendMessage("OnWebSiteEnter", this);
+    }
+
+    public void RedirectToNextWebSite()
+    {
+        if (isThereNextSite)
+            app.Redirect(nextUrl);
     }
 }

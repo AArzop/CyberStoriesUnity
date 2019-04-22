@@ -97,6 +97,9 @@ public class BasketGame : MonoBehaviour
     // Reset + compute score
     public void EndBasketGame()
     {
+        if (ball == null)
+            return;
+
         TimeSpan launchingTime = DateTime.Now - ball.launchTime;
         float shootDistance = Vector3.Distance(ball.launchPosition, currentGame.GetGoalPosition());
 

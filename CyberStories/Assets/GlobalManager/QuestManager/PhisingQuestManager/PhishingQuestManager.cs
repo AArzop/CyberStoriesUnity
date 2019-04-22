@@ -37,13 +37,23 @@ public class PhishingQuestManager : BaseQuestManager
     public void OnDeletedMail(Mail mail)
     {
         currentStep.gameObject.SendMessage("OnDeletedMail", mail);
-        basketGame.EndBasketGame();
+        basketGame.NewBasketGame();
     }
 
     // Received message form a website (webApplication), user have consulted a web site
     public void OnWebSiteEnter(BaseWebSite site)
     {
         currentStep.gameObject.SendMessage("OnWebSiteEnter", site);
+    }
+
+    public void OnWebSiteEnter(string url)
+    {
+        
+    }
+
+    public void OnPhishing(string url)
+    {
+        int i = 1;
     }
 
     protected override void EndLevel()
