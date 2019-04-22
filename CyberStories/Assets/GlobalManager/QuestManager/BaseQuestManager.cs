@@ -20,12 +20,6 @@ public abstract class BaseQuestManager : MonoBehaviour
             currentStep = stepsList[0];
             currentStepIndex = 0;
         }
-        else // level in 2 scenes, have to copy. Avoid if possible
-        {
-            stepsList = GlobalManager.questManager.stepsList;
-            currentStep = GlobalManager.questManager.GetCurrentStep();
-            currentStepIndex = stepsList.IndexOf(currentStep);
-        }
     }
 
     public BaseQuest GetCurrentStep()
