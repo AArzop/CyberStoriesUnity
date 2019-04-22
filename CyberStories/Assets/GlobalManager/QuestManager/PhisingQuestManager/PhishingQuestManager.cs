@@ -46,11 +46,6 @@ public class PhishingQuestManager : BaseQuestManager
         currentStep.gameObject.SendMessage("OnWebSiteEnter", site);
     }
 
-    public void OnWebSiteEnter(string url)
-    {
-        
-    }
-
     public void OnPhishing(string url)
     {
         int i = 1;
