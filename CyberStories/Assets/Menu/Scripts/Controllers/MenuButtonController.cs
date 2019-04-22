@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace CyberStories.Controllers
+namespace CyberStories.Menu.Controllers
 {
     public class MenuButtonController : MonoBehaviour
     {

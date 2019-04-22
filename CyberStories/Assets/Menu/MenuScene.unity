@@ -1277,7 +1277,7 @@ MonoBehaviour:
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 790352153}
-          m_ObjectArgumentAssemblyTypeName: CyberStories.Controllers.MenuButtonController,
+          m_ObjectArgumentAssemblyTypeName: CyberStories.Menu.Controllers.MenuButtonController,
             Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1828,7 +1828,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf26b4dcc969d6d45b3f363dbafc97bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameObject: {fileID: 0}
   UIHeaderCanvas: {fileID: 28291938}
   DescriptionText: {fileID: 433228168}
   LeaderboardController: {fileID: 630974714}
@@ -2002,7 +2001,7 @@ MonoBehaviour:
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1023594475}
-          m_ObjectArgumentAssemblyTypeName: CyberStories.Controllers.MenuButtonController,
+          m_ObjectArgumentAssemblyTypeName: CyberStories.Menu.Controllers.MenuButtonController,
             Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2843,7 +2842,7 @@ MonoBehaviour:
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1805034062}
-          m_ObjectArgumentAssemblyTypeName: CyberStories.Controllers.MenuButtonController,
+          m_ObjectArgumentAssemblyTypeName: CyberStories.Menu.Controllers.MenuButtonController,
             Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0

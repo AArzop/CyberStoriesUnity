@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace CyberStories.Controllers.Leaderboard
+namespace CyberStories.Menu.Controllers.Leaderboard
 {
     public class LeaderboardPlayerController : MonoBehaviour
     {

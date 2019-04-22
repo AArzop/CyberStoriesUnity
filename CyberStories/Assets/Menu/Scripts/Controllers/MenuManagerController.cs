@@ -1,12 +1,12 @@
 ﻿using CyberStories.BusinessManagement;
-using CyberStories.Controllers.Leaderboard;
+using CyberStories.Menu.Controllers.Leaderboard;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace CyberStories.Controllers
+namespace CyberStories.Menu.Controllers
 {
     public class MenuManagerController : MonoBehaviour
     {

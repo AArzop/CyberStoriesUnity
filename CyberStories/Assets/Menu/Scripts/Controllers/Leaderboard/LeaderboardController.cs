@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace CyberStories.Controllers.Leaderboard
+namespace CyberStories.Menu.Controllers.Leaderboard
 {
     public class LeaderboardController : MonoBehaviour
     {
