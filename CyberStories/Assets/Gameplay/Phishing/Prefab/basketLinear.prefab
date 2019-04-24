@@ -61,8 +61,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goal: {fileID: 590394472}
-  speed: {x: 0.1, y: 0, z: 0}
-  offset: {x: 2, y: 0, z: 0}
+  speed: {x: 0, y: 0, z: 1}
+  offset: {x: 0, y: 0, z: 4}
 --- !u!1 &858820440
 GameObject:
   m_ObjectHideFlags: 0

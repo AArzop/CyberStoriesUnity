@@ -61,9 +61,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goal: {fileID: 590394472}
-  minSize: 0.5
-  maxSize: 2
-  speed: 0.1
+  minSize: 0.1
+  maxSize: 5
+  speed: 1
   firstIncrease: 1
 --- !u!1 &858820440
 GameObject:
