@@ -2309,7 +2309,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0.25
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 7.5
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -3343,7 +3343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1342692507}
   m_Layer: 0
-  m_Name: Desk (6) (player)
+  m_Name: Desk (player)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3871,6 +3871,10 @@ PrefabInstance:
     - target: {fileID: 1493902911, guid: 2f82348ca827986428f75eadbed25336, type: 3}
       propertyPath: m_Name
       value: Base Office
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493902911, guid: 2f82348ca827986428f75eadbed25336, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1493902912, guid: 2f82348ca827986428f75eadbed25336, type: 3}
       propertyPath: m_LocalPosition.x
