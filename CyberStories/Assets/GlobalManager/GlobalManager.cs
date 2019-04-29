@@ -1,8 +1,11 @@
-﻿
+﻿using UnityEngine.SceneManagement;
+
 public class GlobalManager
 {
     private static LocalizationManager locaManager = null;
     public static BaseQuestManager questManager { get; set; }
+
+    const string mainMenuSceneName = "Menu/MenuScene";
 
     public static void SetupManager()
     {
@@ -26,5 +29,16 @@ public class GlobalManager
     public static void ResetGlobalManager()
     {
         questManager = null;
+    }
+
+    public static void QuitGameToMenu(bool saveScore)
+    {
+        if (saveScore)
+        {
+
+        }
+
+        questManager = null;
+        SceneManager.LoadScene(mainMenuSceneName);
     }
 }
