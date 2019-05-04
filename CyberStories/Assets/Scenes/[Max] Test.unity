@@ -12474,6 +12474,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuPauseController
       objectReference: {fileID: 0}
+    - target: {fileID: 3303805655637740175, guid: 69ee9c67e27f94b4c8e635e773f7ef99,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3303805655637740173, guid: 69ee9c67e27f94b4c8e635e773f7ef99,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12482,12 +12487,12 @@ PrefabInstance:
     - target: {fileID: 3303805655637740173, guid: 69ee9c67e27f94b4c8e635e773f7ef99,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.31
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3303805655637740173, guid: 69ee9c67e27f94b4c8e635e773f7ef99,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.41
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3303805655637740173, guid: 69ee9c67e27f94b4c8e635e773f7ef99,
         type: 3}
@@ -12527,6 +12532,11 @@ PrefabInstance:
     - target: {fileID: 3303805655637740173, guid: 69ee9c67e27f94b4c8e635e773f7ef99,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303805655966887004, guid: 69ee9c67e27f94b4c8e635e773f7ef99,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
