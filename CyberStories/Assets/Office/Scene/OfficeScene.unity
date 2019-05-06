@@ -326,10 +326,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1839821846}
     m_Modifications:
-    - target: {fileID: 1000014042078020, guid: 88075a54c7fb1484ba25db394b612917, type: 3}
-      propertyPath: m_Name
-      value: Speaker Interuptor Button
-      objectReference: {fileID: 0}
     - target: {fileID: 4000014195058408, guid: 88075a54c7fb1484ba25db394b612917, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
@@ -381,6 +377,10 @@ PrefabInstance:
     - target: {fileID: 4000014195058408, guid: 88075a54c7fb1484ba25db394b612917, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000014042078020, guid: 88075a54c7fb1484ba25db394b612917, type: 3}
+      propertyPath: m_Name
+      value: Speaker Interuptor Button
       objectReference: {fileID: 0}
     - target: {fileID: 114000013988111622, guid: 88075a54c7fb1484ba25db394b612917,
         type: 3}
@@ -706,14 +706,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1000013875526383, guid: e7adc5ad67fb9704588ebc686c5e59e4, type: 3}
+      propertyPath: m_Name
+      value: Lamp Interuptor Button
+      objectReference: {fileID: 0}
     - target: {fileID: 23260694864602940, guid: e7adc5ad67fb9704588ebc686c5e59e4,
         type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000013875526383, guid: e7adc5ad67fb9704588ebc686c5e59e4, type: 3}
-      propertyPath: m_Name
-      value: Lamp Interuptor Button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7adc5ad67fb9704588ebc686c5e59e4, type: 3}
