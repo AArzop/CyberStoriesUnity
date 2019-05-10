@@ -17,7 +17,8 @@ public class DialogueSystem : MonoBehaviour
         nextLine();
     }
 
-    private void nextLine()
+    //answer is the answer that you clicked on (its list number, -1 is when you call the function without answers)
+    private void nextLine(int answer = -1)
     {
         if (actualLine.answers.Length == 0)
         {
