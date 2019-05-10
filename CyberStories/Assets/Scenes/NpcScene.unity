@@ -728,17 +728,13 @@ MonoBehaviour:
     name: Bobby
     textLine: Wesh alors cv?
     answers:
-    - Oui
-    - Non
+    - Next
     nextLine:
     - name: Bobby
-      textLine: Nice alors !
+      textLine: Moi ca va en tous cas, le travail c'est important !
       answers: []
       nextLine: []
-    - name: Bobby (triste)
-      textLine: Ah :(
-      answers: []
-      nextLine: []
+  textMeshPro: {fileID: 1170429215}
 --- !u!114 &1824615887
 MonoBehaviour:
   m_ObjectHideFlags: 0
