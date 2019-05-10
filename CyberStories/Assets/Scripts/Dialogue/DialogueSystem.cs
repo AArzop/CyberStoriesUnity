@@ -3,29 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using CyberStories.DBO;
 using System;
+using TMPro;
 
 public class DialogueSystem : MonoBehaviour
 {
-    private  DialogueLine actualLine;
+    private DialogueLine actualLine;
+    private TextMeshProUGUI textDialogue;
 
-    public void StartDialogue(DialogueLine firstLine)
+    public void StartDialogue(DialogueLine firstLine, TextMeshProUGUI tmPro)
     {
         actualLine = firstLine;
-
-        Debug.Log("start dialogue of " + actualLine.name);
-
+        textDialogue = tmPro;
         nextLine();
     }
 
     //answer is the answer that you clicked on (its list number, -1 is when you call the function without answers)
-    private void nextLine(int answer = -1)
-    {
-        if (actualLine.answers.Length == 0)
+    //returns true if continue dialogue and false if ended
+    public bool nextLine(int answer = -1)
+    {        
+        textDialogue.text = actualLine.name + ": " + actualLine.textLine;
+
+        if (actualLine.answers.Length == 0 || actualLine.nextLine.Length != actualLine.answers.Length)
         {
             EndDialogue();
-            return;
+            return false;
         }
-        Debug.Log(actualLine.name + ": " + actualLine.textLine);
+
+        if (answer != -1 && answer < actualLine.nextLine.Length)
+        {
+            actualLine = actualLine.nextLine[answer];
+            //set all buttons
+        }
+        else if (answer == -1)
+        {
+            actualLine = actualLine.nextLine[0];
+        }
+        return true;
     }
 
     private void EndDialogue()
