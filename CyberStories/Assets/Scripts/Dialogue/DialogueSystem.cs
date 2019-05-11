@@ -21,7 +21,8 @@ public class DialogueSystem : MonoBehaviour
     //returns false if dialogue end, true otherwise
     public bool nextLine(int answer = -1)
     {        
-        textDialogue.text = actualLine.name + ": " + actualLine.textLine;
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(actualLine.name + ": " + actualLine.textLine));
 
         if (actualLine.answers.Length == 0 || actualLine.nextLine.Length != actualLine.answers.Length)
         {
@@ -38,5 +39,15 @@ public class DialogueSystem : MonoBehaviour
             actualLine = actualLine.nextLine[0];
         }
         return false;
+    }
+
+    IEnumerator TypeSentence(string sentence)
+    {
+        textDialogue.text = "";
+        foreach (char letter in sentence.ToCharArray())
+        {
+            textDialogue.text += letter;
+            yield return null;
+        }
     }
 }
