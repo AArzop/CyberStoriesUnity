@@ -18,7 +18,7 @@ public class DialogueSystem : MonoBehaviour
     }
 
     //answer is the answer that you clicked on (its list number, -1 is when you call the function without answers)
-    //returns true if continue dialogue and false if ended
+    //returns false if dialogue end, true otherwise
     public bool nextLine(int answer = -1)
     {        
         textDialogue.text = actualLine.name + ": " + actualLine.textLine;
@@ -26,7 +26,7 @@ public class DialogueSystem : MonoBehaviour
         if (actualLine.answers.Length == 0 || actualLine.nextLine.Length != actualLine.answers.Length)
         {
             EndDialogue();
-            return false;
+            return true;
         }
 
         if (answer != -1 && answer < actualLine.nextLine.Length)
@@ -38,7 +38,7 @@ public class DialogueSystem : MonoBehaviour
         {
             actualLine = actualLine.nextLine[0];
         }
-        return true;
+        return false;
     }
 
     private void EndDialogue()
