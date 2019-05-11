@@ -378,6 +378,7 @@ MonoBehaviour:
       nextLine: []
   canvas: {fileID: 413929282}
   textMeshPro: {fileID: 1170429215}
+  animator: {fileID: 8344666945626913226}
 --- !u!114 &1824615887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,6 +586,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5495422795845298767, guid: af2c651ca1643cd41bcc8486543194cd,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 8344666945626913226}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af2c651ca1643cd41bcc8486543194cd, type: 3}
 --- !u!1001 &8344666945626913225
@@ -716,3 +722,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb7ce69d3de6c5d44994df816b3fe6cb, type: 3}
+--- !u!95 &8344666945626913226 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3558350480397359256, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 8344666945626913225}
+  m_PrefabAsset: {fileID: 0}

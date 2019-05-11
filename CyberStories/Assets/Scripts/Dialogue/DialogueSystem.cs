@@ -11,7 +11,7 @@ public class DialogueSystem : MonoBehaviour
     private TextMeshProUGUI textDialogue;
 
     public void StartDialogue(DialogueLine firstLine, TextMeshProUGUI tmPro)
-    {
+    {       
         actualLine = firstLine;
         textDialogue = tmPro;
         nextLine();
@@ -25,7 +25,6 @@ public class DialogueSystem : MonoBehaviour
 
         if (actualLine.answers.Length == 0 || actualLine.nextLine.Length != actualLine.answers.Length)
         {
-            EndDialogue();
             return true;
         }
 
@@ -39,10 +38,5 @@ public class DialogueSystem : MonoBehaviour
             actualLine = actualLine.nextLine[0];
         }
         return false;
-    }
-
-    private void EndDialogue()
-    {
-        Debug.Log("End of dialogue");
     }
 }
