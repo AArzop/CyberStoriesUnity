@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 4051099914249012}
   - component: {fileID: 33738512288200230}
   - component: {fileID: 23260694864602940}
-  - component: {fileID: 64316910474004642}
   m_Layer: 0
   m_Name: RFAIPP_Lamp
   m_TagString: Untagged
@@ -93,20 +92,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &64316910474004642
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1769376851354596}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300002, guid: c0b2e2d2a9a540f49b2dce9163d9d38c, type: 3}
 --- !u!1 &1951888745861162
 GameObject:
   m_ObjectHideFlags: 0
