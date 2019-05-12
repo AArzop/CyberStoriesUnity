@@ -15,6 +15,8 @@ public class PhishingMainQuest : BaseQuest
 
     private void Awake()
     {
+        base.Awake();
+
         mailTreated = new Dictionary<Mail, bool>();
         siteConsulted = new Dictionary<BaseWebSite, bool>();
         foreach (var site in webSites)
@@ -78,5 +80,10 @@ public class PhishingMainQuest : BaseQuest
             siteConsulted[site] = true;
             CheckQuest();
         }
+    }
+
+    public override string GetQuestInformation()
+    {
+        return infoQuest;
     }
 }
