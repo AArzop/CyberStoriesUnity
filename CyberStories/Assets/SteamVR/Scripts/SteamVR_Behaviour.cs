@@ -85,7 +85,7 @@ namespace Valve.VR
                 }
 
                 if (behaviourInstance != null && behaviourInstance.doNotDestroy)
-                    GameObject.DontDestroyOnLoad(behaviourInstance.transform.root.gameObject);
+                    //GameObject.DontDestroyOnLoad(behaviourInstance.transform.root.gameObject);
 
                 initializing = false;
             }
