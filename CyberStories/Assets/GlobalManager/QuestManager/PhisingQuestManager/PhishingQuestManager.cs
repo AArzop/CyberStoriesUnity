@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class PhishingQuestManager : BaseQuestManager
 {
-    private BasketGame basketGame;
-
     private new void Awake()
     {
         base.Awake();
-        basketGame = GetComponent<BasketGame>();
     }
 
     // Evaluate level score
@@ -21,8 +18,6 @@ public class PhishingQuestManager : BaseQuestManager
         foreach (var pair in stepsScore)
             evaluation += pair.Value;
 
-        evaluation += basketGame.EvaluateGame();
-
         return evaluation;
     }
 
@@ -30,14 +25,12 @@ public class PhishingQuestManager : BaseQuestManager
     public void OnArchivedMail(Mail mail)
     {
         currentStep.gameObject.SendMessage("OnDeletedMail", mail);
-        basketGame.NewBasketGame();
     }
 
     // Received message from mailApplication, button "Delete mail" is clicked
     public void OnDeletedMail(Mail mail)
     {
         currentStep.gameObject.SendMessage("OnDeletedMail", mail);
-        basketGame.NewBasketGame();
     }
 
     // Received message form a website (webApplication), user have consulted a web site
