@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class PhishingGameplayManager : MonoBehaviour
 {
-    [Range(1, 25)]
+    [Range(1, 15)]
     public int nbGoal;
 
-    [Range(1, 10)]
+    [Range(1, 5)]
     public int nbBall;
 
     public BasketGameBall ballPrefab;
@@ -16,8 +16,8 @@ public class PhishingGameplayManager : MonoBehaviour
 
     public uint bonusTime = 10;
 
-    private List<GameObject> ballList;
-    private List<GameObject> goalList;
+    private List<BasketGameBall> ballList;
+    private List<BaseBasketPlay> goalList;
 
     private TimeSpan timer;
     private enum State
@@ -33,7 +33,7 @@ public class PhishingGameplayManager : MonoBehaviour
 
     private void GenerateBall()
     {
-        //ballList.Add(GameObject.Instantiate(ballPrefab.gameObject, ballSpawnPoisition.transform.position, Quaternion.identity));
+        ballList.Add(Instantiate(ballPrefab, ballSpawnPoisition.transform.position, Quaternion.identity));
     }
 
     private void GenerateGoal()
@@ -44,12 +44,12 @@ public class PhishingGameplayManager : MonoBehaviour
 
         int index = UnityEngine.Random.Range(0, goalList.Count - 1);
 
-        goalList.Add(GameObject.Instantiate(goalPrefab[index].gameObject, position, Quaternion.identity));
+        goalList.Add(Instantiate(goalPrefab[index], position, new Quaternion(0, -90, 0, 0)));
     }
 
     private void SetupGameState()
     {
-        timer = new TimeSpan(0, 0, 10  + (int) (bonusTime * 0)); // Change 0
+        timer = new TimeSpan(0, 0, 30 + (int) (bonusTime * 0)); // Change 0
         currentState = State.Game;
 
         for (int i = 0; i < nbBall; i++)
@@ -61,7 +61,6 @@ public class PhishingGameplayManager : MonoBehaviour
 
     private void SetupEndState()
     {
-        return;
         currentState = State.End;
 
         foreach (var ball in ballList)
@@ -91,7 +90,9 @@ public class PhishingGameplayManager : MonoBehaviour
     void Start()
     {
         currentState = State.Prepare;
-        timer = new TimeSpan(0, 0, 15);
+        ballList = new List<BasketGameBall>();
+        goalList = new List<BaseBasketPlay>();
+        timer = new TimeSpan(0, 0, 5);
     }
 
     private void UpdatePreparation()

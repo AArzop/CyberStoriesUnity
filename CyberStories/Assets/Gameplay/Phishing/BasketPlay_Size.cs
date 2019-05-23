@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class BasketPlay_Size : BaseBasketPlay
 {
-    public float minSize;
-    public float maxSize;
-    public float speed;
-
-    public bool firstIncrease = true;
+    private float minSize;
+    private float maxSize;
+    private float speed;
 
     private float sign;
 
     private void Start()
     {
-        sign = firstIncrease ? 1f : -1f;
+        minSize = Random.Range(0.1f, 0.5f);
+        maxSize = Random.Range(0f, 1f) + minSize;
+        speed = Random.Range(0f, 1f);
+        sign = Random.Range(0f, 1f) > 0.5f ? 1f : -1f;
     }
 
     protected override void Update()

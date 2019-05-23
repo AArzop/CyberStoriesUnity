@@ -223,8 +223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3f3762e5403d8b45bb8a60b216a78d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nbGoal: 10
-  nbBall: 5
+  nbGoal: 7
+  nbBall: 3
   ballPrefab: {fileID: 2981341774956790552, guid: 78a671dd606fbba47a73f6bbdd0332ea,
     type: 3}
   goalPrefab:
@@ -368,8 +368,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909036814}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.07, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 3, z: 5}
+  m_LocalPosition: {x: 3.07, y: 0.19, z: 0}
+  m_LocalScale: {x: 2.5, y: 4, z: 7}
   m_Children: []
   m_Father: {fileID: 509893149}
   m_RootOrder: 0
