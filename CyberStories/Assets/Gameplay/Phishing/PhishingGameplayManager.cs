@@ -11,8 +11,8 @@ public class PhishingGameplayManager : MonoBehaviour
     [Range(1, 10)]
     public int nbBall;
 
-    public GameObject ballPrefab;
-    public GameObject goalPrefab;
+    public BasketGameBall ballPrefab;
+    public List<BaseBasketPlay> goalPrefab;
 
     public uint bonusTime = 10;
 
@@ -29,21 +29,22 @@ public class PhishingGameplayManager : MonoBehaviour
     private State currentState;
 
     public GameObject goalSpawnArea;
-    public Vector3 ballSpawnPoisition;
+    public GameObject ballSpawnPoisition;
 
     private void GenerateBall()
     {
-        ballList.Add(GameObject.Instantiate(ballPrefab, ballSpawnPoisition, Quaternion.identity));
+        //ballList.Add(GameObject.Instantiate(ballPrefab.gameObject, ballSpawnPoisition.transform.position, Quaternion.identity));
     }
 
     private void GenerateGoal()
     {
         Vector3 center = goalSpawnArea.transform.position;
         Vector3 area = goalSpawnArea.transform.localScale / 2;
-
         Vector3 position = new Vector3(center.x + UnityEngine.Random.Range(-1f, 1f) * area.x, center.y + UnityEngine.Random.Range(-1f, 1f) * area.y, center.z + UnityEngine.Random.Range(-1f, 1f) * area.z);
 
-        goalList.Add(GameObject.Instantiate(goalPrefab, position, Quaternion.identity));
+        int index = UnityEngine.Random.Range(0, goalList.Count - 1);
+
+        goalList.Add(GameObject.Instantiate(goalPrefab[index].gameObject, position, Quaternion.identity));
     }
 
     private void SetupGameState()
@@ -60,6 +61,7 @@ public class PhishingGameplayManager : MonoBehaviour
 
     private void SetupEndState()
     {
+        return;
         currentState = State.End;
 
         foreach (var ball in ballList)
@@ -71,7 +73,6 @@ public class PhishingGameplayManager : MonoBehaviour
 
     public void NextState()
     {
-        Console.WriteLine("Next State");
         switch (currentState)
         {
             case State.Prepare:
@@ -136,5 +137,10 @@ public class PhishingGameplayManager : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void Mark(BaseBasketPlay goal, BasketGameBall ball)
+    {
+
     }
 }
