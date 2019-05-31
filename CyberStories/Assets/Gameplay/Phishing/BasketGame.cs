@@ -44,7 +44,7 @@ public class BasketGame : MonoBehaviour
     }
 
     // Destroy objects and set variable
-    private void ResetBasketGame(float timeBeforeDestroy)
+    public void ResetBasketGame(float timeBeforeDestroy)
     {
         Destroy(ball.gameObject, timeBeforeDestroy);
         Destroy(currentGame.gameObject, timeBeforeDestroy);

@@ -30,7 +30,7 @@ public class PhishingQuestManager : BaseQuestManager
     public void OnArchivedMail(Mail mail)
     {
         currentStep.gameObject.SendMessage("OnDeletedMail", mail);
-        basketGame.NewBasketGame();
+        basketGame.ResetBasketGame(0);
     }
 
     // Received message from mailApplication, button "Delete mail" is clicked
