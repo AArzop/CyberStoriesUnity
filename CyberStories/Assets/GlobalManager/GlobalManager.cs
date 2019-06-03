@@ -9,8 +9,8 @@ public class GlobalManager
 
     public static void SetupManager()
     {
-        locaManager = new LocalizationManager();
-        questManager = null;
+        if (locaManager == null)
+            locaManager = new LocalizationManager();
     }
 
     public static string GetLocalization(string key)

@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Menu/MenuScene.unity
     guid: 9a127c8b49edd2045afe4c3f8af0c94c
   - enabled: 1
-    path: Assets/Office/Scene/OfficeScene.unity
-    guid: 41e77f6e25b468b4b880e7393ff5afd3
+    path: Assets/Gameplay/Scene/PhishingScene.unity
+    guid: be9e6179c5be67547900b0a37e0112f9
   m_configObjects: {}
