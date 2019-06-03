@@ -39,3 +39,8 @@ Url_OrangeAccueil;https://orange.fr/Home/;
 Url_OrangeValidate;https://orange.fr/Validate/;
 Loca_OrangeValidate;Votre derniere facture a bien ete regularise;
 QuestInfo_MainPhishing;TEST 1;
+Review_Note;Votre note:;Rank:
+PhishingReview_Success;Félicitation, vous n'êtes tombe~~dans aucun piège.~~~~Pour plus d'informations, rendez-vous~~sur notre site.;
+Review_Tips;Conseils:;Tips:
+PhishingReview_Tips;- Ne suivez pas de lien dans vos mails~~- Vérifiez l'url des sites web;
+PhishingReview_Cost;Vos actions auraient coute;

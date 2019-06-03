@@ -5,13 +5,16 @@ using UnityEngine;
 public abstract class BaseQuestManager : MonoBehaviour
 {
     public List<BaseQuest> stepsList;
-    protected Dictionary<BaseQuest, float> stepsScore;
+    public ClickToChangeScene nextSceneChanger;
     protected BaseQuest currentStep;
     protected int currentStepIndex;
 
     protected void Awake()
     {
-        stepsScore = new Dictionary<BaseQuest, float>();
+        if (nextSceneChanger != null)
+            nextSceneChanger.gameObject.SetActive(false);
+
+        GlobalManager.details = new PhishingDetails();
 
         // First launch of the scene
         if (GlobalManager.questManager == null)
@@ -29,7 +32,7 @@ public abstract class BaseQuestManager : MonoBehaviour
 
     public void FullfillStep()
     {
-        stepsScore[currentStep] = currentStep.EvaluateQuest();
+        currentStep.EvaluateQuest();
         ++currentStepIndex;
 
         if (currentStepIndex < stepsList.Count)
@@ -40,10 +43,10 @@ public abstract class BaseQuestManager : MonoBehaviour
         else
         {
             EndLevel();
+            if (nextSceneChanger != null)
+                nextSceneChanger.gameObject.SetActive(true);
         }
     }
 
     protected abstract void EndLevel();
-
-    public abstract float GetLevelEvaluation();
 }

@@ -46,8 +46,8 @@ public class GlobalScreen : MonoBehaviour
 
         BaseApplication app = applications[index];
 
-        currentApplication.ResetApplication();
-        currentApplication.gameObject.SetActive(false);
+        currentApplication?.ResetApplication();
+        currentApplication?.gameObject.SetActive(false);
 
         app.gameObject.SetActive(true);
         app.ResetApplication();

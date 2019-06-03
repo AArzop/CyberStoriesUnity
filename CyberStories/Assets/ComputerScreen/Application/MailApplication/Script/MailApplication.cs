@@ -26,6 +26,9 @@ public class MailApplication : BaseApplication
     // Current mail which is displayed
     private Mail mailSelected;
 
+    // Display warning logo
+    public bool displayWarningLogo = false;
+
     #region UI
         public GameObject bodyCanvas;
         public Text mailHeaderObjectText;
@@ -34,6 +37,7 @@ public class MailApplication : BaseApplication
         public Text mailBodyText;
         public Button mailLinkButton;
         public Text mailLinkText;
+        public Image warningLogo;
     #endregion
 
     private enum Filter
@@ -141,6 +145,11 @@ public class MailApplication : BaseApplication
                 mailLinkButton.gameObject.SetActive(false);
                 mailLinkText.text = "";
             }
+
+            if (displayWarningLogo && mail.isPhishingMail)
+                warningLogo.gameObject.SetActive(true);
+            else
+                warningLogo.gameObject.SetActive(false);
         }
         else
         {
@@ -151,6 +160,7 @@ public class MailApplication : BaseApplication
             mailBodyText.text = "";
             mailLinkButton.gameObject.SetActive(false);
             mailLinkText.text = "";
+            warningLogo.gameObject.SetActive(false);
         }
     }
 

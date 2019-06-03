@@ -9,9 +9,11 @@ public class PhishingMainQuest : BaseQuest
 
     public List<BaseWebSite> webSites;
     private Dictionary<BaseWebSite, bool> siteConsulted;
+    private List<string> phishingwebSiteConsulted;
 
-    private const float successScore = 10f;
-    private const float failScore = -10f;
+
+    private PhishingDetails details;
+    
 
     private new void Awake()
     {
@@ -19,6 +21,10 @@ public class PhishingMainQuest : BaseQuest
 
         mailTreated = new Dictionary<Mail, bool>();
         siteConsulted = new Dictionary<BaseWebSite, bool>();
+        siteConsulted = new Dictionary<BaseWebSite, bool>();
+        phishingwebSiteConsulted = new List<string>();
+
+        details = GlobalManager.details as PhishingDetails;
         foreach (var site in webSites)
             siteConsulted[site] = false;
     }
@@ -46,19 +52,18 @@ public class PhishingMainQuest : BaseQuest
     {
     }
 
-    public override float EvaluateQuest()
+    public override void EvaluateQuest()
     {
-        float evaluation = 0f;
+        if (details == null)
+            return;
 
         foreach (var pair in mailTreated)
         {
             if (pair.Value)
-                evaluation += successScore;
+                details.correctMail++;
             else
-                evaluation += failScore;
+                details.wrongMail++;
         }
-
-        return evaluation;
     }
 
     public void OnArchivedMail(Mail mail)
@@ -80,6 +85,15 @@ public class PhishingMainQuest : BaseQuest
             siteConsulted[site] = true;
             CheckQuest();
         }
+    }
+
+    public void OnPhishing(string url)
+    {
+        if (details == null || phishingwebSiteConsulted.Contains(url))
+            return;
+
+        details.phishingWebSite++;
+        phishingwebSiteConsulted.Add(url);
     }
 
     public override string GetQuestInformation()

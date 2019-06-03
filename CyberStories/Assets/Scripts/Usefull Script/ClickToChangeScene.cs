@@ -8,15 +8,28 @@ using Valve.VR.InteractionSystem;
 public class ClickToChangeScene : MonoBehaviour
 {
     public string sceneName;
+    public bool lockButton = false;
 
     private bool isClicked = false;
 
-    protected void OnAttachedToHand(Hand hand)
+    protected void HandHoverUpdate(Hand hand)
     {
-        if (!isClicked)
+        GrabTypes startingGrabType = hand.GetGrabStarting();
+
+        if (startingGrabType != GrabTypes.None && !isClicked && !lockButton)
         {
             isClicked = true;
             SceneManager.LoadScene(sceneName);
         }
+    }
+
+    public void Unlock()
+    {
+        lockButton = false;
+    }
+
+    public void Lock()
+    {
+        lockButton = true;
     }
 }

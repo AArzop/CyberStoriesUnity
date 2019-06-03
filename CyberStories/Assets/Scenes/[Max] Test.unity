@@ -751,6 +751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stepsList:
   - {fileID: 356297481}
+  nextSceneChanger: {fileID: 0}
 --- !u!1001 &1451900725
 PrefabInstance:
   m_ObjectHideFlags: 0

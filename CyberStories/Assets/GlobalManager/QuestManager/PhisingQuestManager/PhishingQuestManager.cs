@@ -9,22 +9,10 @@ public class PhishingQuestManager : BaseQuestManager
         base.Awake();
     }
 
-    // Evaluate level score
-    // Score is a combinaison of each steps and basketBall minigame
-    public override float GetLevelEvaluation()
-    {
-        float evaluation = 0f;
-
-        foreach (var pair in stepsScore)
-            evaluation += pair.Value;
-
-        return evaluation;
-    }
-
    // Received message from mailApplication, button "Archive mail" is clicked
     public void OnArchivedMail(Mail mail)
     {
-        currentStep.gameObject.SendMessage("OnDeletedMail", mail);
+        currentStep.gameObject.SendMessage("OnArchivedMail", mail);
     }
 
     // Received message from mailApplication, button "Delete mail" is clicked
@@ -41,7 +29,8 @@ public class PhishingQuestManager : BaseQuestManager
 
     public void OnPhishing(string url)
     {
-        int i = 1;
+        currentStep.gameObject.SendMessage("OnPhishing", url);
+
     }
 
     protected override void EndLevel()

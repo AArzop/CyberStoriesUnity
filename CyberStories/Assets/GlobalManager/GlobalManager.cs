@@ -4,6 +4,7 @@ public class GlobalManager
 {
     private static LocalizationManager locaManager = null;
     public static BaseQuestManager questManager { get; set; }
+    public static BaseDetails details { get; set; }
 
     const string mainMenuSceneName = "Menu/MenuScene";
 
