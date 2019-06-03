@@ -5,15 +5,13 @@ using Valve.VR.InteractionSystem;
 [RequireComponent(typeof(Interactable))]
 public class BasketGameBall : MonoBehaviour
 {
-    public DateTime launchTime { get; set; }
-    public Vector3 launchPosition { get; set; }
+    private PhishingGameplayManager manager;
     public bool isGrabbed { get; set; }
 
     private void Awake()
     {
-        launchPosition = Vector3.zero;
-        launchTime = DateTime.Now;
         isGrabbed = false;
+        manager = GameObject.FindObjectOfType<PhishingGameplayManager>();
     }
 
     protected void OnAttachedToHand(Hand hand)
@@ -24,6 +22,12 @@ public class BasketGameBall : MonoBehaviour
     protected virtual void OnDetachedFromHand(Hand hand)
     {
         isGrabbed = false;
-        launchPosition = gameObject.transform.position;
+    }
+
+
+    private void LateUpdate()
+    {
+        if (transform.position.y < -5.0f)
+            manager.Mark(null, this);
     }
 }

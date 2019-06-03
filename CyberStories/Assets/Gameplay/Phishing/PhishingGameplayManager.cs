@@ -16,6 +16,10 @@ public class PhishingGameplayManager : MonoBehaviour
 
     public uint bonusTime = 10;
 
+    public GameObject platform;
+
+    public ClickToChangeScene nextSceneChanger;
+
     private List<BasketGameBall> ballList;
     private List<BaseBasketPlay> goalList;
 
@@ -33,7 +37,8 @@ public class PhishingGameplayManager : MonoBehaviour
 
     private void GenerateBall()
     {
-        ballList.Add(Instantiate(ballPrefab, ballSpawnPoisition.transform.position, Quaternion.identity));
+        Vector3 position = new Vector3(ballSpawnPoisition.transform.position.x + UnityEngine.Random.Range(-0.1f, 0.1f), ballSpawnPoisition.transform.position.y, ballSpawnPoisition.transform.position.z + UnityEngine.Random.Range(-0.1f, 0.1f));
+        ballList.Add(Instantiate(ballPrefab, position, Quaternion.identity));
     }
 
     private void GenerateGoal()
@@ -42,21 +47,41 @@ public class PhishingGameplayManager : MonoBehaviour
         Vector3 area = goalSpawnArea.transform.localScale / 2;
         Vector3 position = new Vector3(center.x + UnityEngine.Random.Range(-1f, 1f) * area.x, center.y + UnityEngine.Random.Range(-1f, 1f) * area.y, center.z + UnityEngine.Random.Range(-1f, 1f) * area.z);
 
-        int index = UnityEngine.Random.Range(0, goalList.Count - 1);
+        int index = UnityEngine.Random.Range(0, goalPrefab.Count - 1);
 
         goalList.Add(Instantiate(goalPrefab[index], position, new Quaternion(0, -90, 0, 0)));
+    }
+
+    private IEnumerator BallGeneration()
+    {
+        for (int i = 0; i < nbBall; i++)
+        {
+            GenerateBall();
+            yield return new WaitForSeconds(1.5f);
+        }
+
+        yield return null;
+    }
+
+    private IEnumerator GoalGeneration()
+    {
+        for (int i = 0; i < nbGoal; i++)
+        {
+            GenerateGoal();
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        yield return null;
     }
 
     private void SetupGameState()
     {
         timer = new TimeSpan(0, 0, 30 + (int) (bonusTime * 0)); // Change 0
         currentState = State.Game;
+        platform.gameObject.SetActive(true);
 
-        for (int i = 0; i < nbBall; i++)
-            GenerateBall();
-
-        for (int i = 0; i < nbGoal; i++)
-            GenerateGoal();
+        StartCoroutine(BallGeneration());
+        StartCoroutine(GoalGeneration());
     }
 
     private void SetupEndState()
@@ -68,6 +93,9 @@ public class PhishingGameplayManager : MonoBehaviour
 
         foreach (var goal in goalList)
             Destroy(goal.gameObject);
+
+        platform.SetActive(false);
+        nextSceneChanger.gameObject.SetActive(true);
     }
 
     public void NextState()
@@ -93,6 +121,9 @@ public class PhishingGameplayManager : MonoBehaviour
         ballList = new List<BasketGameBall>();
         goalList = new List<BaseBasketPlay>();
         timer = new TimeSpan(0, 0, 5);
+
+        platform.gameObject.SetActive(false);
+        nextSceneChanger.gameObject.SetActive(false);
     }
 
     private void UpdatePreparation()
@@ -142,6 +173,18 @@ public class PhishingGameplayManager : MonoBehaviour
 
     public void Mark(BaseBasketPlay goal, BasketGameBall ball)
     {
+        if (goal != null && goalList.Contains(goal))
+        {
+            goalList.Remove(goal);
+            Destroy(goal.gameObject, 0.5f);
+            GenerateGoal();
+        }
 
+        if (ball != null && ballList.Contains(ball))
+        {
+            ballList.Remove(ball);
+            Destroy(ball.gameObject, 0.5f);
+            GenerateBall();
+        }
     }
 }
