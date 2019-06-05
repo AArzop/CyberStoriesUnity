@@ -4,13 +4,14 @@ public class GlobalManager
 {
     private static LocalizationManager locaManager = null;
     public static BaseQuestManager questManager { get; set; }
+    public static BaseDetails details { get; set; }
 
     const string mainMenuSceneName = "Menu/MenuScene";
 
     public static void SetupManager()
     {
-        locaManager = new LocalizationManager();
-        questManager = null;
+        if (locaManager == null)
+            locaManager = new LocalizationManager();
     }
 
     public static string GetLocalization(string key)

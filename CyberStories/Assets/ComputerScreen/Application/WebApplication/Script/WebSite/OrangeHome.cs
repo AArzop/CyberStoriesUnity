@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class OrangeHome : BaseWebSite
 {
-    private bool alreadyClicked = false;
-
     public override void ResetWebSite()
     {
         
@@ -18,10 +16,6 @@ public class OrangeHome : BaseWebSite
 
     public void ButtonClicked()
     {
-        if (alreadyClicked)
-            return;
-
-        alreadyClicked = true;
         RedirectToNextWebSite();
     }
 }

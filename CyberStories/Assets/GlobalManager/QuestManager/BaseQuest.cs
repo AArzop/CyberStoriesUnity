@@ -21,7 +21,7 @@ public abstract class BaseQuest : MonoBehaviour
     public abstract void SetupQuest();
     public abstract void CheckQuest();
     public abstract void EndQuest();
-    public abstract float EvaluateQuest();
+    public abstract void EvaluateQuest();
 
     public abstract string GetQuestInformation();
 }

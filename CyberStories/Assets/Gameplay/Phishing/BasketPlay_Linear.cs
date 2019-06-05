@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class BasketPlay_Linear : BaseBasketPlay
 {
-    public Vector3 speed;
-    public Vector3 offset;
+    private Vector3 speed;
+    private Vector3 offset;
 
     private Vector3 currentOffset;
     private Vector3 sign;
 
     private void Start()
     {
+        speed = new Vector3(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
+        offset = new Vector3(Random.Range(0f, 1f), Random.Range(0.1f, 1f), Random.Range(0.1f, 1f));
+
         currentOffset = new Vector3(offset.x / 2, offset.y / 2, offset.z / 2);
         sign = new Vector3(1, 1, 1);
     }
