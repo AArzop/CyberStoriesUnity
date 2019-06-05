@@ -891,7 +891,7 @@ PrefabInstance:
     - target: {fileID: 3179543326805255464, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed,
         type: 3}
       propertyPath: displayWarningLogo
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1665786696, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed, type: 3}
       propertyPath: messageDestination
@@ -1051,18 +1051,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed, type: 3}
---- !u!114 &641861377 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1665786696, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed,
-    type: 3}
-  m_PrefabInstance: {fileID: 641861376}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e26d73cb72349944e98607512ce66b20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &641861378 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3179543327264631264, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed,
@@ -1513,6 +1501,80 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
+--- !u!1 &984131367 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 416430641, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed,
+    type: 3}
+  m_PrefabInstance: {fileID: 641861376}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &984131368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984131367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53cd2ef2dd3d5d64e96af4420220d1d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onHandClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.CustomEvents+UnityEventHand, SteamVR, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &984131369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984131367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activateActionSetOnAttach:
+    actionSetPath: 
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  attachEaseIn: 0
+  snapAttachEaseInCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  snapAttachEaseInTime: 0.15
+  snapAttachEaseInCompleted: 0
+  skeletonPoser: {fileID: 0}
+  handFollowTransform: 1
+  highlightOnHover: 1
+  hideHighlight: []
 --- !u!1001 &1026721506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1813,7 +1875,6 @@ MonoBehaviour:
   questATHKey: 
   mailApp: {fileID: 641861379}
   webSites:
-  - {fileID: 641861377}
   - {fileID: 641861381}
 --- !u!4 &1802742925
 Transform:
