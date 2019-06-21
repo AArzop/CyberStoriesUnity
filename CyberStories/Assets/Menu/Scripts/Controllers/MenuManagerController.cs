@@ -23,6 +23,8 @@ namespace CyberStories.Menu.Controllers
         public LeaderboardController LeaderboardController;
 
         private string _currentTag;
+
+        public LevelChangerController.LevelChanger levelChanger;
         #endregion
 
         // Start is called before the first frame update
@@ -66,7 +68,10 @@ namespace CyberStories.Menu.Controllers
             if (_currentTag == null)
                 return;
             if (ScenesByTag.TryGetValue(_currentTag, out string sceneName))
-                SceneManager.LoadScene(sceneName);      // TODO: Crash
+            {
+                levelChanger.sceneToLoad = sceneName;
+                levelChanger.ChangeScene();
+            }
         }
 
     }
