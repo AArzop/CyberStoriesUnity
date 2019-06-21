@@ -3,6 +3,7 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using LevelChangerController;
 
 namespace CyberStories.Registration.Controllers
 {
@@ -11,6 +12,7 @@ namespace CyberStories.Registration.Controllers
         public InputField PseudoInput;
         public InputField EmailInput;
         public Text ErrorLabel;
+        public LevelChanger levelChanger;
 
         // TODO: Localization
         private static readonly string ErrorEmailMessage = "Email non valide";
@@ -29,7 +31,7 @@ namespace CyberStories.Registration.Controllers
                 ErrorLabel.text = "";
 
                 // TODO: Send pseudo & mail to database and save it as global
-                SceneManager.LoadScene("MenuScene");
+                levelChanger.ChangeScene();
             }
         }
 
