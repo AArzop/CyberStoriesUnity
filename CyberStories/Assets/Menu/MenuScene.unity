@@ -281,7 +281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 127301266}
   m_Layer: 0
-  m_Name: NPC Walking Hall Path Node 1
+  m_Name: NPC Walking Hall Path Node 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -299,7 +299,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1849252214}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &142854426 stripped
 MonoBehaviour:
@@ -1040,7 +1040,7 @@ GameObject:
   m_Component:
   - component: {fileID: 367075754}
   m_Layer: 0
-  m_Name: NPC Walking Hall Path Node 2
+  m_Name: NPC Walking Hall Path Node 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1058,7 +1058,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1849252214}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &372953228
 GameObject:
@@ -2994,12 +2994,12 @@ GameObject:
   m_Component:
   - component: {fileID: 865224468}
   m_Layer: 0
-  m_Name: NPC Walking Hall Path Node 1 (1)
+  m_Name: NPC Walking Hall Path Node 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &865224468
 Transform:
   m_ObjectHideFlags: 0
@@ -3012,7 +3012,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1849252214}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &871537918
 PrefabInstance:
@@ -3504,8 +3504,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
+  - {fileID: 1208253277}
+  - {fileID: 865224468}
   - {fileID: 127301266}
   - {fileID: 367075754}
+  mustGoBack: 1
 --- !u!136 &905474500
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4511,6 +4514,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 207378317}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1208253276
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1208253277}
+  m_Layer: 0
+  m_Name: NPC Walking Hall Path Node 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1208253277
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208253276}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 37.492, y: 2, z: 1.693}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1849252214}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1255865579
 GameObject:
@@ -6017,6 +6050,7 @@ Transform:
   m_LocalPosition: {x: -17.483343, y: -0.14025116, z: 5.647882}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1208253277}
   - {fileID: 865224468}
   - {fileID: 127301266}
   - {fileID: 367075754}
