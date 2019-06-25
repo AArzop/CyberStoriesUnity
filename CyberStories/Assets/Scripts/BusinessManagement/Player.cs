@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace CyberStories.BusinessManagement
 {
@@ -9,8 +10,9 @@ namespace CyberStories.BusinessManagement
         /// </summary>
         /// <param name="level">The level to get the players</param>
         /// <returns></returns>
-        public static IList<DBO.Player> GetBestPlayersByLevel(string level)
+        public static IList<DBO.Player> GetBestPlayersByLevel(string level, string response)
         {
+            Debug.Log(response);
             return DataAccess.Player.GetBestPlayersByLevel(level);
         }
     }

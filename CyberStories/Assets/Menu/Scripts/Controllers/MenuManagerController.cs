@@ -3,7 +3,6 @@ using CyberStories.Menu.Controllers.Leaderboard;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace CyberStories.Menu.Controllers
@@ -25,12 +24,16 @@ namespace CyberStories.Menu.Controllers
         private string _currentTag;
 
         public LevelChangerController.LevelChanger levelChanger;
+
+        private PlayersGet dataConnect;
         #endregion
 
         // Start is called before the first frame update
         void Start()
         {
             Button[] buttons = UIHeaderCanvas.GetComponentsInChildren<Button>();
+            dataConnect = GetComponent<PlayersGet>();
+
         }
 
         public void ButtonMenuClicked(MenuButtonController buttonController)
@@ -58,9 +61,19 @@ namespace CyberStories.Menu.Controllers
             DescriptionText.text = Level.GetDescriptionByTag(_currentTag);
 
             // Update leaderboard
-            IList<DBO.Player> players = Player.GetBestPlayersByLevel(_currentTag);
-
-            LeaderboardController.UpdateLeaderboard(players);
+            if (dataConnect.IsLoading)
+            {
+                LeaderboardController.DisplayError("Récupération des meilleurs agents en cours");
+            }
+            else if (!dataConnect.IsError)
+            {
+                IList<DBO.Player> players = Player.GetBestPlayersByLevel(_currentTag, dataConnect.Response);
+                LeaderboardController.UpdateLeaderboard(players);
+            }
+            else
+            {
+                LeaderboardController.DisplayError("Erreur de téléchargement.");
+            }
         }
 
         public void PlayButtonClicked()
