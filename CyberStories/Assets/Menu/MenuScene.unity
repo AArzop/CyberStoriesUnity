@@ -111,7 +111,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 437521fab16f85945bb7b6e090de0d7a, type: 2}
 --- !u!1 &28291934
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,6 +271,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3d34be79692ce4468812aa97bacfbdf, type: 3}
+--- !u!1 &127301265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 127301266}
+  m_Layer: 0
+  m_Name: NPC Walking Hall Path Node 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &127301266
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127301265}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 26, y: 2, z: -0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1849252214}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &142854426 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8056364960011865668, guid: b341a41b88c638f40872555994d6d2e3,
@@ -520,6 +550,159 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!1001 &232010475
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 905474494}
+    m_Modifications:
+    - target: {fileID: 8344666946039789303, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+        type: 3}
+      propertyPath: m_Name
+      value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344666946629430486, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344666946629430486, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344666946039789302, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344666946039789302, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344666946039789302, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344666946039789302, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344666946039789302, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344666946039789302, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344666946039789302, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344666946039789302, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344666946039789302, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344666946039789302, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344666946039789302, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344666946039789302, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344666946039789302, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344666946039789302, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344666946039789302, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344666946039789302, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344666946039789302, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344666946039789302, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344666946039789302, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344666946039789302, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344666946039789302, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cb7ce69d3de6c5d44994df816b3fe6cb, type: 3}
+--- !u!114 &232010476 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8344666946629430486, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 232010475}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &232010477 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3558350480397359256, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 232010475}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &232010478 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 8344666946039789195, guid: cb7ce69d3de6c5d44994df816b3fe6cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 232010475}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &310501280
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,6 +1030,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 333070096}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &367075753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 367075754}
+  m_Layer: 0
+  m_Name: NPC Walking Hall Path Node 4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &367075754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367075753}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.51, y: 2, z: -0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1849252214}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &372953228
 GameObject:
   m_ObjectHideFlags: 0
@@ -2771,6 +2984,36 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 840622814}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &865224467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 865224468}
+  m_Layer: 0
+  m_Name: NPC Walking Hall Path Node 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &865224468
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865224467}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 34.18, y: 2, z: -0.30000067}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1849252214}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &871537918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2853,6 +3096,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1557741965443894, guid: 10a4b7b1359186d449f593c3f853f7dc, type: 3}
+      propertyPath: m_Name
+      value: Speaker
+      objectReference: {fileID: 0}
     - target: {fileID: 4328033527015456, guid: 10a4b7b1359186d449f593c3f853f7dc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.406
@@ -2896,10 +3143,6 @@ PrefabInstance:
     - target: {fileID: 4328033527015456, guid: 10a4b7b1359186d449f593c3f853f7dc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1557741965443894, guid: 10a4b7b1359186d449f593c3f853f7dc, type: 3}
-      propertyPath: m_Name
-      value: Speaker
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10a4b7b1359186d449f593c3f853f7dc, type: 3}
@@ -3065,6 +3308,221 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1001 &905474493
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2040577589}
+    m_Modifications:
+    - target: {fileID: 100154, guid: 69e0bf832ba8212478b45616cc569f75, type: 3}
+      propertyPath: m_Name
+      value: SkelMesh_Bodyguard_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 100154, guid: 69e0bf832ba8212478b45616cc569f75, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400154, guid: 69e0bf832ba8212478b45616cc569f75, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.8008595
+      objectReference: {fileID: 0}
+    - target: {fileID: 400154, guid: 69e0bf832ba8212478b45616cc569f75, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.8597488
+      objectReference: {fileID: 0}
+    - target: {fileID: 400154, guid: 69e0bf832ba8212478b45616cc569f75, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.471109
+      objectReference: {fileID: 0}
+    - target: {fileID: 400154, guid: 69e0bf832ba8212478b45616cc569f75, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400154, guid: 69e0bf832ba8212478b45616cc569f75, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400154, guid: 69e0bf832ba8212478b45616cc569f75, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400154, guid: 69e0bf832ba8212478b45616cc569f75, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400154, guid: 69e0bf832ba8212478b45616cc569f75, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400154, guid: 69e0bf832ba8212478b45616cc569f75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400154, guid: 69e0bf832ba8212478b45616cc569f75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 400154, guid: 69e0bf832ba8212478b45616cc569f75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 69e0bf832ba8212478b45616cc569f75, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: cba1b1bc73dc3714aa64fd369f8885be, type: 2}
+    - target: {fileID: 9500000, guid: 69e0bf832ba8212478b45616cc569f75, type: 3}
+      propertyPath: m_CullingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 69e0bf832ba8212478b45616cc569f75, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 69e0bf832ba8212478b45616cc569f75, type: 3}
+--- !u!4 &905474494 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400154, guid: 69e0bf832ba8212478b45616cc569f75,
+    type: 3}
+  m_PrefabInstance: {fileID: 905474493}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &905474495 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100154, guid: 69e0bf832ba8212478b45616cc569f75,
+    type: 3}
+  m_PrefabInstance: {fileID: 905474493}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &905474496
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905474495}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3
+  m_Acceleration: 120
+  avoidancePriority: 50
+  m_AngularSpeed: 999
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 0
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &905474497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905474495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed3e95a623d30746bf44c51941bbf1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstLine:
+    name: Bobby
+    textLine: Wesh alors cv?
+    answers:
+    - Next
+    nextLine:
+    - name: Bobby
+      textLine: Moi ca va en tous cas, le travail c'est important !
+      answers: []
+      nextLine: []
+  canvas: {fileID: 232010478}
+  textMeshPro: {fileID: 232010476}
+  animator: {fileID: 232010477}
+--- !u!114 &905474498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905474495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93b6a877adcbf94c89a9d6e0c0e844d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activateActionSetOnAttach:
+    actionSetPath: 
+  hideHandOnAttach: 1
+  hideSkeletonOnAttach: 0
+  hideControllerOnAttach: 0
+  handAnimationOnPickup: 0
+  setRangeOfMotionOnPickup: -1
+  useHandObjectAttachmentPoint: 1
+  attachEaseIn: 0
+  snapAttachEaseInCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  snapAttachEaseInTime: 0.15
+  snapAttachEaseInCompleted: 0
+  skeletonPoser: {fileID: 0}
+  handFollowTransform: 1
+  highlightOnHover: 1
+  hideHighlight: []
+--- !u!114 &905474499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905474495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8439748787df5e54e8995d20707b45d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points:
+  - {fileID: 1208253277}
+  - {fileID: 865224468}
+  - {fileID: 127301266}
+  - {fileID: 367075754}
+  mustGoBack: 1
+--- !u!136 &905474500
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905474495}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.8367317
+  m_Direction: 1
+  m_Center: {x: -0, y: 0.9143604, z: 0}
 --- !u!1 &922401882
 GameObject:
   m_ObjectHideFlags: 0
@@ -4057,6 +4515,36 @@ Transform:
   m_Father: {fileID: 207378317}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1208253276
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1208253277}
+  m_Layer: 0
+  m_Name: NPC Walking Hall Path Node 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1208253277
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208253276}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 37.492, y: 2, z: 1.693}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1849252214}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1255865579
 GameObject:
   m_ObjectHideFlags: 0
@@ -4881,6 +5369,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2070941728119626173, guid: 2f82348ca827986428f75eadbed25336,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2070815976207593063, guid: 2f82348ca827986428f75eadbed25336,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2070815976207593063, guid: 2f82348ca827986428f75eadbed25336,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f82348ca827986428f75eadbed25336, type: 3}
 --- !u!1001 &1738497220
@@ -5077,6 +5580,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.12887415, y: 0.027863381, z: 0.19936691}
   m_Center: {x: 0.0000017918646, y: 0.014436134, z: 0.0077961627}
+--- !u!1 &1779180537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1779180538}
+  m_Layer: 0
+  m_Name: NPCs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1779180538
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779180537}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25.914202, y: 55.09, z: 14.59}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2040577589}
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1805034060
 GameObject:
   m_ObjectHideFlags: 0
@@ -5488,6 +6022,54 @@ Transform:
   m_Father: {fileID: 871537919}
   m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1849252213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1849252214}
+  - component: {fileID: 1849252215}
+  m_Layer: 0
+  m_Name: Path
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1849252214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849252213}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -17.483343, y: -0.14025116, z: 5.647882}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1208253277}
+  - {fileID: 865224468}
+  - {fileID: 127301266}
+  - {fileID: 367075754}
+  m_Father: {fileID: 2040577589}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1849252215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849252213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11d19fce9b59bc44d88d8fd201654690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1880231027
 GameObject:
   m_ObjectHideFlags: 0
@@ -5800,6 +6382,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2033304516}
   m_CullTransparentMesh: 0
+--- !u!1 &2040577588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2040577589}
+  m_Layer: 0
+  m_Name: NPC Walking Hall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2040577589
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040577588}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -11.870859, y: -28.911442, z: -11.517517}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 905474494}
+  - {fileID: 1849252214}
+  m_Father: {fileID: 1779180538}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2091787643
 PrefabInstance:
   m_ObjectHideFlags: 0
