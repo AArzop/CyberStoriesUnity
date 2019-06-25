@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PhishingGameplayManager : MonoBehaviour
 {
@@ -15,6 +17,12 @@ public class PhishingGameplayManager : MonoBehaviour
     public List<BaseBasketPlay> goalPrefab;
 
     public uint bonusTime = 10;
+
+    public Text prepareTimerText;
+    public Text preprareTipsText;
+    public Canvas prepareCanvas;
+
+    public List<TextMeshPro > gameTimer;
 
     public GameObject platform;
 
@@ -74,9 +82,21 @@ public class PhishingGameplayManager : MonoBehaviour
         yield return null;
     }
 
+    private void SetupGameTimer()
+    {
+        string str = (timer.Seconds > 9 ? timer.Seconds.ToString() : "0" + timer.Seconds.ToString()) + ":" + (timer.Milliseconds > 9 ? timer.Milliseconds.ToString() : "0" + timer.Milliseconds.ToString());
+        foreach (var item in gameTimer)
+            item.text = str;
+    }
+
     private void SetupGameState()
     {
-        timer = new TimeSpan(0, 0, 30 + (int) (bonusTime * 0)); // Change 0
+        prepareCanvas.gameObject.SetActive(false);
+
+        foreach (var item in gameTimer)
+            item.gameObject.SetActive(true);
+
+        timer = new TimeSpan(0, 0, 30);
         currentState = State.Game;
         platform.gameObject.SetActive(true);
 
@@ -87,6 +107,8 @@ public class PhishingGameplayManager : MonoBehaviour
     private void SetupEndState()
     {
         currentState = State.End;
+        foreach (var item in gameTimer)
+            item.gameObject.SetActive(false);
 
         foreach (var ball in ballList)
             Destroy(ball.gameObject);
@@ -129,6 +151,8 @@ public class PhishingGameplayManager : MonoBehaviour
     private void UpdatePreparation()
     {
         timer -= TimeSpan.FromSeconds(Time.deltaTime);
+        prepareTimerText.text = timer.Seconds.ToString();
+
         if (timer < TimeSpan.Zero)
         {
             NextState();
@@ -139,6 +163,7 @@ public class PhishingGameplayManager : MonoBehaviour
     private void UpdateGame()
     {
         timer -= TimeSpan.FromSeconds(Time.deltaTime);
+        SetupGameTimer();
         if (timer < TimeSpan.Zero)
         {
             NextState();

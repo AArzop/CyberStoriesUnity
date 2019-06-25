@@ -14,12 +14,14 @@ public class PhishingReview : MonoBehaviour
     public Text costText;
     public Text tipsTitle;
     public Text tipsText;
+    public Text gameplayTipsText;
 
     public ClickToChangeScene toMinigame;
 
     private void UnlockMinigameScene()
     {
         toMinigame.Unlock();
+        gameplayTipsText.text = GlobalManager.GetLocalization("Review_UnlockGameplay");
     }
 
     private void GenerateSuccessCanvas()
@@ -65,6 +67,8 @@ public class PhishingReview : MonoBehaviour
 
         if (tab[note] > 75)
             UnlockMinigameScene();
+        else
+            gameplayTipsText.text = GlobalManager.GetLocalization("Review_LockGameplay");
     }
 
     void Awake()

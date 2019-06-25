@@ -32,4 +32,9 @@ public class ClickToChangeScene : MonoBehaviour
     {
         lockButton = true;
     }
+
+    private void Update()
+    {
+        transform.Rotate(new Vector3(90, 90, 90) * Time.deltaTime);
+    }
 }
