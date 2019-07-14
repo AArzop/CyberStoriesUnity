@@ -10,6 +10,8 @@ namespace CyberStories.CyberstoriesNpc.Controllers
         private int destPoint = 0;
         private NavMeshAgent agent;
 
+        [Min(0)]
+        public float rotationSpeed = 3f;
         private Animator animator;
 
         public bool mustGoBack;
@@ -20,21 +22,23 @@ namespace CyberStories.CyberstoriesNpc.Controllers
             agent = GetComponent<NavMeshAgent>();
             animator = GetComponent<Animator>();
             animator.SetFloat("Vertical", 1f);
-            // /*** ***/ agent.updateRotation = false;
+            agent.updateRotation = false;
             GotoNextPoint();
         }
 
-        /*
+        
         private void LateUpdate()
         {
             // Direct rotation
             if (agent.velocity.sqrMagnitude > Mathf.Epsilon)
             {
-                transform.rotation = Quaternion.LookRotation(agent.velocity.normalized);
+                //transform.rotation = Quaternion.LookRotation(agent.velocity.normalized);
+                Quaternion lookRotation = Quaternion.LookRotation(agent.velocity.normalized);
+                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
             }
             
         }
-        */
+        
 
         void GotoNextPoint()
         {
@@ -65,6 +69,7 @@ namespace CyberStories.CyberstoriesNpc.Controllers
         {
             // Choose the next destination point when the agent gets
             // close to the current one.
+            Debug.Log(agent.remainingDistance);
             if (!agent.pathPending && agent.remainingDistance < 0.5f)
                 GotoNextPoint();
         }
