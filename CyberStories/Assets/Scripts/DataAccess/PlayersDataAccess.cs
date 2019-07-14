@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class PlayersGet : MonoBehaviour
+public class PlayersDataAccess : MonoBehaviour
 {
     public string Response { get; private set; }
     public bool IsError { get; private set; }

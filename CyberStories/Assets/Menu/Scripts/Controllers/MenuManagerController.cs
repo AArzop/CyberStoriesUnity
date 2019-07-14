@@ -25,14 +25,14 @@ namespace CyberStories.Menu.Controllers
 
         public LevelChangerController.LevelChanger levelChanger;
 
-        private PlayersGet dataConnect;
+        private PlayersDataAccess dataConnect;
         #endregion
 
         // Start is called before the first frame update
         void Start()
         {
             Button[] buttons = UIHeaderCanvas.GetComponentsInChildren<Button>();
-            dataConnect = GetComponent<PlayersGet>();
+            dataConnect = GetComponent<PlayersDataAccess>();
 
         }
 
