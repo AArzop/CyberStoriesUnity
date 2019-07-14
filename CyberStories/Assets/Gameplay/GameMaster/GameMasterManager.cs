@@ -9,6 +9,16 @@ using UnityEngine;
 
 public class GameMasterManager : MonoBehaviour
 {
+    [Serializable]
+    private class Position
+    {
+        public float x;
+        public float y;
+
+        public Position(float x, float y) { this.x = x; this.y = y; }
+    }
+
+
     public GameObject botLeftPoint;
     public GameObject topRightPoint;
     public GameObject player;
@@ -37,7 +47,10 @@ public class GameMasterManager : MonoBehaviour
         float x = ComputeLocation(botLeftPoint.transform.position.x, topRightPoint.transform.position.x, player.transform.position.x);
         float y = ComputeLocation(botLeftPoint.transform.position.z, topRightPoint.transform.position.z, player.transform.position.z);
 
-        await ws.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes("x:" + x + " y:" + y)), WebSocketMessageType.Text, true, CancellationToken.None);
+        Position p = new Position(x, y);
+        string json = JsonUtility.ToJson(p).ToString();
+
+        await ws.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes(json)), WebSocketMessageType.Text, true, CancellationToken.None);
 
         await Task.Delay(2000);
 
