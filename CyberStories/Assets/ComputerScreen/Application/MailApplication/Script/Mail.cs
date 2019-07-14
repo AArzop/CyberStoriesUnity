@@ -22,6 +22,7 @@ public class Mail : MonoBehaviour
     public string body { get; set; }
     public string link { get; set; }
 
+
     private void Awake()
     {
         Object = GlobalManager.GetLocalization(ObjectKey);

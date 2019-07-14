@@ -13,8 +13,11 @@ public class GameMasterManager : MonoBehaviour
     public GameObject topRightPoint;
     public GameObject player;
 
+    private MailApplication mailApp;
+
     private ClientWebSocket ws;
     private bool isRunning = true;
+
 
     private float ComputeLocation(float min, float max, float value)
     {
@@ -34,9 +37,6 @@ public class GameMasterManager : MonoBehaviour
         float x = ComputeLocation(botLeftPoint.transform.position.x, topRightPoint.transform.position.x, player.transform.position.x);
         float y = ComputeLocation(botLeftPoint.transform.position.z, topRightPoint.transform.position.z, player.transform.position.z);
 
-        // Send
-        Debug.Log("x -> " + x + "   y -> " + y);
-
         await ws.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes("x:" + x + " y:" + y)), WebSocketMessageType.Text, true, CancellationToken.None);
 
         await Task.Delay(2000);
@@ -53,7 +53,6 @@ public class GameMasterManager : MonoBehaviour
         GetWebSocketResponseAsync();
     }
 
-
     private async void ConnectAsync()
     {
         ws = new ClientWebSocket();
@@ -63,7 +62,8 @@ public class GameMasterManager : MonoBehaviour
             if (ws.State == WebSocketState.Open)
                 Debug.Log("connected");
 
-            //Start Coroutine
+            mailApp = GameObject.FindObjectOfType<MailApplication>();
+
             SendLocationToWebsocketAsync();
             GetWebSocketResponseAsync();
 
@@ -76,13 +76,27 @@ public class GameMasterManager : MonoBehaviour
         }
     }
 
+    private void ReceiveNewMail(String input)
+    {
+        // Parse input
+
+        const string senderKey = "GameMaster_mailName";
+        string mailObject = "";
+        string mailBody = "";
+        DateTime date = DateTime.Now;
+
+        string objectKey = "GameMaster_" + date.ToString() + "_obj";
+        string bodyKey = "GameMaster_" + date.ToString() + "_body";
+
+        GlobalManager.AddNewLocalization(objectKey, mailObject);
+        GlobalManager.AddNewLocalization(bodyKey, mailBody);
+
+        mailApp.ReceiveNewMail(senderKey, objectKey, bodyKey, date);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         ConnectAsync();
     }
-
-    // Update is called once per frame
-    void Update()
-    {}
 }

@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class MailApplication : BaseApplication
 {
+    public GameObject mailPrefab;
+
     // List of mails, one by filter
     public List<Mail> newMails;
     public List<Mail> archMails;
@@ -48,7 +51,15 @@ public class MailApplication : BaseApplication
     };
 
     public override void ResetApplication()
-    {}
+    {
+        currentFilter = Filter.newMail;
+        currentMailList = newMails;
+        currentIndexInList = 0;
+        LoadMailItem(currentMailList, currentIndexInList);
+
+        mailSelected = null;
+        SelectMail(null);
+    }
 
     // Called on scene load, set all text
     private void Awake()
@@ -74,13 +85,7 @@ public class MailApplication : BaseApplication
     // Start is called before the first frame update, set default state of the application
     void Start()
     {
-        currentFilter = Filter.newMail;
-        currentMailList = newMails;
-        currentIndexInList = 0;
-        LoadMailItem(currentMailList, currentIndexInList);
-
-        mailSelected = null;
-        SelectMail(null);
+        ResetApplication();
     }
 
     // Assign a mail (or null) on each mail Item in list
@@ -162,6 +167,21 @@ public class MailApplication : BaseApplication
             mailLinkText.text = "";
             warningLogo.gameObject.SetActive(false);
         }
+    }
+
+    // Receive a new mail
+    public void ReceiveNewMail(string senderKey, string objKey, string bodyKey, DateTime receiveDate)
+    {
+        GameObject go = GameObject.Instantiate(mailPrefab);
+        Mail mail = go.GetComponent<Mail>();
+
+        mail.dateTime = receiveDate;
+        mail.ObjectKey = objKey;
+        mail.SourceKey = senderKey;
+        mail.bodyKey = bodyKey;
+
+        newMails.Insert(0, mail);
+        LoadMailItem(currentMailList, currentIndexInList);
     }
 
     // A function for each button

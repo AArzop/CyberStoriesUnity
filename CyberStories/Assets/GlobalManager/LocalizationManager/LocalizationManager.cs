@@ -66,4 +66,9 @@ public class LocalizationManager
 
         return "*** UNFOUND LOCA ****";
     }
+
+    public void AddNewLocalization(string key, string value)
+    {
+        locaDictionnary[key] = value;
+    }
 }
