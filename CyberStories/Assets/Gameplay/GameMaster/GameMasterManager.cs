@@ -18,14 +18,15 @@ public class GameMasterManager : MonoBehaviour
         public Position(float x, float y) { this.x = x; this.y = y; }
     }
 
-
     public GameObject botLeftPoint;
     public GameObject topRightPoint;
     public GameObject player;
 
-    private MailApplication mailApp;
+    public MailApplication mailApp;
 
-    private ClientWebSocket ws;
+    private ClientWebSocket wsPosition;
+    private ClientWebSocket wsEmail;
+
     private bool isRunning = true;
 
 
@@ -44,54 +45,85 @@ public class GameMasterManager : MonoBehaviour
 
     private async void SendLocationToWebsocketAsync()
     {
-        float x = ComputeLocation(botLeftPoint.transform.position.x, topRightPoint.transform.position.x, player.transform.position.x);
-        float y = ComputeLocation(botLeftPoint.transform.position.z, topRightPoint.transform.position.z, player.transform.position.z);
+        float x = ComputeLocation(botLeftPoint.transform.position.x, topRightPoint.transform.position.x, player.transform.position.x) * 600;
+        float y = (1 - ComputeLocation(botLeftPoint.transform.position.z, topRightPoint.transform.position.z, player.transform.position.z)) * 600;
 
         Position p = new Position(x, y);
         string json = JsonUtility.ToJson(p).ToString();
 
-        await ws.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes(json)), WebSocketMessageType.Text, true, CancellationToken.None);
+        Debug.Log(json);
 
-        await Task.Delay(2000);
+        await wsPosition.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes(json)), WebSocketMessageType.Text, true, CancellationToken.None);
 
-        SendLocationToWebsocketAsync();
+        await Task.Delay(500);
+
+        if (isRunning)
+            SendLocationToWebsocketAsync();
     }
 
     private async void GetWebSocketResponseAsync()
     {
-        ArraySegment<byte> buf = new ArraySegment<byte>(new byte[1024]);
+        try
+        {
+            ArraySegment<byte> buf = new ArraySegment<byte>(new byte[5012]);
+            WebSocketReceiveResult r = await wsEmail.ReceiveAsync(buf, CancellationToken.None);
+            string str = Encoding.UTF8.GetString(buf.Array, 0, r.Count);
 
-        WebSocketReceiveResult r = await ws.ReceiveAsync(buf, CancellationToken.None);
-        Debug.Log("Got: " + Encoding.UTF8.GetString(buf.Array, 0, r.Count));
-        GetWebSocketResponseAsync();
+            ReceiveNewMail(str);
+
+            if (isRunning)
+                GetWebSocketResponseAsync();
+        }
+        catch (Exception e)
+        {
+            Debug.LogError(e.Message);
+            return;
+        }
     }
 
     private async void ConnectAsync()
     {
-        ws = new ClientWebSocket();
+        wsPosition = new ClientWebSocket();
+        wsEmail = new ClientWebSocket();
         try
         {
-            await ws.ConnectAsync(new Uri("wss://echo.websocket.org"), CancellationToken.None);
-            if (ws.State == WebSocketState.Open)
-                Debug.Log("connected");
+            await wsPosition.ConnectAsync(new Uri("wss://cyberstories.herokuapp.com/ws/game-master/position/"), CancellationToken.None);
+            await wsEmail.ConnectAsync(new Uri("wss://cyberstories.herokuapp.com/ws/game-master/email/"), CancellationToken.None);
 
-            mailApp = GameObject.FindObjectOfType<MailApplication>();
+            if (wsPosition.State != WebSocketState.Open || wsEmail.State != WebSocketState.Open)
+                throw new Exception();
 
             SendLocationToWebsocketAsync();
-            GetWebSocketResponseAsync();
-
+            //GetWebSocketResponseAsync();
         }
         catch (Exception e)
         {
             Debug.Log(e.Message);
             isRunning = false;
             gameObject.SetActive(false);
+
+            if (wsPosition != null)
+                await wsPosition.CloseAsync(WebSocketCloseStatus.NormalClosure, string.Empty, CancellationToken.None);
+            wsPosition = null;
+
+            if (wsEmail != null)
+                await wsEmail.CloseAsync(WebSocketCloseStatus.NormalClosure, string.Empty, CancellationToken.None);
+            wsEmail = null;
         }
     }
 
     private void ReceiveNewMail(String input)
     {
         // Parse input
+        string str = input.Substring(28, input.Length - 28);
+
+        int messageBegin = str.IndexOf("\\\"") + 19;
+
+        string obj = str.Substring(0, str.IndexOf("\\\""));
+        string message = str.Substring(messageBegin, str.Length - messageBegin - 5);
+
+        Debug.Log(obj);
+        Debug.Log(message);
 
         const string senderKey = "GameMaster_mailName";
         string mailObject = "";
@@ -104,7 +136,7 @@ public class GameMasterManager : MonoBehaviour
         GlobalManager.AddNewLocalization(objectKey, mailObject);
         GlobalManager.AddNewLocalization(bodyKey, mailBody);
 
-        mailApp.ReceiveNewMail(senderKey, objectKey, bodyKey, date);
+        mailApp.ReceiveNewMail(senderKey, "Game Master", objectKey, obj, bodyKey, message, date);
     }
 
     // Start is called before the first frame update
@@ -112,4 +144,16 @@ public class GameMasterManager : MonoBehaviour
     {
         ConnectAsync();
     }
+
+    private void OnDestroy()
+    {
+        if (wsPosition != null)
+            wsPosition.CloseAsync(WebSocketCloseStatus.NormalClosure, string.Empty, CancellationToken.None);
+
+        if (wsEmail != null)
+            wsEmail.CloseAsync(WebSocketCloseStatus.NormalClosure, string.Empty, CancellationToken.None);
+
+        isRunning = false;
+    }
+
 }

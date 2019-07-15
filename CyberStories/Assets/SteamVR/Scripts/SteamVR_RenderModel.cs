@@ -99,7 +99,13 @@ namespace Valve.VR
                     return _instance;
                 }
             }
+
             public void Dispose()
+            {
+                
+            }
+
+            public void DisposeAsync()
             {
                 if (needsShutdown)
                     SteamVR.ExitTemporarySession();

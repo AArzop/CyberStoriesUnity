@@ -170,15 +170,18 @@ public class MailApplication : BaseApplication
     }
 
     // Receive a new mail
-    public void ReceiveNewMail(string senderKey, string objKey, string bodyKey, DateTime receiveDate)
+    public void ReceiveNewMail(string senderKey, string sender, string objKey, string obj, string bodyKey, string body, DateTime receiveDate)
     {
         GameObject go = GameObject.Instantiate(mailPrefab);
         Mail mail = go.GetComponent<Mail>();
 
         mail.dateTime = receiveDate;
         mail.ObjectKey = objKey;
+        mail.Object = obj;
         mail.SourceKey = senderKey;
+        mail.Source = sender;
         mail.bodyKey = bodyKey;
+        mail.body = body;
 
         newMails.Insert(0, mail);
         LoadMailItem(currentMailList, currentIndexInList);

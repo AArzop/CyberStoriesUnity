@@ -941,7 +941,7 @@ PrefabInstance:
     - target: {fileID: 3179543327264631295, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3179543326805255464, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed,
         type: 3}
@@ -953,6 +953,12 @@ PrefabInstance:
       propertyPath: displayWarningLogo
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3179543326805255464, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed,
+        type: 3}
+      propertyPath: mailPrefab
+      value: 
+      objectReference: {fileID: 5421288633259743135, guid: 6ba0a52e6f1718b4896bb5822d4a50de,
+        type: 3}
     - target: {fileID: 1665786696, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed, type: 3}
       propertyPath: messageDestination
       value: 
@@ -1108,6 +1114,11 @@ PrefabInstance:
     - target: {fileID: 416430643, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: RedirectToNextWebSite
+      objectReference: {fileID: 0}
+    - target: {fileID: 3179543326805255467, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed, type: 3}
@@ -1894,6 +1905,7 @@ MonoBehaviour:
   botLeftPoint: {fileID: 463816929}
   topRightPoint: {fileID: 1511133186}
   player: {fileID: 1989799004}
+  mailApp: {fileID: 641861379}
 --- !u!4 &1320359018
 Transform:
   m_ObjectHideFlags: 0

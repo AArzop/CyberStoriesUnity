@@ -691,7 +691,7 @@ namespace Valve.VR
             Dispose(false);
         }
 
-        public void Dispose()
+        public void DisposeAsync()
         {
             Dispose(true);
             System.GC.SuppressFinalize(this);
@@ -712,7 +712,11 @@ namespace Valve.VR
         public static void SafeDispose()
         {
             if (_instance != null)
-                _instance.Dispose();
+                _instance.DisposeAsync();
+        }
+
+        public void Dispose()
+        {
         }
     }
 }
