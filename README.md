@@ -26,7 +26,7 @@ A serious game in virtual reality to learn about good practices for cybersecurit
 Unlicensed.
 
 ## Authors
-Maxime Lacombe
-Emmanuel Meric de Bellefon
-Laxman Thayalan
-Axel Vigny
+- Maxime Lacombe
+- Emmanuel Meric de Bellefon
+- Laxman Thayalan
+- Axel Vigny
