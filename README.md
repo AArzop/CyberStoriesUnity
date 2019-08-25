@@ -96,7 +96,7 @@ Office/
 <pre>
 Menu/
 	+-Menu.unity
-	+-Materials/
+    +-Materials/
 	|	+-transparent.mat
 	+-Prefabs/
 	|	+-menu.prefab
@@ -105,8 +105,8 @@ Menu/
 </pre>
 ##### Special folders
 Additionaly, Assets folder contains the following special folders:
-- Prototypes: stores scene folders that are not included [yet] in production and asset packages that are likely to be used in the future.
-- Shared: stores scene folders that are/will be shared among multiple scenes, and virtual reality plugins.
+- **Prototypes**: stores scene folders that are not included [yet] in production and asset packages that are likely to be used in the future.
+- **Shared**: stores scene folders that are/will be shared among multiple scenes, and virtual reality plugins.
 
 ### Unity version
 2019.1.6f1
