@@ -97,11 +97,11 @@ Office/
 Menu/
     +-Menu.unity
     +-Materials/
-	|	+-transparent.mat
-	+-Prefabs/
-	|	+-menu.prefab
-	+-Texutes/
-		+-background.png
+    |	+-transparent.mat
+    +-Prefabs/
+    |	+-menu.prefab
+    +-Texutes/
+        +-background.png
 </pre>
 ##### Special folders
 Additionaly, Assets folder contains the following special folders:
