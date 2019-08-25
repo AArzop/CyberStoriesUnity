@@ -22,13 +22,16 @@ A serious game in virtual reality to learn about good practices for cybersecurit
 It is not visible in the Unity project view, then if you need to grab something in there you may just
 copy-paste it to where you need it. Each new downloaded asset package should be backed up in this folder.
 -  ```~/Cyberstories/Assets```: contains all game assets.
+
 #### Folder naming conventions
-Since most libraries use it, the folder naming convention for this project is : words in lower case
-beginning with a capital letter, separated by spaces.
+Since most libraries use it, the folder naming convention for this project is :
+> words in lower case beginning with a capital letter, separated by spaces.
+
 Examples:
 - Base Office
 - Clock
 - Office Supplies
+
 Note that naming a folder 'Resources' anywhere will make all of its content to be shiped with the build, whether it is used in a scene or not.
 Use it only for dynamically loaded assets. See : https://docs.unity3d.com/Manual/SpecialFolders.html
 #### Assets folder organization
@@ -36,16 +39,19 @@ This organization is based on recommendations from Unity's website: https://unit
 Assets folder contains two kinds of subfolders :
 - Scene folders
 - Special folders
+
 ##### Scene folders
 A scene folder contains a scene file and all its dependencies.
 Dependencies are organized in folders with the following names and file types:
-- Audio: contains audio files
-- Materials: contains .mat files
-- Models: contains 3D models files (.blend, .fbx, .obj)
-- Prefabs: contains .prefab files
-- Scripts: contains .cs script files
-- Shaders: contains shader files
-- Textures: contains textures and any type of image file (light maps, directional light maps, specular maps, normal maps, cube maps, ...)
+- **Audio**: contains audio files
+- **Materials**: contains .mat files
+- **Models**: contains 3D models files (.blend, .fbx, .obj)
+- **Prefabs**: contains .prefab files
+- **Scripts**: contains .cs script files
+- **Shaders**: contains shader files
+- **Textures**: contains textures and any type of image file (light maps, directional light maps, specular maps, normal maps, cube maps, ...)
+
+Note that they are all plural names.
 Additional folders may be added to group related assets.
 Here are some examples of typical scene folder organization :
 <pre>
@@ -101,6 +107,7 @@ Menu/
 Additionaly, Assets folder contains the following special folders:
 - Prototypes: stores scene folders that are not included [yet] in production and asset packages that are likely to be used in the future.
 - Shared: stores scene folders that are/will be shared among multiple scenes, and virtual reality plugins.
+
 ### Unity version
 2019.1.6f1
 
