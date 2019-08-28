@@ -1,18 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 public abstract class BaseApplication : MonoBehaviour
 {
-    public GlobalScreen GlobalScreen;
+    [FormerlySerializedAs("GlobalScreen")] public GlobalScreen globalScreen;
 
-    public Sprite Icon;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [FormerlySerializedAs("Icon")] public Sprite icon;
 
     public abstract void ResetApplication();
 }

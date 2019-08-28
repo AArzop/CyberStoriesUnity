@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class OrangeLogin : BaseWebSite
 {
-    public bool isPhisingWebSite;
-    public bool sendPhishingMessage;
+    [FormerlySerializedAs("isPhisingWebSite")] public bool isFishingWebSite;
+    [FormerlySerializedAs("sendPhishingMessage")] public bool sendFishingMessage;
 
     public override void ResetWebSite()
     {
@@ -33,7 +34,7 @@ public class OrangeLogin : BaseWebSite
 
     public void ConnexionButtonClicked()
     {
-        if (isPhisingWebSite && sendPhishingMessage)
+        if (isFishingWebSite && sendFishingMessage)
             messageDestination.SendMessage("OnPhishing", Url);
 
         RedirectToNextWebSite();

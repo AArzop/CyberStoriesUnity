@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class FavoriteButton : MonoBehaviour
@@ -9,7 +7,7 @@ public class FavoriteButton : MonoBehaviour
 
     public BaseWebSite Site { get; set; }
 
-    void Awake()
+    private void Awake()
     {
         ApplyWebSite(Site);
     }
@@ -20,7 +18,7 @@ public class FavoriteButton : MonoBehaviour
         Image img = GetComponent<Image>();
         if (Site != null)
         {
-            img.sprite = Site.Icon;
+            img.sprite = Site.icon;
             Color c = Color.white;
             c.a = 1f;
             img.color = c;

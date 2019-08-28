@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class WebApplication : BaseApplication
@@ -21,18 +19,15 @@ public class WebApplication : BaseApplication
         urlToWebSite = new Dictionary<string, BaseWebSite>();
         history = new List<string>();
 
-        foreach (var Site in webSites)
+        foreach (var site in webSites)
         {
-            Site.Load();
-            urlToWebSite.Add(Site.Url, Site);
+            site.Load();
+            urlToWebSite.Add(site.Url, site);
         }
 
         for (int i = 0; i < favoriteButtons.Count; i++)
         {
-            if (i < favoriteWebSites.Count)
-                favoriteButtons[i].ApplyWebSite(favoriteWebSites[i]);
-            else
-                favoriteButtons[i].ApplyWebSite(null);
+            favoriteButtons[i].ApplyWebSite(i < favoriteWebSites.Count ? favoriteWebSites[i] : null);
         }
 
         urlText.text = "/";
@@ -73,13 +68,12 @@ public class WebApplication : BaseApplication
 
     public void BackHistoryButton()
     {
-        if (history.Count > 1)
-        {
-            // Count - 1 is the current url
-            string lastUrl = history[history.Count - 2];
-            history.RemoveRange(history.Count - 2, 2);
+        if (history.Count <= 1) return;
+        
+        // Count - 1 is the current url
+        string lastUrl = history[history.Count - 2];
+        history.RemoveRange(history.Count - 2, 2);
 
-            Redirect(urlToWebSite[lastUrl]);
-        }
+        Redirect(urlToWebSite[lastUrl]);
     }
 }

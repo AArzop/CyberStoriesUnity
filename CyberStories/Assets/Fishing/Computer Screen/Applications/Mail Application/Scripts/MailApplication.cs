@@ -15,7 +15,7 @@ public class MailApplication : BaseApplication
     public BaseQuestManager messageDestination;
 
     // Nb item in UI
-    private const int nbMailDisplayed = 6;
+    private const int NbMailDisplayed = 6;
     public List<MailListItem> mailItemUI;
 
     // Current state of the application
@@ -58,15 +58,19 @@ public class MailApplication : BaseApplication
         for (int i = 1; i <= nbFilter; ++i)
         {
             GameObject filterCanvas = GameObject.Find("Filter" + i.ToString() + "Button");
-            if (filterCanvas)
+            if (!filterCanvas) continue;
+            Text t = filterCanvas.gameObject.GetComponentInChildren<Text>();
+            switch (i)
             {
-                Text t = filterCanvas.gameObject.GetComponentInChildren<Text>();
-                if (i == 1)
+                case 1:
                     t.text = GlobalManager.GetLocalization("Loca_New");
-                else if (i == 2)
+                    break;
+                case 2:
                     t.text = GlobalManager.GetLocalization("Loca_MailArchive");
-                else
+                    break;
+                default:
                     t.text = GlobalManager.GetLocalization("Loca_MailDelete");
+                    break;
             }
         }
     }
@@ -86,7 +90,7 @@ public class MailApplication : BaseApplication
     // Assign a mail (or null) on each mail Item in list
     private void LoadMailItem(List<Mail> mails, int firstIndex)
     {
-        for (int i = 0; i < nbMailDisplayed; i++)
+        for (int i = 0; i < NbMailDisplayed; i++)
         {
             Mail mail = firstIndex + i < mails.Count ? mails[firstIndex + i] : null;
             mailItemUI[i].ChangeMail(mail);
@@ -132,13 +136,13 @@ public class MailApplication : BaseApplication
             bodyCanvas.SetActive(true);
             mailHeaderSourceText.text = mail.Source;
             mailHeaderObjectText.text = mail.Object;
-            mailHeaderDateText.text = mail.dateTime.ToShortDateString();
-            mailBodyText.text = mail.body;
+            mailHeaderDateText.text = mail.DateTime.ToShortDateString();
+            mailBodyText.text = mail.Body;
 
             if (mail.isThereLink)
             {
                 mailLinkButton.gameObject.SetActive(true);
-                mailLinkText.text = mail.link;
+                mailLinkText.text = mail.Link;
             }
             else
             {
@@ -146,7 +150,7 @@ public class MailApplication : BaseApplication
                 mailLinkText.text = "";
             }
 
-            if (displayWarningLogo && mail.isPhishingMail)
+            if (displayWarningLogo && mail.isFishingMail)
                 warningLogo.gameObject.SetActive(true);
             else
                 warningLogo.gameObject.SetActive(false);
@@ -172,7 +176,7 @@ public class MailApplication : BaseApplication
         if (currentIndexInList == 0)
             return;
 
-        currentIndexInList -= nbMailDisplayed;
+        currentIndexInList -= NbMailDisplayed;
         if (currentIndexInList < 0)
             currentIndexInList = 0;
 
@@ -181,12 +185,12 @@ public class MailApplication : BaseApplication
 
     public void NavButtonDown()
     {
-        if (currentIndexInList + nbMailDisplayed >= currentMailList.Count)
+        if (currentIndexInList + NbMailDisplayed >= currentMailList.Count)
             return;
 
-        currentIndexInList += nbMailDisplayed;
+        currentIndexInList += NbMailDisplayed;
         if (currentIndexInList >= currentMailList.Count)
-            currentIndexInList = currentMailList.Count - nbMailDisplayed;
+            currentIndexInList = currentMailList.Count - NbMailDisplayed;
 
         LoadMailItem(currentMailList, currentIndexInList);
     }
@@ -211,37 +215,35 @@ public class MailApplication : BaseApplication
 
     public void SelectedMailButtonArchive()
     {
-        if (mailSelected && currentFilter != Filter.ArchivedMail)
-        {
-            currentMailList.Remove(mailSelected);
-            archMails.Add(mailSelected);
-            archMails.Sort((m1, m2) => m2.dateTime.CompareTo(m1.dateTime));
+        if (!mailSelected || currentFilter == Filter.ArchivedMail) return;
+        
+        currentMailList.Remove(mailSelected);
+        archMails.Add(mailSelected);
+        archMails.Sort((m1, m2) => m2.DateTime.CompareTo(m1.DateTime));
 
-            if (sendMessageOnArchiv)
-                messageDestination.gameObject.SendMessage("OnArchivedMail", mailSelected);
+        if (sendMessageOnArchiv)
+            messageDestination.gameObject.SendMessage("OnArchivedMail", mailSelected);
 
-            ChangeFilter(currentFilter);
-        }
+        ChangeFilter(currentFilter);
     }
 
     public void SelectedMailButtonDelete()
     {
-        if (mailSelected && currentFilter != Filter.DeletedMail)
-        {
-            currentMailList.Remove(mailSelected);
-            delMails.Add(mailSelected);
-            delMails.Sort((m1, m2) => m2.dateTime.CompareTo(m1.dateTime));
+        if (!mailSelected || currentFilter == Filter.DeletedMail) return;
+        
+        currentMailList.Remove(mailSelected);
+        delMails.Add(mailSelected);
+        delMails.Sort((m1, m2) => m2.DateTime.CompareTo(m1.DateTime));
 
-            if (sendMessageOnDelete)
-                messageDestination.gameObject.SendMessage("OnDeletedMail", mailSelected);
+        if (sendMessageOnDelete)
+            messageDestination.gameObject.SendMessage("OnDeletedMail", mailSelected);
 
-            ChangeFilter(currentFilter);
-        }
+        ChangeFilter(currentFilter);
     }
 
     public void LinkButton()
     {
-        GlobalScreen.LinkClicked(mailSelected.link);
+        globalScreen.LinkClicked(mailSelected.Link);
     }
     #endregion
 }

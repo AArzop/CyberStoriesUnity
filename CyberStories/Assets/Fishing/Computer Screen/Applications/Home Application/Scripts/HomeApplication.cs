@@ -1,12 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine.UI;
 
 public class HomeApplication : BaseApplication
 {
     public Text hourText;
-    
+
     public override void ResetApplication()
     {
     }
@@ -26,7 +23,7 @@ public class HomeApplication : BaseApplication
     }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         SetHour();
     }
@@ -38,16 +35,15 @@ public class HomeApplication : BaseApplication
 
     public void PowerOff()
     {
-        GlobalScreen.PowerOff();
+        globalScreen.PowerOff();
     }
 
     public void LockButton()
     {
-
     }
 
     public void ChangeApplication(int index)
     {
-        GlobalScreen.SwitchApplication(index);
+        globalScreen.SwitchApplication(index);
     }
 }

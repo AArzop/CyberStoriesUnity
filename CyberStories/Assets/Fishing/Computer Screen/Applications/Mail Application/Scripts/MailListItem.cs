@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class MailListItem : MonoBehaviour
@@ -25,7 +23,7 @@ public class MailListItem : MonoBehaviour
         {
             gameObject.SetActive(true);
             sourceText.text = mail.Source.Substring(0, mail.Source.IndexOf('@')).Replace('.', ' ');
-            dateText.text = mail.dateTime.ToShortDateString() + ", " + mail.dateTime.ToShortTimeString();
+            dateText.text = mail.DateTime.ToShortDateString() + ", " + mail.DateTime.ToShortTimeString();
             objectText.text = mail.Object;
         }
         else
@@ -36,5 +34,4 @@ public class MailListItem : MonoBehaviour
     {
         app.SelectMail(mail);
     }
-
 }

@@ -1,36 +1,39 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Mail : MonoBehaviour
 {
     #region Keys
-    public string ObjectKey;
-    public string SourceKey;
+
+    [FormerlySerializedAs("ObjectKey")] public string objectKey;
+    [FormerlySerializedAs("SourceKey")] public string sourceKey;
     public string bodyKey;
     public string dateTimeStr;
     public bool isThereLink;
     public string linkKey;
+
     #endregion
 
-    public bool isPhishingMail;
+    [FormerlySerializedAs("isPhishingMail")]
+    public bool isFishingMail;
 
-    public DateTime dateTime { get; set; }
+    public DateTime DateTime { get; set; }
     public string Object { get; set; }
     public string Source { get; set; }
-    public string body { get; set; }
-    public string link { get; set; }
+    public string Body { get; set; }
+    public string Link { get; set; }
 
     private void Awake()
     {
-        Object = GlobalManager.GetLocalization(ObjectKey);
-        Source = GlobalManager.GetLocalization(SourceKey);
-        body = GlobalManager.GetLocalization(bodyKey);
+        Object = GlobalManager.GetLocalization(objectKey);
+        Source = GlobalManager.GetLocalization(sourceKey);
+        Body = GlobalManager.GetLocalization(bodyKey);
         if (isThereLink)
-            link = GlobalManager.GetLocalization(linkKey);
+            Link = GlobalManager.GetLocalization(linkKey);
 
         if (dateTimeStr != string.Empty)
-            dateTime = DateTime.ParseExact(dateTimeStr, "M/d/yyyy hh:mm", System.Globalization.CultureInfo.InvariantCulture);
+            DateTime = DateTime.ParseExact(dateTimeStr, "M/d/yyyy hh:mm",
+                System.Globalization.CultureInfo.InvariantCulture);
     }
 }

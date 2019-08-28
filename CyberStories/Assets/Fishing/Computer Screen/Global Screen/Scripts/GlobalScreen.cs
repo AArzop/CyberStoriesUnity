@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class GlobalScreen : MonoBehaviour
@@ -9,7 +8,7 @@ public class GlobalScreen : MonoBehaviour
     private int currentIndex;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         currentIndex = 0;
         currentApplication = applications[currentIndex];
@@ -29,7 +28,7 @@ public class GlobalScreen : MonoBehaviour
     // Turn the screen off, hide and reset component
     public void PowerOff()
     {
-        this.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     // Reset the current application and switch to Home Application

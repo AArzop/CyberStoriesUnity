@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 public abstract class BaseWebSite : MonoBehaviour
 {
     public WebApplication app;
 
-    public Sprite Icon;
+    [FormerlySerializedAs("Icon")] public Sprite icon;
 
-    public string UrlKey;
+    [FormerlySerializedAs("UrlKey")] public string urlKey;
     public string nextUrlKey;
     public bool isThereNextSite;
 
-    public string nextUrl { get; set; }
+    public string NextUrl { get; set; }
     public string Url { get; set; }
 
     public bool sendMessageOnEnter = false;
@@ -20,9 +21,9 @@ public abstract class BaseWebSite : MonoBehaviour
 
     public void Load()
     {
-        Url = GlobalManager.GetLocalization(UrlKey);
+        Url = GlobalManager.GetLocalization(urlKey);
         if (isThereNextSite)
-            nextUrl = GlobalManager.GetLocalization(nextUrlKey);
+            NextUrl = GlobalManager.GetLocalization(nextUrlKey);
 
         gameObject.SetActive(false);
     }
@@ -36,6 +37,6 @@ public abstract class BaseWebSite : MonoBehaviour
     public void RedirectToNextWebSite()
     {
         if (isThereNextSite)
-            app.Redirect(nextUrl);
+            app.Redirect(NextUrl);
     }
 }

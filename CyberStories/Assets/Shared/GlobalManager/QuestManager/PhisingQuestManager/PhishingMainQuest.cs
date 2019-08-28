@@ -68,13 +68,13 @@ public class PhishingMainQuest : BaseQuest
 
     public void OnArchivedMail(Mail mail)
     {
-        mailTreated[mail] = !mail.isPhishingMail;
+        mailTreated[mail] = !mail.isFishingMail;
         CheckQuest();
     }
 
     public void OnDeletedMail(Mail mail)
     {
-        mailTreated[mail] = mail.isPhishingMail;
+        mailTreated[mail] = mail.isFishingMail;
         CheckQuest();
     }
 
