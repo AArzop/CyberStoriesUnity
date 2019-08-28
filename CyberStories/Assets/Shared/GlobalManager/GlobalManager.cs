@@ -6,7 +6,7 @@ public class GlobalManager
     public static BaseQuestManager questManager { get; set; }
     public static BaseDetails details { get; set; }
 
-    const string mainMenuSceneName = "Menu/MenuScene";
+    const string mainMenuSceneName = "Menu/Menu";
 
     public static void SetupManager()
     {
