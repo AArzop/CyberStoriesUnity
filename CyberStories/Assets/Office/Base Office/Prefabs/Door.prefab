@@ -195,6 +195,76 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
+        type: 3}
+      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
+        type: 3}
+      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
+        type: 3}
+      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
+        type: 3}
+      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
+        type: 3}
+      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
+        type: 3}
+      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 151134853484747669}
+    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
+        type: 3}
+      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_enabled
+      objectReference: {fileID: 0}
+    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
+        type: 3}
+      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
+        type: 3}
+      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
+        type: 3}
+      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
+        type: 3}
+      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
+        type: 3}
+      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 151134853484747669}
+    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
+        type: 3}
+      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_enabled
+      objectReference: {fileID: 0}
+    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
+        type: 3}
+      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 413167582327166581, guid: 70ddf4ba8470cc34590ffeeb10502b33,
         type: 3}
       propertyPath: m_Enabled
@@ -511,76 +581,6 @@ PrefabInstance:
       value: set_enabled
       objectReference: {fileID: 0}
     - target: {fileID: 770769621710320124, guid: 70ddf4ba8470cc34590ffeeb10502b33,
-        type: 3}
-      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
-        type: 3}
-      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
-        type: 3}
-      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
-        type: 3}
-      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
-        type: 3}
-      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
-        type: 3}
-      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
-        type: 3}
-      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 151134853484747669}
-    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
-        type: 3}
-      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: set_enabled
-      objectReference: {fileID: 0}
-    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
-        type: 3}
-      propertyPath: onMinAngle.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
-        type: 3}
-      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
-        type: 3}
-      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
-        type: 3}
-      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
-        type: 3}
-      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 151134853484747669}
-    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
-        type: 3}
-      propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: set_enabled
-      objectReference: {fileID: 0}
-    - target: {fileID: 6763571615572663030, guid: 70ddf4ba8470cc34590ffeeb10502b33,
         type: 3}
       propertyPath: onMaxAngle.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine

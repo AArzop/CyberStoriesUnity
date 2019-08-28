@@ -173,6 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minutes: 0
   hour: 0
+  isLocalTime: 0
   clockSpeed: 1
 --- !u!1 &100004
 GameObject:
