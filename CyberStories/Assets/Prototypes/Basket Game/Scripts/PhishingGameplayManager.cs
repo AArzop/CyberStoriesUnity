@@ -18,8 +18,7 @@ public class PhishingGameplayManager : MonoBehaviour
     public uint bonusTime = 10;
 
     public Text prepareTimerText;
-
-    [FormerlySerializedAs("preprareTipsText")]
+    
     public Text prepareTipsText;
 
     public Canvas prepareCanvas;
@@ -45,8 +44,7 @@ public class PhishingGameplayManager : MonoBehaviour
     private State currentState;
 
     public GameObject goalSpawnArea;
-
-    [FormerlySerializedAs("ballSpawnPoisition")]
+    
     public GameObject ballSpawnPosition;
 
     private void GenerateBall()

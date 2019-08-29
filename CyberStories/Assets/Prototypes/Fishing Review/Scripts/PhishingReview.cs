@@ -16,7 +16,7 @@ public class PhishingReview : MonoBehaviour
     public Text tipsText;
     public Text gameplayTipsText;
 
-    [FormerlySerializedAs("toMinigame")] public ClickToChangeScene toMiniGame;
+    public ClickToChangeScene toMiniGame;
 
     private void UnlockMiniGameScene()
     {

@@ -9,9 +9,9 @@ namespace CyberStories.Registration.Controllers
 {
     public class InputValidationController : MonoBehaviour
     {
-        [FormerlySerializedAs("PseudoInput")] public InputField pseudoInput;
-        [FormerlySerializedAs("EmailInput")] public InputField emailInput;
-        [FormerlySerializedAs("ErrorLabel")] public Text errorLabel;
+        public InputField pseudoInput;
+        public InputField emailInput;
+        public Text errorLabel;
         public LevelChanger levelChanger;
 
         // TODO: Localization
