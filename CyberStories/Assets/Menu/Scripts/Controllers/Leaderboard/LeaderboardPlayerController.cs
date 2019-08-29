@@ -6,8 +6,8 @@ namespace CyberStories.Menu.Controllers.Leaderboard
 {
     public class LeaderboardPlayerController : MonoBehaviour
     {
-        [FormerlySerializedAs("PlayerNameText")] public Text playerNameText;
-        [FormerlySerializedAs("PlayerScoreText")] public Text playerScoreText;
+        public Text playerNameText;
+        public Text playerScoreText;
 
         public bool IsActive
         {

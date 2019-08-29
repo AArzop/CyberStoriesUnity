@@ -16,14 +16,11 @@ namespace CyberStories.Menu.Controllers
         {
             {"Level 1", "Fishing/Fishing"}
         };
-
-        [FormerlySerializedAs("UIHeaderCanvas")]
+        
         public Canvas uiHeaderCanvas;
-
-        [FormerlySerializedAs("DescriptionText")]
+        
         public Text descriptionText;
-
-        [FormerlySerializedAs("LeaderboardController")]
+        
         public LeaderboardController leaderboardController;
 
         private string currentTag;

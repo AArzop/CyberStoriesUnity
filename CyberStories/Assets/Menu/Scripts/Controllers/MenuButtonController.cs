@@ -9,8 +9,8 @@ namespace CyberStories.Menu.Controllers
         private bool isMenuButtonActive;
 
         public bool isLevel;
-        [FormerlySerializedAs("UnselectedSprite")] public Sprite unselectedSprite;
-        [FormerlySerializedAs("SelectedSprite")] public Sprite selectedSprite;
+        public Sprite unselectedSprite;
+        public Sprite selectedSprite;
 
         public bool IsMenuButtonActive
         {
