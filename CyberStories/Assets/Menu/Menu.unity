@@ -3676,10 +3676,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1557741965443894, guid: 10a4b7b1359186d449f593c3f853f7dc, type: 3}
-      propertyPath: m_Name
-      value: Speaker
-      objectReference: {fileID: 0}
     - target: {fileID: 4328033527015456, guid: 10a4b7b1359186d449f593c3f853f7dc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.406
@@ -3723,6 +3719,10 @@ PrefabInstance:
     - target: {fileID: 4328033527015456, guid: 10a4b7b1359186d449f593c3f853f7dc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557741965443894, guid: 10a4b7b1359186d449f593c3f853f7dc, type: 3}
+      propertyPath: m_Name
+      value: Speaker
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10a4b7b1359186d449f593c3f853f7dc, type: 3}
@@ -7135,6 +7135,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Office Employee 3 : Regina'
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: a15652202ef689e44be048697719d3a8,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: cba1b1bc73dc3714aa64fd369f8885be, type: 2}
     - target: {fileID: -4216859302048453862, guid: a15652202ef689e44be048697719d3a8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7190,11 +7195,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: a15652202ef689e44be048697719d3a8,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: cba1b1bc73dc3714aa64fd369f8885be, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a15652202ef689e44be048697719d3a8, type: 3}
 --- !u!1 &1880231027

@@ -394,7 +394,7 @@ MonoBehaviour:
   tipsTitle: {fileID: 1578598785}
   tipsText: {fileID: 118060461}
   gameplayTipsText: {fileID: 2001145977}
-  toMinigame: {fileID: 413926094}
+  toMiniGame: {fileID: 413926094}
 --- !u!1 &209924233
 GameObject:
   m_ObjectHideFlags: 0

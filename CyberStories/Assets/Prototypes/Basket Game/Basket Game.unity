@@ -251,7 +251,7 @@ MonoBehaviour:
   - {fileID: 343901280105128534, guid: 464372fecbfdade43b88b13c3085e92b, type: 3}
   bonusTime: 10
   prepareTimerText: {fileID: 1000286447}
-  preprareTipsText: {fileID: 563725364}
+  prepareTipsText: {fileID: 563725364}
   prepareCanvas: {fileID: 1223131829}
   gameTimer:
   - {fileID: 610606625}
@@ -259,7 +259,7 @@ MonoBehaviour:
   platform: {fileID: 2101035126}
   nextSceneChanger: {fileID: 533225473}
   goalSpawnArea: {fileID: 909036814}
-  ballSpawnPoisition: {fileID: 1056354069}
+  ballSpawnPosition: {fileID: 1056354069}
 --- !u!4 &509893149
 Transform:
   m_ObjectHideFlags: 0
