@@ -923,10 +923,6 @@ PrefabInstance:
       propertyPath: displayWarningLogo
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1665786696, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed, type: 3}
-      propertyPath: messageDestination
-      value: 
-      objectReference: {fileID: 666805575}
     - target: {fileID: 3179543327264631267, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1051,23 +1047,27 @@ PrefabInstance:
       propertyPath: messageDestination
       value: 
       objectReference: {fileID: 666805575}
+    - target: {fileID: 1665786696, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed, type: 3}
+      propertyPath: messageDestination
+      value: 
+      objectReference: {fileID: 666805575}
     - target: {fileID: 615889077, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed, type: 3}
       propertyPath: messageDestination
       value: 
       objectReference: {fileID: 666805575}
-    - target: {fileID: 453882176, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed, type: 3}
+    - target: {fileID: 2012171101, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed, type: 3}
       propertyPath: sendMessageOnEnter
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 453882176, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed, type: 3}
+    - target: {fileID: 2012171101, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed, type: 3}
       propertyPath: messageDestination
       value: 
       objectReference: {fileID: 666805575}
-    - target: {fileID: 2012171101, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed, type: 3}
+    - target: {fileID: 453882176, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed, type: 3}
       propertyPath: sendMessageOnEnter
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2012171101, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed, type: 3}
+    - target: {fileID: 453882176, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed, type: 3}
       propertyPath: messageDestination
       value: 
       objectReference: {fileID: 666805575}

@@ -3407,8 +3407,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLevel: 1
-  UnselectedSprite: {fileID: 21300000, guid: a671e7400127532458b35da688c9489d, type: 3}
-  SelectedSprite: {fileID: 21300000, guid: 19c0030437a24dc488d682a1a3e6f47a, type: 3}
+  unselectedSprite: {fileID: 21300000, guid: a671e7400127532458b35da688c9489d, type: 3}
+  selectedSprite: {fileID: 21300000, guid: 19c0030437a24dc488d682a1a3e6f47a, type: 3}
 --- !u!1001 &840622814
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4492,9 +4492,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf26b4dcc969d6d45b3f363dbafc97bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIHeaderCanvas: {fileID: 28291938}
-  DescriptionText: {fileID: 433228168}
-  LeaderboardController: {fileID: 630974714}
+  uiHeaderCanvas: {fileID: 28291938}
+  descriptionText: {fileID: 433228168}
+  leaderboardController: {fileID: 630974714}
   levelChanger: {fileID: 142854426}
 --- !u!4 &1020027352
 Transform:
@@ -4753,8 +4753,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLevel: 1
-  UnselectedSprite: {fileID: 21300000, guid: a671e7400127532458b35da688c9489d, type: 3}
-  SelectedSprite: {fileID: 21300000, guid: 19c0030437a24dc488d682a1a3e6f47a, type: 3}
+  unselectedSprite: {fileID: 21300000, guid: a671e7400127532458b35da688c9489d, type: 3}
+  selectedSprite: {fileID: 21300000, guid: 19c0030437a24dc488d682a1a3e6f47a, type: 3}
 --- !u!1 &1061213866
 GameObject:
   m_ObjectHideFlags: 0
@@ -6346,6 +6346,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6010077049079100812, guid: 2f82348ca827986428f75eadbed25336,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.92387956
+      objectReference: {fileID: 0}
+    - target: {fileID: 6010077049079100812, guid: 2f82348ca827986428f75eadbed25336,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.38268343
+      objectReference: {fileID: 0}
+    - target: {fileID: 6010077049079100812, guid: 2f82348ca827986428f75eadbed25336,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 135
+      objectReference: {fileID: 0}
+    - target: {fileID: 6010077049079100812, guid: 2f82348ca827986428f75eadbed25336,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.0094414
+      objectReference: {fileID: 0}
+    - target: {fileID: 6010077049079100812, guid: 2f82348ca827986428f75eadbed25336,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.0450382
+      objectReference: {fileID: 0}
     - target: {fileID: 7959289989513315182, guid: 2f82348ca827986428f75eadbed25336,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -6380,31 +6405,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 4.963
-      objectReference: {fileID: 0}
-    - target: {fileID: 6010077049079100812, guid: 2f82348ca827986428f75eadbed25336,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.92387956
-      objectReference: {fileID: 0}
-    - target: {fileID: 6010077049079100812, guid: 2f82348ca827986428f75eadbed25336,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.38268343
-      objectReference: {fileID: 0}
-    - target: {fileID: 6010077049079100812, guid: 2f82348ca827986428f75eadbed25336,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 135
-      objectReference: {fileID: 0}
-    - target: {fileID: 6010077049079100812, guid: 2f82348ca827986428f75eadbed25336,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3.0094414
-      objectReference: {fileID: 0}
-    - target: {fileID: 6010077049079100812, guid: 2f82348ca827986428f75eadbed25336,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.0450382
       objectReference: {fileID: 0}
     - target: {fileID: 7807663425619534728, guid: 2f82348ca827986428f75eadbed25336,
         type: 3}
@@ -6717,8 +6717,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLevel: 1
-  UnselectedSprite: {fileID: 21300000, guid: a671e7400127532458b35da688c9489d, type: 3}
-  SelectedSprite: {fileID: 21300000, guid: 19c0030437a24dc488d682a1a3e6f47a, type: 3}
+  unselectedSprite: {fileID: 21300000, guid: a671e7400127532458b35da688c9489d, type: 3}
+  selectedSprite: {fileID: 21300000, guid: 19c0030437a24dc488d682a1a3e6f47a, type: 3}
 --- !u!114 &1805034063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7135,11 +7135,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Office Employee 3 : Regina'
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: a15652202ef689e44be048697719d3a8,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: cba1b1bc73dc3714aa64fd369f8885be, type: 2}
     - target: {fileID: -4216859302048453862, guid: a15652202ef689e44be048697719d3a8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7195,6 +7190,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: a15652202ef689e44be048697719d3a8,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: cba1b1bc73dc3714aa64fd369f8885be, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a15652202ef689e44be048697719d3a8, type: 3}
 --- !u!1 &1880231027

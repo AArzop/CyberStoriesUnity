@@ -937,10 +937,6 @@ PrefabInstance:
       propertyPath: messageDestination
       value: 
       objectReference: {fileID: 1369092346}
-    - target: {fileID: 1665786696, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed, type: 3}
-      propertyPath: messageDestination
-      value: 
-      objectReference: {fileID: 1369092346}
     - target: {fileID: 3179543327264631267, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1047,6 +1043,10 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 361733951, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed, type: 3}
+      propertyPath: messageDestination
+      value: 
+      objectReference: {fileID: 1369092346}
+    - target: {fileID: 1665786696, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed, type: 3}
       propertyPath: messageDestination
       value: 
       objectReference: {fileID: 1369092346}
