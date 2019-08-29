@@ -32,8 +32,8 @@ namespace CyberStories.Menu.Controllers.Leaderboard
         private void UpdatePlayer(int rank, DBO.Player player)
         {
             LeaderboardPlayerController playerController = GetComponentsInChildren<LeaderboardPlayerController>(true)[rank];
-            playerController.PlayerNameText.text = player.Name;
-            playerController.PlayerScoreText.text = player.Score.ToString();
+            playerController.playerNameText.text = player.name;
+            playerController.playerScoreText.text = player.score.ToString();
             playerController.IsActive = true;
         }
 

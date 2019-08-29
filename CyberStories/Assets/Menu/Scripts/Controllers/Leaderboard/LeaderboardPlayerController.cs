@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace CyberStories.Menu.Controllers.Leaderboard
 {
     public class LeaderboardPlayerController : MonoBehaviour
     {
-        public Text PlayerNameText;
-        public Text PlayerScoreText;
+        [FormerlySerializedAs("PlayerNameText")] public Text playerNameText;
+        [FormerlySerializedAs("PlayerScoreText")] public Text playerScoreText;
 
         public bool IsActive
         {

@@ -3,6 +3,7 @@ using CyberStories.Menu.Controllers.Leaderboard;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace CyberStories.Menu.Controllers
@@ -10,30 +11,34 @@ namespace CyberStories.Menu.Controllers
     public class MenuManagerController : MonoBehaviour
     {
         #region fields
+
         private static readonly IDictionary<string, string> ScenesByTag = new Dictionary<string, string>
         {
-            { "Level 1", "Fishing/Fishing" }
+            {"Level 1", "Fishing/Fishing"}
         };
 
-        public Canvas UIHeaderCanvas;
+        [FormerlySerializedAs("UIHeaderCanvas")]
+        public Canvas uiHeaderCanvas;
 
-        public Text DescriptionText;
+        [FormerlySerializedAs("DescriptionText")]
+        public Text descriptionText;
 
-        public LeaderboardController LeaderboardController;
+        [FormerlySerializedAs("LeaderboardController")]
+        public LeaderboardController leaderboardController;
 
-        private string _currentTag;
+        private string currentTag;
 
         public LevelChangerController.LevelChanger levelChanger;
 
         private PlayersDataAccess dataConnect;
+
         #endregion
 
         // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
-            Button[] buttons = UIHeaderCanvas.GetComponentsInChildren<Button>();
+            Button[] buttons = uiHeaderCanvas.GetComponentsInChildren<Button>();
             dataConnect = GetComponent<PlayersDataAccess>();
-
         }
 
         public void ButtonMenuClicked(MenuButtonController buttonController)
@@ -42,50 +47,47 @@ namespace CyberStories.Menu.Controllers
             Button current = buttonController.GetComponent<Button>();
 
             // Get all active button controllers
-            List<MenuButtonController> buttons = UIHeaderCanvas.GetComponentsInChildren<Button>()
-                                                               .Where(button => button != current && button.GetComponent<MenuButtonController>() != null)
-                                                               .Select(button => button.GetComponent<MenuButtonController>())
-                                                               .Where(button => button.IsMenuButtonActive)
-                                                               .ToList();
+            List<MenuButtonController> buttons = uiHeaderCanvas.GetComponentsInChildren<Button>()
+                .Where(button => button != current && button.GetComponent<MenuButtonController>() != null)
+                .Select(button => button.GetComponent<MenuButtonController>())
+                .Where(button => button.IsMenuButtonActive)
+                .ToList();
 
             foreach (var button in buttons)
                 button.IsMenuButtonActive = false;
 
-            _currentTag = current.tag;
+            currentTag = current.tag;
             UpdateLevelContentTag();
         }
 
         private void UpdateLevelContentTag()
         {
             // Update description content
-            DescriptionText.text = Level.GetDescriptionByTag(_currentTag);
+            descriptionText.text = Level.GetDescriptionByTag(currentTag);
 
             // Update leaderboard
             if (dataConnect.IsLoading)
             {
-                LeaderboardController.DisplayError("Récupération des meilleurs agents en cours");
+                leaderboardController.DisplayError("Récupération des meilleurs agents en cours");
             }
             else if (!dataConnect.IsError)
             {
-                IList<DBO.Player> players = Player.GetBestPlayersByLevel(_currentTag, dataConnect.Response);
-                LeaderboardController.UpdateLeaderboard(players);
+                IList<DBO.Player> players = Player.GetBestPlayersByLevel(currentTag, dataConnect.Response);
+                leaderboardController.UpdateLeaderboard(players);
             }
             else
             {
-                LeaderboardController.DisplayError("Erreur de téléchargement.");
+                leaderboardController.DisplayError("Erreur de téléchargement.");
             }
         }
 
         public void PlayButtonClicked()
         {
-            if (_currentTag == null)
+            if (currentTag == null)
                 return;
-            if (ScenesByTag.TryGetValue(_currentTag, out string sceneName))
-            {
-                levelChanger.sceneToLoad = sceneName;
-                levelChanger.ChangeScene();
-            }
+            if (!ScenesByTag.TryGetValue(currentTag, out string sceneName)) return;
+            levelChanger.sceneToLoad = sceneName;
+            levelChanger.ChangeScene();
         }
-
     }
 }

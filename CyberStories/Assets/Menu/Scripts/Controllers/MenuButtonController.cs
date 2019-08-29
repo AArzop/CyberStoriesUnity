@@ -1,33 +1,34 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace CyberStories.Menu.Controllers
 {
     public class MenuButtonController : MonoBehaviour
     {
-        private bool _isMenuButtonActive;
+        private bool isMenuButtonActive;
 
         public bool isLevel;
-        public Sprite UnselectedSprite;
-        public Sprite SelectedSprite;
+        [FormerlySerializedAs("UnselectedSprite")] public Sprite unselectedSprite;
+        [FormerlySerializedAs("SelectedSprite")] public Sprite selectedSprite;
 
         public bool IsMenuButtonActive
         {
-            get => _isMenuButtonActive;
+            get => isMenuButtonActive;
             set
             {
-                if (_isMenuButtonActive == value)
+                if (isMenuButtonActive == value)
                     return;
-                _isMenuButtonActive = value;
+                isMenuButtonActive = value;
                 Image image = GetComponent<Image>();
-                Sprite currentSprite = _isMenuButtonActive ? SelectedSprite : UnselectedSprite;
+                Sprite currentSprite = isMenuButtonActive ? selectedSprite : unselectedSprite;
                 image.sprite = currentSprite;
             }
         }
 
         public void Start()
         {
-            _isMenuButtonActive = false;
+            isMenuButtonActive = false;
         }
     }
 }

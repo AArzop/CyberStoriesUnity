@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace CyberStories.DataAccess
 {
@@ -18,15 +17,15 @@ namespace CyberStories.DataAccess
                 {
                     new DBO.Player
                     {
-                        Id = 1,
-                        Name = "Toto",
-                        Score = 50
+                        id = 1,
+                        name = "Toto",
+                        score = 50
                     },
                     new DBO.Player
                     {
-                        Id = 2,
-                        Name = "Bis",
-                        Score = 7
+                        id = 2,
+                        name = "Bis",
+                        score = 7
                     }
                 };
             else
@@ -34,21 +33,21 @@ namespace CyberStories.DataAccess
                 {
                     new DBO.Player
                     {
-                        Id = 3,
-                        Name = "Abc",
-                        Score = 50
+                        id = 3,
+                        name = "Abc",
+                        score = 50
                     },
                     new DBO.Player
                     {
-                        Id = 4,
-                        Name = "def",
-                        Score = 7
+                        id = 4,
+                        name = "def",
+                        score = 7
                     },
                     new DBO.Player
                     {
-                        Id = 5,
-                        Name = "last",
-                        Score = 0
+                        id = 5,
+                        name = "last",
+                        score = 0
                     }
                 };
         }

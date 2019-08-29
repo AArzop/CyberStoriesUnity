@@ -9,6 +9,7 @@ namespace CyberStories.BusinessManagement
         /// <see cref="DataAccess.Player.GetBestPlayersByLevel(string)"/>
         /// </summary>
         /// <param name="level">The level to get the players</param>
+        /// <param name="response">This will be logged</param>
         /// <returns></returns>
         public static IList<DBO.Player> GetBestPlayersByLevel(string level, string response)
         {

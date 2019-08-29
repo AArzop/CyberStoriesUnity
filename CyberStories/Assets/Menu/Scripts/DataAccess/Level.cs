@@ -6,13 +6,16 @@ namespace CyberStories.DataAccess
     {
         public static string GetDescriptionByTag(string tag)
         {
-            // TODO : Get these data from db
-            if (tag == "Level 1")
-                return "Yes ! First level :D";
-            else if (tag == "Level 2")
-                return "No ! Level 2 :(";
-            else
-                throw new InvalidOperationException("Tag not implemented");
+            switch (tag)
+            {
+                // TODO : Get these data from db
+                case "Level 1":
+                    return "Yes ! First level :D";
+                case "Level 2":
+                    return "No ! Level 2 :(";
+                default:
+                    throw new InvalidOperationException("Tag not implemented");
+            }
         }
     }
 }

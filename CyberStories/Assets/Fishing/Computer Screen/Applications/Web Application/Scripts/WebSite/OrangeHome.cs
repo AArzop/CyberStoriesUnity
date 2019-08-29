@@ -2,7 +2,6 @@
 {
     public override void ResetWebSite()
     {
-        
     }
 
     public void ButtonClicked()

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -9,14 +8,14 @@ public class PlayersDataAccess : MonoBehaviour
     public bool IsError { get; private set; }
     public bool IsLoading { get; private set; }
 
-    void Awake()
+    private void Awake()
     {
         // A correct website page.
         IsLoading = true;
         StartCoroutine(GetRequest("https://cyberstories.herokuapp.com/leaderboard/players/"));
     }
 
-    IEnumerator GetRequest(string uri)
+    private IEnumerator GetRequest(string uri)
     {
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {

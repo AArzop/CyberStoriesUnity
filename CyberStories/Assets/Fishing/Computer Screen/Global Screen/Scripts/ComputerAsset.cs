@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 using Valve.VR.InteractionSystem;
 
 [RequireComponent(typeof(Interactable))]
