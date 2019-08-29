@@ -12,13 +12,13 @@ public class RefactoringUtils : MonoBehaviour
     [MenuItem("Assets/Tools/Reserialize related scenes and prefabs")]
     private static void ReserializeRelatedScenesAndPrefabs()
     {
-        string[] prefabs = Directory.GetFiles(Application.dataPath, "*.prefab", SearchOption.AllDirectories);
-        string[] scenes = Directory.GetFiles(Application.dataPath, "*.unity", SearchOption.AllDirectories);
+        string[] allPrefabs = Directory.GetFiles(Application.dataPath, "*.prefab", SearchOption.AllDirectories);
+        string[] allScenes = Directory.GetFiles(Application.dataPath, "*.unity", SearchOption.AllDirectories);
 
         List<string> relatedPaths = new List<string>();
 
-        relatedPaths.AddRange(FindRelatedPrefabs(prefabs));
-        relatedPaths.AddRange(FindRelatedScenes(scenes));
+        relatedPaths.AddRange(FindRelatedPrefabs(allPrefabs));
+        relatedPaths.AddRange(FindRelatedScenes(allScenes));
 
         // reserialize
         foreach (string path in relatedPaths)
@@ -29,10 +29,10 @@ public class RefactoringUtils : MonoBehaviour
         AssetDatabase.ForceReserializeAssets(relatedPaths);
     }
 
-    private static IEnumerable<string> FindRelatedScenes(IEnumerable<string> scenes)
+    private static IEnumerable<string> FindRelatedScenes(IEnumerable<string> allScenes)
     {
         List<string> paths = new List<string>();
-        foreach (string sceneFilename in scenes)
+        foreach (string sceneFilename in allScenes)
         {
             Scene scene = EditorSceneManager.OpenScene(sceneFilename);
             Object[] deps = EditorUtility.CollectDependencies(scene.GetRootGameObjects());
@@ -53,11 +53,11 @@ public class RefactoringUtils : MonoBehaviour
         return paths;
     }
 
-    private static IEnumerable<string> FindRelatedPrefabs(IEnumerable<string> prefabs)
+    private static IEnumerable<string> FindRelatedPrefabs(IEnumerable<string> allPrefabs)
     {
         List<string> paths = new List<string>();
 
-        foreach (string absPath in prefabs)
+        foreach (string absPath in allPrefabs)
         {
             Object[] assets = AssetDatabase.LoadAllAssetsAtPath(PathUtils.AbsToProject(absPath));
             foreach (Object asset in assets)
