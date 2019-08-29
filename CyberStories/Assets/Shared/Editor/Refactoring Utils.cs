@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEditor;
@@ -10,48 +9,29 @@ using Object = UnityEngine.Object;
 
 public class RefactoringUtils : MonoBehaviour
 {
-    private static void ForEachAssetAtAbsPath(IEnumerable<string> absPaths, Action<GameObject> lambda)
-    {
-        foreach (string absPath in absPaths)
-        {
-            string projectPath = AbsPathToProjectPath(absPath);
-            Object[] assets = AssetDatabase.LoadAllAssetsAtPath(projectPath);
-            foreach (Object asset in assets)
-            {
-                if (!(asset is GameObject go)) continue;
-                lambda(go);
-            }
-        }
-    }
-
-    private static string AbsPathToProjectPath(string absPath)
-    {
-        // https://answers.unity.com/questions/24060/can-assetdatabaseloadallassetsatpath-load-all-asse.html
-        return "Assets" + absPath.Replace(Application.dataPath, "").Replace('\\', '/');
-    }
-
-    [MenuItem("Assets/Tools/Reserialize")]
-    private static void Reserialize()
+    [MenuItem("Assets/Tools/Reserialize related scenes and prefabs")]
+    private static void ReserializeRelatedScenesAndPrefabs()
     {
         string[] prefabs = Directory.GetFiles(Application.dataPath, "*.prefab", SearchOption.AllDirectories);
         string[] scenes = Directory.GetFiles(Application.dataPath, "*.unity", SearchOption.AllDirectories);
 
-        List<string> paths = new List<string>();
+        List<string> relatedPaths = new List<string>();
 
-        void AddPathInResIfHasComponentInSelectedComponent(GameObject go)
+        relatedPaths.AddRange(FindRelatedPrefabs(prefabs));
+        relatedPaths.AddRange(FindRelatedScenes(scenes));
+
+        // reserialize
+        foreach (string path in relatedPaths)
         {
-            // test if the selected game object contains one of the selected scripts
-            if (!Selection.objects.Any(selected => go.GetComponent(selected.name))) return;
-            
-            string path = AssetDatabase.GetAssetPath(go);
-            if (!paths.Contains(path))
-            {
-                paths.Add(path);
-            }
+            Debug.Log("Reserializing " + path);
         }
 
-        ForEachAssetAtAbsPath(prefabs, AddPathInResIfHasComponentInSelectedComponent);
+        AssetDatabase.ForceReserializeAssets(relatedPaths);
+    }
 
+    private static IEnumerable<string> FindRelatedScenes(IEnumerable<string> scenes)
+    {
+        List<string> paths = new List<string>();
         foreach (string sceneFilename in scenes)
         {
             Scene scene = EditorSceneManager.OpenScene(sceneFilename);
@@ -59,9 +39,10 @@ public class RefactoringUtils : MonoBehaviour
             foreach (Object dep in deps)
             {
                 if (!dep) continue;
+                // test if the scene dependency contains one of the selected scripts
                 if (!Selection.objects.Any(selected => dep.Equals(selected))) continue;
 
-                string path = AbsPathToProjectPath(sceneFilename);
+                string path = PathUtils.AbsToProject(sceneFilename);
                 if (!paths.Contains(path))
                 {
                     paths.Add(path);
@@ -69,10 +50,30 @@ public class RefactoringUtils : MonoBehaviour
             }
         }
 
-        foreach (string path in paths)
+        return paths;
+    }
+
+    private static IEnumerable<string> FindRelatedPrefabs(IEnumerable<string> prefabs)
+    {
+        List<string> paths = new List<string>();
+
+        foreach (string absPath in prefabs)
         {
-            Debug.Log("Reserializing " + path);
+            Object[] assets = AssetDatabase.LoadAllAssetsAtPath(PathUtils.AbsToProject(absPath));
+            foreach (Object asset in assets)
+            {
+                if (!(asset is GameObject go)) continue;
+                // test if the game object contains one of the selected scripts
+                if (!Selection.objects.Any(selected => go.GetComponent(selected.name))) continue;
+
+                string path = AssetDatabase.GetAssetPath(go);
+                if (!paths.Contains(path))
+                {
+                    paths.Add(path);
+                }
+            }
         }
-        AssetDatabase.ForceReserializeAssets(paths);
+
+        return paths;
     }
 }
