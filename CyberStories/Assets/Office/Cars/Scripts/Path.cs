@@ -5,23 +5,22 @@ namespace CartoonCar
 {
     public class Path : MonoBehaviour
     {
-
         public Color lineColor;
 
         private List<Transform> nodes = new List<Transform>();
 
-        void OnDrawGizmosSelected()
+        private void OnDrawGizmosSelected()
         {
             Gizmos.color = lineColor;
 
             Transform[] pathTransforms = GetComponentsInChildren<Transform>();
             nodes = new List<Transform>();
 
-            for (int i = 0; i < pathTransforms.Length; i++)
+            foreach (var pathTransform in pathTransforms)
             {
-                if (pathTransforms[i] != transform)
+                if (pathTransform != transform)
                 {
-                    nodes.Add(pathTransforms[i]);
+                    nodes.Add(pathTransform);
                 }
             }
 
@@ -43,6 +42,5 @@ namespace CartoonCar
                 Gizmos.DrawWireSphere(currentNode, 0.3f);
             }
         }
-
     }
 }

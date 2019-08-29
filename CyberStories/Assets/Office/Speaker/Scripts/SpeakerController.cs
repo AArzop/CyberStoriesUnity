@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace CyberStories.Office.Controllers
 {
     public class SpeakerController : MonoBehaviour
     {
-        public AudioSource _audioSource;
+        [FormerlySerializedAs("_audioSource")] public AudioSource audioSource;
 
         public void SwitchOnOffAudio()
         {
-            if (_audioSource.isPlaying)
-                _audioSource.Stop();
+            if (audioSource.isPlaying)
+                audioSource.Stop();
             else
-                _audioSource.Play();
+                audioSource.Play();
         }
     }
 }

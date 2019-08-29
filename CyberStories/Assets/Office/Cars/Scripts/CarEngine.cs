@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace CartoonCar
 {
     public class CarEngine : MonoBehaviour
     {
-
         public Transform path;
         public float maxSteerAngle = 45f;
-        public WheelCollider wheelFL;
-        public WheelCollider wheelFR;
+        [FormerlySerializedAs("wheelFL")] public WheelCollider wheelFl;
+        [FormerlySerializedAs("wheelFR")] public WheelCollider wheelFr;
         public float maxMotorTorque = 80f;
         public float currentSpeed;
         public float maxSpeed = 100f;
@@ -20,9 +19,10 @@ namespace CartoonCar
         private List<Transform> nodes;
         private int currectNode = 0;
 
-        [Min(0)]
-        public float Delay = 0f;
-        private bool isCouroutineExecuting = false;
+        [FormerlySerializedAs("Delay")] [Min(0)]
+        public float delay = 0f;
+
+        private bool isCoroutineExecuting = false;
 
         private void Start()
         {
@@ -31,26 +31,26 @@ namespace CartoonCar
             Transform[] pathTransforms = path.GetComponentsInChildren<Transform>();
             nodes = new List<Transform>();
 
-            for (int i = 0; i < pathTransforms.Length; i++)
+            foreach (var pathTransform in pathTransforms)
             {
-                if (pathTransforms[i] != path.transform)
-                    nodes.Add(pathTransforms[i]);
+                if (pathTransform != path.transform)
+                    nodes.Add(pathTransform);
             }
 
-            if (Delay > 0)
+            if (delay > 0)
                 StartCoroutine(DelayObject());
         }
 
         private IEnumerator DelayObject()
         {
-            isCouroutineExecuting = true;
-            yield return new WaitForSeconds(Delay);
-            isCouroutineExecuting = false;
+            isCoroutineExecuting = true;
+            yield return new WaitForSeconds(delay);
+            isCoroutineExecuting = false;
         }
 
         private void FixedUpdate()
         {
-            if (isCouroutineExecuting)
+            if (isCoroutineExecuting)
                 return;
             ApplySteer();
             Drive();
@@ -61,22 +61,22 @@ namespace CartoonCar
         {
             Vector3 relativeVector = transform.InverseTransformPoint(nodes[currectNode].position);
             float newSteer = (relativeVector.x / relativeVector.magnitude) * maxSteerAngle;
-            wheelFL.steerAngle = newSteer;
-            wheelFR.steerAngle = newSteer;
+            wheelFl.steerAngle = newSteer;
+            wheelFr.steerAngle = newSteer;
         }
 
         private void Drive()
         {
-            currentSpeed = 2 * Mathf.PI * wheelFL.radius * wheelFL.rpm * 60 / 1000;
+            currentSpeed = 2 * Mathf.PI * wheelFl.radius * wheelFl.rpm * 60 / 1000;
             if (currentSpeed < maxSpeed)
             {
-                wheelFL.motorTorque = maxMotorTorque;
-                wheelFR.motorTorque = maxMotorTorque;
+                wheelFl.motorTorque = maxMotorTorque;
+                wheelFr.motorTorque = maxMotorTorque;
             }
             else
             {
-                wheelFL.motorTorque = 0;
-                wheelFR.motorTorque = 0;
+                wheelFl.motorTorque = 0;
+                wheelFr.motorTorque = 0;
             }
         }
 
