@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public abstract class BaseBasketPlay : MonoBehaviour
 {
@@ -12,13 +10,13 @@ public abstract class BaseBasketPlay : MonoBehaviour
         game = FindObjectOfType<PhishingGameplayManager>();
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ball"))
         {
             var obj = GameObject.Find(other.name);
             BasketGameBall ball = obj.GetComponent<BasketGameBall>();
-            if (ball != null && !ball.isGrabbed)
+            if (ball != null && !ball.IsGrabbed)
                 game.Mark(this, ball);
         }
     }

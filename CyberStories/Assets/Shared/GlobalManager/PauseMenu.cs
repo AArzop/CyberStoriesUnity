@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
 
@@ -20,7 +18,7 @@ public class PauseMenu : MonoBehaviour
         menu.SetActive(false);
     }
 
-    private void checkInput()
+    private void CheckInput()
     {
         foreach (var hand in player.hands)
         {
@@ -33,9 +31,9 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
-        checkInput();
+        CheckInput();
 
         if (visible)
         {
@@ -48,7 +46,6 @@ public class PauseMenu : MonoBehaviour
             currentHand = null;
             menu.SetActive(false);
         }
-
     }
 
     public void ResumeButton()

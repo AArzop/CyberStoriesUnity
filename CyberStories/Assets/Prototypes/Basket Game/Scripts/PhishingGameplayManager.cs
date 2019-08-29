@@ -4,14 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Serialization;
 
 public class PhishingGameplayManager : MonoBehaviour
 {
-    [Range(1, 15)]
-    public int nbGoal;
+    [Range(1, 15)] public int nbGoal;
 
-    [Range(1, 5)]
-    public int nbBall;
+    [Range(1, 5)] public int nbBall;
 
     public BasketGameBall ballPrefab;
     public List<BaseBasketPlay> goalPrefab;
@@ -19,10 +18,13 @@ public class PhishingGameplayManager : MonoBehaviour
     public uint bonusTime = 10;
 
     public Text prepareTimerText;
-    public Text preprareTipsText;
+
+    [FormerlySerializedAs("preprareTipsText")]
+    public Text prepareTipsText;
+
     public Canvas prepareCanvas;
 
-    public List<TextMeshPro > gameTimer;
+    public List<TextMeshPro> gameTimer;
 
     public GameObject platform;
 
@@ -32,20 +34,27 @@ public class PhishingGameplayManager : MonoBehaviour
     private List<BaseBasketPlay> goalList;
 
     private TimeSpan timer;
+
     private enum State
     {
         Prepare,
         Game,
         End
     }
+
     private State currentState;
 
     public GameObject goalSpawnArea;
-    public GameObject ballSpawnPoisition;
+
+    [FormerlySerializedAs("ballSpawnPoisition")]
+    public GameObject ballSpawnPosition;
 
     private void GenerateBall()
     {
-        Vector3 position = new Vector3(ballSpawnPoisition.transform.position.x + UnityEngine.Random.Range(-0.1f, 0.1f), ballSpawnPoisition.transform.position.y, ballSpawnPoisition.transform.position.z + UnityEngine.Random.Range(-0.1f, 0.1f));
+        Vector3 position = new Vector3(
+            ballSpawnPosition.transform.position.x + UnityEngine.Random.Range(-0.1f, 0.1f),
+            y: ballSpawnPosition.transform.position.y,
+            ballSpawnPosition.transform.position.z + UnityEngine.Random.Range(-0.1f, 0.1f));
         ballList.Add(Instantiate(ballPrefab, position, Quaternion.identity));
     }
 
@@ -53,7 +62,9 @@ public class PhishingGameplayManager : MonoBehaviour
     {
         Vector3 center = goalSpawnArea.transform.position;
         Vector3 area = goalSpawnArea.transform.localScale / 2;
-        Vector3 position = new Vector3(center.x + UnityEngine.Random.Range(-1f, 1f) * area.x, center.y + UnityEngine.Random.Range(-1f, 1f) * area.y, center.z + UnityEngine.Random.Range(-1f, 1f) * area.z);
+        Vector3 position = new Vector3(center.x + UnityEngine.Random.Range(-1f, 1f) * area.x,
+            center.y + UnityEngine.Random.Range(-1f, 1f) * area.y,
+            center.z + UnityEngine.Random.Range(-1f, 1f) * area.z);
 
         int index = UnityEngine.Random.Range(0, goalPrefab.Count - 1);
 
@@ -84,7 +95,8 @@ public class PhishingGameplayManager : MonoBehaviour
 
     private void SetupGameTimer()
     {
-        string str = (timer.Seconds > 9 ? timer.Seconds.ToString() : "0" + timer.Seconds.ToString()) + ":" + (timer.Milliseconds > 9 ? timer.Milliseconds.ToString() : "0" + timer.Milliseconds.ToString());
+        string str = (timer.Seconds > 9 ? timer.Seconds.ToString() : "0" + timer.Seconds.ToString()) + ":" +
+                     (timer.Milliseconds > 9 ? timer.Milliseconds.ToString() : "0" + timer.Milliseconds.ToString());
         foreach (var item in gameTimer)
             item.text = str;
     }
@@ -132,12 +144,12 @@ public class PhishingGameplayManager : MonoBehaviour
                 SetupEndState();
                 break;
 
-            default:
+            case State.End:
                 break;
         }
     }
 
-    void Start()
+    private void Start()
     {
         currentState = State.Prepare;
         ballList = new List<BasketGameBall>();
@@ -175,7 +187,7 @@ public class PhishingGameplayManager : MonoBehaviour
     {
     }
 
-    void Update()
+    private void Update()
     {
         switch (currentState)
         {
@@ -189,9 +201,6 @@ public class PhishingGameplayManager : MonoBehaviour
 
             case State.End:
                 UpdateEnd();
-                break;
-
-            default:
                 break;
         }
     }

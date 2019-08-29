@@ -1,6 +1,4 @@
 ﻿using CyberStories.DBO;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
@@ -23,7 +21,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             if (isDialogue && !isEnd)
             {
-                isEnd = FindObjectOfType<DialogueSystem>().nextLine();                
+                isEnd = FindObjectOfType<DialogueSystem>().NextLine();                
                 if (isEnd)
                 {                    
                     isDialogue = false;

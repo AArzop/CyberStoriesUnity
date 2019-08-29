@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class PhishingReview : MonoBehaviour
@@ -16,11 +16,11 @@ public class PhishingReview : MonoBehaviour
     public Text tipsText;
     public Text gameplayTipsText;
 
-    public ClickToChangeScene toMinigame;
+    [FormerlySerializedAs("toMinigame")] public ClickToChangeScene toMiniGame;
 
-    private void UnlockMinigameScene()
+    private void UnlockMiniGameScene()
     {
-        toMinigame.Unlock();
+        toMiniGame.Unlock();
         gameplayTipsText.text = GlobalManager.GetLocalization("Review_UnlockGameplay");
     }
 
@@ -32,18 +32,18 @@ public class PhishingReview : MonoBehaviour
         successText.text = GlobalManager.GetLocalization("PhishingReview_Success");
 
         noteInput.text = "100 / 100";
-        UnlockMinigameScene();
+        UnlockMiniGameScene();
     }
 
     private List<int> GetEvaluationAndCost(PhishingDetails detail)
     {
         List<int> ret = new List<int>();
 
-        int note = 100 - detail.wrongMail * 5 - detail.phishingWebSite * 40;
+        int note = 100 - detail.WrongMail * 5 - detail.FishingWebSite * 40;
         note = note < 0 ? 0 : note;
 
         ret.Add(note);
-        ret.Add(detail.phishingWebSite * 650 + detail.wrongMail * 20);
+        ret.Add(detail.FishingWebSite * 650 + detail.WrongMail * 20);
 
         return ret;
     }
@@ -66,20 +66,19 @@ public class PhishingReview : MonoBehaviour
         costText.text += " " + tab[cost].ToString() + "€";
 
         if (tab[note] > 75)
-            UnlockMinigameScene();
+            UnlockMiniGameScene();
         else
             gameplayTipsText.text = GlobalManager.GetLocalization("Review_LockGameplay");
     }
 
-    void Awake()
+    private void Awake()
     {
-        PhishingDetails detail = GlobalManager.details as PhishingDetails;
-        if (detail == null)
+        if (!(GlobalManager.Details is PhishingDetails detail))
             return;
 
         noteTitle.text = GlobalManager.GetLocalization("Review_Note");
 
-        if (detail.wrongMail == 0 && detail.phishingWebSite == 0)
+        if (detail.WrongMail == 0 && detail.FishingWebSite == 0)
             GenerateSuccessCanvas();
         else
             GenerateFailedCanvas(detail);

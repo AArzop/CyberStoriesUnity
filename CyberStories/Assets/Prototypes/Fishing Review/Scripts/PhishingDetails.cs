@@ -1,17 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class PhishingDetails : BaseDetails
+﻿public class PhishingDetails : BaseDetails
 {
-    public int correctMail { get; set; }
-    public int wrongMail { get; set; }
-    public int phishingWebSite { get; set; }
+    public int CorrectMail { get; set; }
+    public int WrongMail { get; set; }
+    public int FishingWebSite { get; set; }
 
     public PhishingDetails()
     {
-        correctMail = 0;
-        wrongMail = 0;
-        phishingWebSite = 0;
+        CorrectMail = 0;
+        WrongMail = 0;
+        FishingWebSite = 0;
     }
 }

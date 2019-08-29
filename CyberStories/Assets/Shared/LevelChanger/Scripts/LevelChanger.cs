@@ -25,7 +25,7 @@ namespace LevelChangerController
             StartCoroutine(LoadScene());
         }
 
-        IEnumerator LoadScene()
+        private IEnumerator LoadScene()
         {
             yield return new WaitForSeconds(0.25f);
             // Begin to load the Scene you specify

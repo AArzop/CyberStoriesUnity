@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class PhishingQuestManager : BaseQuestManager
+﻿public class PhishingQuestManager : BaseQuestManager
 {
     private new void Awake()
     {

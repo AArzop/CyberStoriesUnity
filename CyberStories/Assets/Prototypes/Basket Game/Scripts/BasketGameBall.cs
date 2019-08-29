@@ -1,27 +1,26 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Valve.VR.InteractionSystem;
 
 [RequireComponent(typeof(Interactable))]
 public class BasketGameBall : MonoBehaviour
 {
     private PhishingGameplayManager manager;
-    public bool isGrabbed { get; set; }
+    public bool IsGrabbed { get; set; }
 
     private void Awake()
     {
-        isGrabbed = false;
-        manager = GameObject.FindObjectOfType<PhishingGameplayManager>();
+        IsGrabbed = false;
+        manager = FindObjectOfType<PhishingGameplayManager>();
     }
 
     protected void OnAttachedToHand(Hand hand)
     {
-        isGrabbed = true;
+        IsGrabbed = true;
     }
 
     protected virtual void OnDetachedFromHand(Hand hand)
     {
-        isGrabbed = false;
+        IsGrabbed = false;
     }
 
 

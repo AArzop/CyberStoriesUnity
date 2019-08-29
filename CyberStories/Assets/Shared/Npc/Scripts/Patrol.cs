@@ -5,13 +5,11 @@ namespace CyberStories.CyberstoriesNpc.Controllers
 {
     public class Patrol : MonoBehaviour
     {
-
         public Transform[] points;
         private int destPoint = 0;
         private NavMeshAgent agent;
 
-        [Min(0)]
-        public float rotationSpeed = 3f;
+        [Min(0)] public float rotationSpeed = 3f;
         private Animator animator;
 
         public bool mustGoBack;
@@ -26,7 +24,7 @@ namespace CyberStories.CyberstoriesNpc.Controllers
             GotoNextPoint();
         }
 
-        
+
         private void LateUpdate()
         {
             // Direct rotation
@@ -36,9 +34,8 @@ namespace CyberStories.CyberstoriesNpc.Controllers
                 Quaternion lookRotation = Quaternion.LookRotation(agent.velocity.normalized);
                 transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
             }
-            
         }
-        
+
 
         void GotoNextPoint()
         {
@@ -54,7 +51,8 @@ namespace CyberStories.CyberstoriesNpc.Controllers
             if (!mustGoBack)
             {
                 destPoint = (destPoint + 1) % points.Length;
-            } else
+            }
+            else
             {
                 if (destPoint == 0)
                     isGoingBack = false;
@@ -65,7 +63,7 @@ namespace CyberStories.CyberstoriesNpc.Controllers
         }
 
 
-        void Update()
+        private void Update()
         {
             // Choose the next destination point when the agent gets
             // close to the current one.

@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 public class PhishingMainQuest : BaseQuest
 {
@@ -9,11 +8,9 @@ public class PhishingMainQuest : BaseQuest
 
     public List<BaseWebSite> webSites;
     private Dictionary<BaseWebSite, bool> siteConsulted;
-    private List<string> phishingwebSiteConsulted;
-
+    private List<string> fishingWebsiteConsulted;
 
     private PhishingDetails details;
-    
 
     private new void Awake()
     {
@@ -22,9 +19,9 @@ public class PhishingMainQuest : BaseQuest
         mailTreated = new Dictionary<Mail, bool>();
         siteConsulted = new Dictionary<BaseWebSite, bool>();
         siteConsulted = new Dictionary<BaseWebSite, bool>();
-        phishingwebSiteConsulted = new List<string>();
+        fishingWebsiteConsulted = new List<string>();
 
-        details = GlobalManager.details as PhishingDetails;
+        details = GlobalManager.Details as PhishingDetails;
         foreach (var site in webSites)
             siteConsulted[site] = false;
     }
@@ -38,14 +35,13 @@ public class PhishingMainQuest : BaseQuest
         if (mailApp.newMails.Count != 0)
             return;
 
-        foreach (var pair in siteConsulted)
+        if (siteConsulted.Any(pair => !pair.Value))
         {
-            if (!pair.Value)
-                return;
+            return;
         }
 
         EndQuest();
-        questManager.FullfillStep();
+        questManager.FulfillStep();
     }
 
     public override void EndQuest()
@@ -57,12 +53,12 @@ public class PhishingMainQuest : BaseQuest
         if (details == null)
             return;
 
-        foreach (var pair in mailTreated)
+        foreach (KeyValuePair<Mail, bool> pair in mailTreated)
         {
             if (pair.Value)
-                details.correctMail++;
+                details.CorrectMail++;
             else
-                details.wrongMail++;
+                details.WrongMail++;
         }
     }
 
@@ -89,11 +85,11 @@ public class PhishingMainQuest : BaseQuest
 
     public void OnPhishing(string url)
     {
-        if (details == null || phishingwebSiteConsulted.Contains(url))
+        if (details == null || fishingWebsiteConsulted.Contains(url))
             return;
 
-        details.phishingWebSite++;
-        phishingwebSiteConsulted.Add(url);
+        details.FishingWebSite++;
+        fishingWebsiteConsulted.Add(url);
     }
 
     public override string GetQuestInformation()

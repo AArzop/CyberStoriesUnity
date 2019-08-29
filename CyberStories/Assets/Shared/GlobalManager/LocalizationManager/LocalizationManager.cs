@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -14,8 +13,8 @@ public class LocalizationManager
     #region Attributes
 
     private Language currentLanguage;
-    private Dictionary<string, string> locaDictionnary;
-    private const string fileName = "loca.csv";
+    private readonly Dictionary<string, string> locaDictionary;
+    private const string FileName = "loca.csv";
     private bool loadSuccessfull = false;
 
     #endregion
@@ -23,21 +22,22 @@ public class LocalizationManager
     public LocalizationManager()
     {
         currentLanguage = Language.Francais;
-        locaDictionnary = new Dictionary<string, string>();
-        string path = Path.Combine(Application.dataPath + "/Shared/GlobalManager/LocalizationManager", fileName);
+        locaDictionary = new Dictionary<string, string>();
+        string path = Path.Combine(Application.dataPath + "/Shared/GlobalManager/LocalizationManager", FileName);
         if (!File.Exists(path))
         {
             loadSuccessfull = false;
             Debug.Assert(false, "Loca.csv is missing");
             return;
         }
+
         LoadLocalizationFile();
     }
 
     private void LoadLocalizationFile()
     {
-        locaDictionnary.Clear();
-        string path = Path.Combine(Application.dataPath + "/Shared/GlobalManager/LocalizationManager", fileName);
+        locaDictionary.Clear();
+        string path = Path.Combine(Application.dataPath + "/Shared/GlobalManager/LocalizationManager", FileName);
 
         string fileData = File.ReadAllText(path);
         string[] lines = fileData.Split("\n"[0]);
@@ -48,8 +48,9 @@ public class LocalizationManager
             System.Console.WriteLine(lines[id]);
             string[] loc = lines[id].Split(";"[0]);
 
-            locaDictionnary.Add(loc[0], loc[(int)currentLanguage]);
+            locaDictionary.Add(loc[0], loc[(int) currentLanguage]);
         }
+
         loadSuccessfull = true;
     }
 
@@ -61,9 +62,9 @@ public class LocalizationManager
 
     public string GetLocalization(string key)
     {
-        if (locaDictionnary.ContainsKey(key))
-            return locaDictionnary[key];
+        if (locaDictionary.ContainsKey(key))
+            return locaDictionary[key];
 
-        return "*** UNFOUND LOCA ****";
+        return "*** LOCA NOT FOUND ****";
     }
 }

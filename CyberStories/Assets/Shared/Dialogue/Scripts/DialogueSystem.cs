@@ -1,8 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using CyberStories.DBO;
-using System;
 using TMPro;
 
 public class DialogueSystem : MonoBehaviour
@@ -11,16 +9,16 @@ public class DialogueSystem : MonoBehaviour
     private TextMeshProUGUI textDialogue;
 
     public void StartDialogue(DialogueLine firstLine, TextMeshProUGUI tmPro)
-    {       
+    {
         actualLine = firstLine;
         textDialogue = tmPro;
-        nextLine();
+        NextLine();
     }
 
     //answer is the answer that you clicked on (its list number, -1 is when you call the function without answers)
     //returns false if dialogue end, true otherwise
-    public bool nextLine(int answer = -1)
-    {        
+    public bool NextLine(int answer = -1)
+    {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(actualLine.name + ": " + actualLine.textLine));
 
@@ -38,13 +36,14 @@ public class DialogueSystem : MonoBehaviour
         {
             actualLine = actualLine.nextLine[0];
         }
+
         return false;
     }
 
-    IEnumerator TypeSentence(string sentence)
+    private IEnumerator TypeSentence(string sentence)
     {
         textDialogue.text = "";
-        foreach (char letter in sentence.ToCharArray())
+        foreach (char letter in sentence)
         {
             textDialogue.text += letter;
             yield return null;

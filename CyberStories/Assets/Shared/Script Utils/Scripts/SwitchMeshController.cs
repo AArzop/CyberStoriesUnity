@@ -1,34 +1,29 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace CyberStories.Office.Controllers
 {
     public class SwitchMeshController : MonoBehaviour
     {
-        public Mesh OnMeshRenderer;
-        public Mesh OffMeshRenderer;
+        [FormerlySerializedAs("OnMeshRenderer")] public Mesh onMeshRenderer;
+        [FormerlySerializedAs("OffMeshRenderer")] public Mesh offMeshRenderer;
 
-        public bool IsOn;
+        [FormerlySerializedAs("IsOn")] public bool isOn;
 
-        public GameObject TargetGameObject;
+        [FormerlySerializedAs("TargetGameObject")] public GameObject targetGameObject;
 
-        private MeshFilter _currentMeshFilter;
+        private MeshFilter currentMeshFilter;
 
-        void Start()
+        private void Start()
         {
-            _currentMeshFilter = TargetGameObject.GetComponent<MeshFilter>();
-            if (IsOn)
-                _currentMeshFilter.mesh = OnMeshRenderer;
-            else
-                _currentMeshFilter.mesh = OffMeshRenderer;
+            currentMeshFilter = targetGameObject.GetComponent<MeshFilter>();
+            currentMeshFilter.mesh = isOn ? onMeshRenderer : offMeshRenderer;
         }
 
         public void SwitchMeshRenderer()
         {
-            if (IsOn)
-                _currentMeshFilter.mesh = OffMeshRenderer;
-            else
-                _currentMeshFilter.mesh = OnMeshRenderer;
-            IsOn = !IsOn;
+            currentMeshFilter.mesh = isOn ? offMeshRenderer : onMeshRenderer;
+            isOn = !isOn;
         }
     }
 }

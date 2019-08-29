@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace CyberStories.DBO
+﻿namespace CyberStories.DBO
 {
     [System.Serializable]
     public class DialogueLine

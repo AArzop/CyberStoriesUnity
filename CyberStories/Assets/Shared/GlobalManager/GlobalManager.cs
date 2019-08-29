@@ -2,44 +2,43 @@
 
 public class GlobalManager
 {
-    private static LocalizationManager locaManager = null;
-    public static BaseQuestManager questManager { get; set; }
-    public static BaseDetails details { get; set; }
+    private static LocalizationManager LocaManager = null;
+    public static BaseQuestManager QuestManager { get; set; }
+    public static BaseDetails Details { get; set; }
 
-    const string mainMenuSceneName = "Menu/Menu";
+    private const string MainMenuSceneName = "Menu/Menu";
 
     public static void SetupManager()
     {
-        if (locaManager == null)
-            locaManager = new LocalizationManager();
+        if (LocaManager == null)
+            LocaManager = new LocalizationManager();
     }
 
     public static string GetLocalization(string key)
     {
-        if (locaManager != null)
-            return locaManager.GetLocalization(key);
+        if (LocaManager != null)
+            return LocaManager.GetLocalization(key);
 
         return "*** CANNOT OPEN FILE ***";
     }
 
     public void ChangeLanguage(LocalizationManager.Language language)
     {
-        locaManager.ChangeLanguage(language);
+        LocaManager.ChangeLanguage(language);
     }
 
     public static void ResetGlobalManager()
     {
-        questManager = null;
+        QuestManager = null;
     }
 
     public static void QuitGameToMenu(bool saveScore)
     {
         if (saveScore)
         {
-
         }
 
-        questManager = null;
-        SceneManager.LoadScene(mainMenuSceneName);
+        QuestManager = null;
+        SceneManager.LoadScene(MainMenuSceneName);
     }
 }

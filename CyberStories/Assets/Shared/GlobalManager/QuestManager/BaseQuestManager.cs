@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class BaseQuestManager : MonoBehaviour
@@ -14,12 +13,12 @@ public abstract class BaseQuestManager : MonoBehaviour
         if (nextSceneChanger != null)
             nextSceneChanger.gameObject.SetActive(false);
 
-        GlobalManager.details = new PhishingDetails();
+        GlobalManager.Details = new PhishingDetails();
 
         // First launch of the scene
-        if (GlobalManager.questManager == null)
+        if (GlobalManager.QuestManager == null)
         {
-            GlobalManager.questManager = this;
+            GlobalManager.QuestManager = this;
             currentStep = stepsList[0];
             currentStepIndex = 0;
         }
@@ -30,7 +29,7 @@ public abstract class BaseQuestManager : MonoBehaviour
         return currentStep;
     }
 
-    public void FullfillStep()
+    public void FulfillStep()
     {
         currentStep.EvaluateQuest();
         ++currentStepIndex;

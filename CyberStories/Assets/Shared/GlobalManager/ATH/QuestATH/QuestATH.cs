@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class QuestATH : MonoBehaviour
@@ -9,7 +7,7 @@ public class QuestATH : MonoBehaviour
 
     public void UpdateQuestATH()
     {
-        listQuestText.text = GlobalManager.questManager.GetCurrentStep()?.GetQuestInformation();
+        listQuestText.text = GlobalManager.QuestManager.GetCurrentStep()?.GetQuestInformation();
     }
 
     private void Start()
