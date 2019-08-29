@@ -5,7 +5,7 @@ namespace CyberStories.Office.Controllers
 {
     public class LampController : MonoBehaviour
     {
-        [FormerlySerializedAs("Light")] public new Light light;
+        public new Light light;
 
         /// <summary>
         /// Switch on/off the light when the button is in the down state

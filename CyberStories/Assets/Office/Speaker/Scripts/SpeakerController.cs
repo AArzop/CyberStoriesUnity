@@ -5,7 +5,7 @@ namespace CyberStories.Office.Controllers
 {
     public class SpeakerController : MonoBehaviour
     {
-        [FormerlySerializedAs("_audioSource")] public AudioSource audioSource;
+        public AudioSource audioSource;
 
         public void SwitchOnOffAudio()
         {

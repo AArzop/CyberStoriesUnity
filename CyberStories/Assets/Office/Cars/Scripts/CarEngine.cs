@@ -9,8 +9,8 @@ namespace CartoonCar
     {
         public Transform path;
         public float maxSteerAngle = 45f;
-        [FormerlySerializedAs("wheelFL")] public WheelCollider wheelFl;
-        [FormerlySerializedAs("wheelFR")] public WheelCollider wheelFr;
+        public WheelCollider wheelFl;
+        public WheelCollider wheelFr;
         public float maxMotorTorque = 80f;
         public float currentSpeed;
         public float maxSpeed = 100f;
@@ -19,7 +19,7 @@ namespace CartoonCar
         private List<Transform> nodes;
         private int currectNode = 0;
 
-        [FormerlySerializedAs("Delay")] [Min(0)]
+        [Min(0)]
         public float delay = 0f;
 
         private bool isCoroutineExecuting = false;
