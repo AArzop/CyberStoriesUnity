@@ -6,16 +6,15 @@ public class Mail : MonoBehaviour
 {
     #region Keys
 
-    [FormerlySerializedAs("ObjectKey")] public string objectKey;
-    [FormerlySerializedAs("SourceKey")] public string sourceKey;
+    public string objectKey;
+    public string sourceKey;
     public string bodyKey;
     public string dateTimeStr;
     public bool isThereLink;
     public string linkKey;
 
     #endregion
-
-    [FormerlySerializedAs("isPhishingMail")]
+    
     public bool isFishingMail;
 
     public DateTime DateTime { get; set; }

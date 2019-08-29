@@ -5,7 +5,7 @@ using Valve.VR.InteractionSystem;
 [RequireComponent(typeof(Interactable))]
 public class ComputerAsset : MonoBehaviour
 {
-    [FormerlySerializedAs("GlobalScreen")] public GlobalScreen globalScreen;
+    public GlobalScreen globalScreen;
 
     private void HandHoverUpdate(Hand hand)
     {

@@ -5,9 +5,9 @@ public abstract class BaseWebSite : MonoBehaviour
 {
     public WebApplication app;
 
-    [FormerlySerializedAs("Icon")] public Sprite icon;
+    public Sprite icon;
 
-    [FormerlySerializedAs("UrlKey")] public string urlKey;
+    public string urlKey;
     public string nextUrlKey;
     public bool isThereNextSite;
 

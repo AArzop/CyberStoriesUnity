@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class OrangeLogin : BaseWebSite
 {
-    [FormerlySerializedAs("isPhisingWebSite")] public bool isFishingWebSite;
-    [FormerlySerializedAs("sendPhishingMessage")] public bool sendFishingMessage;
+    public bool isFishingWebSite;
+    public bool sendFishingMessage;
 
     public override void ResetWebSite()
     {
