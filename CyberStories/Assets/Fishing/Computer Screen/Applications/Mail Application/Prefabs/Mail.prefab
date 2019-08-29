@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5421288633259743133}
   - component: {fileID: 5421288633259743132}
   m_Layer: 0
-  m_Name: MAIL
+  m_Name: Mail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,9 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aa02bcbd93183746a0f048054733edc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectKey: 
-  SourceKey: 
+  objectKey: 
+  sourceKey: 
   bodyKey: 
   dateTimeStr: 
   isThereLink: 0
-  link: 
+  linkKey: 
+  isFishingMail: 0
