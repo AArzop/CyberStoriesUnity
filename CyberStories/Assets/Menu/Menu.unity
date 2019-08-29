@@ -2815,7 +2815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7ee298164390b4bad7fb936c546b74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioSource: {fileID: 888956537}
+  audioSource: {fileID: 888956537}
 --- !u!1001 &690705640
 PrefabInstance:
   m_ObjectHideFlags: 0

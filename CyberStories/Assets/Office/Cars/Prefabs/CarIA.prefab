@@ -942,11 +942,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path: {fileID: 0}
   maxSteerAngle: 45
-  wheelFL: {fileID: 1285708920}
-  wheelFR: {fileID: 683045234}
-  wheelRL: {fileID: 1264757066}
-  wheelRR: {fileID: 304559219}
+  wheelFl: {fileID: 1285708920}
+  wheelFr: {fileID: 683045234}
   maxMotorTorque: 80
   currentSpeed: 0
   maxSpeed: 100
   centerOfMass: {x: 0, y: -0.2, z: 0}
+  delay: 0
