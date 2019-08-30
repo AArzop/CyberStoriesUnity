@@ -4,29 +4,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Serialization;
 
 public class PhishingGameplayManager : MonoBehaviour
 {
-    [Range(1, 15)] public int nbGoal;
+    [FormerlySerializedAs("nbGoal")] [Range(1, 15)] public int NbGoal;
 
-    [Range(1, 5)] public int nbBall;
+    [FormerlySerializedAs("nbBall")] [Range(1, 5)] public int NbBall;
 
-    public BasketGameBall ballPrefab;
-    public List<BaseBasketPlay> goalPrefab;
+    [FormerlySerializedAs("ballPrefab")] public BasketGameBall BallPrefab;
+    [FormerlySerializedAs("goalPrefab")] public List<BaseBasketPlay> GoalPrefab;
 
-    public uint bonusTime = 10;
+    [FormerlySerializedAs("bonusTime")] public uint BonusTime = 10;
 
-    public Text prepareTimerText;
+    [FormerlySerializedAs("prepareTimerText")] public Text PrepareTimerText;
     
-    public Text prepareTipsText;
+    [FormerlySerializedAs("prepareTipsText")] public Text PrepareTipsText;
 
-    public Canvas prepareCanvas;
+    [FormerlySerializedAs("prepareCanvas")] public Canvas PrepareCanvas;
 
-    public List<TextMeshPro> gameTimer;
+    [FormerlySerializedAs("gameTimer")] public List<TextMeshPro> GameTimer;
 
-    public GameObject platform;
+    [FormerlySerializedAs("platform")] public GameObject Platform;
 
-    public ClickToChangeScene nextSceneChanger;
+    [FormerlySerializedAs("nextSceneChanger")] public ClickToChangeScene NextSceneChanger;
 
     private List<BasketGameBall> ballList;
     private List<BaseBasketPlay> goalList;
@@ -42,35 +43,35 @@ public class PhishingGameplayManager : MonoBehaviour
 
     private State currentState;
 
-    public GameObject goalSpawnArea;
+    [FormerlySerializedAs("goalSpawnArea")] public GameObject GoalSpawnArea;
     
-    public GameObject ballSpawnPosition;
+    [FormerlySerializedAs("ballSpawnPosition")] public GameObject BallSpawnPosition;
 
     private void GenerateBall()
     {
         Vector3 position = new Vector3(
-            ballSpawnPosition.transform.position.x + UnityEngine.Random.Range(-0.1f, 0.1f),
-            y: ballSpawnPosition.transform.position.y,
-            ballSpawnPosition.transform.position.z + UnityEngine.Random.Range(-0.1f, 0.1f));
-        ballList.Add(Instantiate(ballPrefab, position, Quaternion.identity));
+            BallSpawnPosition.transform.position.x + UnityEngine.Random.Range(-0.1f, 0.1f),
+            y: BallSpawnPosition.transform.position.y,
+            BallSpawnPosition.transform.position.z + UnityEngine.Random.Range(-0.1f, 0.1f));
+        ballList.Add(Instantiate(BallPrefab, position, Quaternion.identity));
     }
 
     private void GenerateGoal()
     {
-        Vector3 center = goalSpawnArea.transform.position;
-        Vector3 area = goalSpawnArea.transform.localScale / 2;
+        Vector3 center = GoalSpawnArea.transform.position;
+        Vector3 area = GoalSpawnArea.transform.localScale / 2;
         Vector3 position = new Vector3(center.x + UnityEngine.Random.Range(-1f, 1f) * area.x,
             center.y + UnityEngine.Random.Range(-1f, 1f) * area.y,
             center.z + UnityEngine.Random.Range(-1f, 1f) * area.z);
 
-        int index = UnityEngine.Random.Range(0, goalPrefab.Count - 1);
+        int index = UnityEngine.Random.Range(0, GoalPrefab.Count - 1);
 
-        goalList.Add(Instantiate(goalPrefab[index], position, new Quaternion(0, -90, 0, 0)));
+        goalList.Add(Instantiate(GoalPrefab[index], position, new Quaternion(0, -90, 0, 0)));
     }
 
     private IEnumerator BallGeneration()
     {
-        for (int i = 0; i < nbBall; i++)
+        for (int i = 0; i < NbBall; i++)
         {
             GenerateBall();
             yield return new WaitForSeconds(1.5f);
@@ -81,7 +82,7 @@ public class PhishingGameplayManager : MonoBehaviour
 
     private IEnumerator GoalGeneration()
     {
-        for (int i = 0; i < nbGoal; i++)
+        for (int i = 0; i < NbGoal; i++)
         {
             GenerateGoal();
             yield return new WaitForSeconds(0.2f);
@@ -94,20 +95,20 @@ public class PhishingGameplayManager : MonoBehaviour
     {
         string str = (timer.Seconds > 9 ? timer.Seconds.ToString() : "0" + timer.Seconds.ToString()) + ":" +
                      (timer.Milliseconds > 9 ? timer.Milliseconds.ToString() : "0" + timer.Milliseconds.ToString());
-        foreach (var item in gameTimer)
+        foreach (var item in GameTimer)
             item.text = str;
     }
 
     private void SetupGameState()
     {
-        prepareCanvas.gameObject.SetActive(false);
+        PrepareCanvas.gameObject.SetActive(false);
 
-        foreach (var item in gameTimer)
+        foreach (var item in GameTimer)
             item.gameObject.SetActive(true);
 
         timer = new TimeSpan(0, 0, 30);
         currentState = State.Game;
-        platform.gameObject.SetActive(true);
+        Platform.gameObject.SetActive(true);
 
         StartCoroutine(BallGeneration());
         StartCoroutine(GoalGeneration());
@@ -116,7 +117,7 @@ public class PhishingGameplayManager : MonoBehaviour
     private void SetupEndState()
     {
         currentState = State.End;
-        foreach (var item in gameTimer)
+        foreach (var item in GameTimer)
             item.gameObject.SetActive(false);
 
         foreach (var ball in ballList)
@@ -125,8 +126,8 @@ public class PhishingGameplayManager : MonoBehaviour
         foreach (var goal in goalList)
             Destroy(goal.gameObject);
 
-        platform.SetActive(false);
-        nextSceneChanger.gameObject.SetActive(true);
+        Platform.SetActive(false);
+        NextSceneChanger.gameObject.SetActive(true);
     }
 
     public void NextState()
@@ -153,14 +154,14 @@ public class PhishingGameplayManager : MonoBehaviour
         goalList = new List<BaseBasketPlay>();
         timer = new TimeSpan(0, 0, 5);
 
-        platform.gameObject.SetActive(false);
-        nextSceneChanger.gameObject.SetActive(false);
+        Platform.gameObject.SetActive(false);
+        NextSceneChanger.gameObject.SetActive(false);
     }
 
     private void UpdatePreparation()
     {
         timer -= TimeSpan.FromSeconds(Time.deltaTime);
-        prepareTimerText.text = timer.Seconds.ToString();
+        PrepareTimerText.text = timer.Seconds.ToString();
 
         if (timer < TimeSpan.Zero)
         {

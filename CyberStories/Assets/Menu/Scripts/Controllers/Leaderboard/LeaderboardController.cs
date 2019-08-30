@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace CyberStories.Menu.Controllers.Leaderboard
 {
     public class LeaderboardController : MonoBehaviour
     {
-        public Text errorMessage;
+        [FormerlySerializedAs("errorMessage")] public Text ErrorMessage;
 
         public void UpdateLeaderboard(IList<DBO.Player> players)
         {
-            errorMessage.text = "";
+            ErrorMessage.text = "";
             LeaderboardPlayerController[] playerControllers = GetComponentsInChildren<LeaderboardPlayerController>(true);
             int maxPlayer = playerControllers.Length;
             if (players.Count < playerControllers.Length)
@@ -31,8 +32,8 @@ namespace CyberStories.Menu.Controllers.Leaderboard
         private void UpdatePlayer(int rank, DBO.Player player)
         {
             LeaderboardPlayerController playerController = GetComponentsInChildren<LeaderboardPlayerController>(true)[rank];
-            playerController.playerNameText.text = player.name;
-            playerController.playerScoreText.text = player.score.ToString();
+            playerController.PlayerNameText.text = player.Name;
+            playerController.PlayerScoreText.text = player.Score.ToString();
             playerController.IsActive = true;
         }
 
@@ -47,7 +48,7 @@ namespace CyberStories.Menu.Controllers.Leaderboard
         public void DisplayError(string errMsg)
         {
             SetLeaderboardPlayerVisibility(0);
-            errorMessage.text = errMsg;
+            ErrorMessage.text = errMsg;
         }
     }
 }

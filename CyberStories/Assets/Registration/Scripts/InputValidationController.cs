@@ -3,15 +3,16 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 using LevelChangerController;
+using UnityEngine.Serialization;
 
 namespace CyberStories.Registration.Controllers
 {
     public class InputValidationController : MonoBehaviour
     {
-        public InputField pseudoInput;
-        public InputField emailInput;
-        public Text errorLabel;
-        public LevelChanger levelChanger;
+        [FormerlySerializedAs("pseudoInput")] public InputField PseudoInput;
+        [FormerlySerializedAs("emailInput")] public InputField EmailInput;
+        [FormerlySerializedAs("errorLabel")] public Text ErrorLabel;
+        [FormerlySerializedAs("levelChanger")] public LevelChanger LevelChanger;
 
         // TODO: Localization
         private const string ErrorEmailMessage = "Email non valide";
@@ -25,16 +26,16 @@ namespace CyberStories.Registration.Controllers
         {
             // Check if the inputs (email & pseudo are valid)
             if (!ValidateEmailInput())
-                errorLabel.text = ErrorEmailMessage;
-            else if (string.IsNullOrWhiteSpace(pseudoInput.text))
-                errorLabel.text = ErrorPseudoMessage;
+                ErrorLabel.text = ErrorEmailMessage;
+            else if (string.IsNullOrWhiteSpace(PseudoInput.text))
+                ErrorLabel.text = ErrorPseudoMessage;
             else
             {
                 // Clear Error text display
-                errorLabel.text = "";
+                ErrorLabel.text = "";
 
                 // TODO: Send pseudo & mail to database and save it as global
-                levelChanger.ChangeScene();
+                LevelChanger.ChangeScene();
             }
         }
 
@@ -44,9 +45,9 @@ namespace CyberStories.Registration.Controllers
         /// <returns>True if the email is valid. Else, false.</returns>
         private bool ValidateEmailInput()
         {
-            if (string.IsNullOrWhiteSpace(emailInput.text))
+            if (string.IsNullOrWhiteSpace(EmailInput.text))
                 return false;
-            var email = emailInput.text;
+            var email = EmailInput.text;
             try
             {
                 return Regex.IsMatch(

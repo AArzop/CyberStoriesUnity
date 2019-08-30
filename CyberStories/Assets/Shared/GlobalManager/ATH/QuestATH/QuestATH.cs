@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class QuestATH : MonoBehaviour
 {
-    public Text listQuestText;
+    [FormerlySerializedAs("listQuestText")] public Text ListQuestText;
 
     public void UpdateQuestATH()
     {
-        listQuestText.text = GlobalManager.QuestManager.GetCurrentStep()?.GetQuestInformation();
+        ListQuestText.text = GlobalManager.QuestManager.GetCurrentStep()?.GetQuestInformation();
     }
 
     private void Start()

@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class BanqueLogin : BaseWebSite
 {
-    public bool isFishingWebSite;
-    public bool sendFishingMessage;
+    [FormerlySerializedAs("isFishingWebSite")] public bool IsFishingWebSite;
+    [FormerlySerializedAs("sendFishingMessage")] public bool SendFishingMessage;
 
     public override void ResetWebSite()
     {
@@ -31,8 +32,8 @@ public class BanqueLogin : BaseWebSite
 
     public void ConnexionButtonClicked()
     {
-        if (isFishingWebSite && sendFishingMessage)
-            messageDestination.SendMessage("OnPhishing", Url);
+        if (IsFishingWebSite && SendFishingMessage)
+            MessageDestination.SendMessage("OnPhishing", Url);
 
         RedirectToNextWebSite();
     }

@@ -6,7 +6,7 @@
 
     public void OnClickedButton()
     {
-        messageDestination.SendMessage("OnPhishing", Url);
+        MessageDestination.SendMessage("OnPhishing", Url);
         RedirectToNextWebSite();
     }
 }

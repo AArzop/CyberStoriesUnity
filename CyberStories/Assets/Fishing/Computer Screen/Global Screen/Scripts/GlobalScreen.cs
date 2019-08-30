@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class GlobalScreen : MonoBehaviour
 {
-    public List<BaseApplication> applications;
+    [FormerlySerializedAs("applications")] public List<BaseApplication> Applications;
     private BaseApplication currentApplication;
     private int currentIndex;
 
@@ -11,7 +12,7 @@ public class GlobalScreen : MonoBehaviour
     private void Start()
     {
         currentIndex = 0;
-        currentApplication = applications[currentIndex];
+        currentApplication = Applications[currentIndex];
     }
 
     // Turn the screen on, show and go to Password/Home Application
@@ -43,7 +44,7 @@ public class GlobalScreen : MonoBehaviour
         if (index == currentIndex)
             return;
 
-        BaseApplication app = applications[index];
+        BaseApplication app = Applications[index];
 
         currentApplication?.ResetApplication();
         currentApplication?.gameObject.SetActive(false);

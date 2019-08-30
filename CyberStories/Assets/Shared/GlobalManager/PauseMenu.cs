@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
 
 public class PauseMenu : MonoBehaviour
 {
-    public readonly SteamVR_Action_Boolean action = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("PauseMenu");
-    public GameObject menu;
+    public readonly SteamVR_Action_Boolean Action = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("PauseMenu");
+    [FormerlySerializedAs("menu")] public GameObject Menu;
 
     private Player player;
     private Hand currentHand;
@@ -15,14 +16,14 @@ public class PauseMenu : MonoBehaviour
     private void Awake()
     {
         player = Player.instance;
-        menu.SetActive(false);
+        Menu.SetActive(false);
     }
 
     private void CheckInput()
     {
         foreach (var hand in player.hands)
         {
-            if (action.GetStateUp(hand.handType))
+            if (Action.GetStateUp(hand.handType))
             {
                 currentHand = hand;
                 visible = !visible;
@@ -37,21 +38,21 @@ public class PauseMenu : MonoBehaviour
 
         if (visible)
         {
-            menu.SetActive(true);
-            menu.transform.position = currentHand.transform.position;
-            menu.transform.rotation = currentHand.transform.rotation;
+            Menu.SetActive(true);
+            Menu.transform.position = currentHand.transform.position;
+            Menu.transform.rotation = currentHand.transform.rotation;
         }
         else
         {
             currentHand = null;
-            menu.SetActive(false);
+            Menu.SetActive(false);
         }
     }
 
     public void ResumeButton()
     {
         visible = false;
-        menu.SetActive(false);
+        Menu.SetActive(false);
     }
 
     public void QuitButton()

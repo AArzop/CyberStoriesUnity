@@ -1,23 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class MailApplication : BaseApplication
 {
     // List of mails, one by filter
-    public List<Mail> newMails;
-    public List<Mail> archMails;
-    public List<Mail> delMails;
+    [FormerlySerializedAs("newMails")] public List<Mail> NewMails;
+    [FormerlySerializedAs("archMails")] public List<Mail> ArchMails;
+    [FormerlySerializedAs("delMails")] public List<Mail> DelMails;
 
-    public bool sendMessageOnArchiv = false;
-    public bool sendMessageOnDelete = false;
+    [FormerlySerializedAs("sendMessageOnArchiv")] public bool SendMessageOnArchiv = false;
+    [FormerlySerializedAs("sendMessageOnDelete")] public bool SendMessageOnDelete = false;
 
-    public BaseQuestManager messageDestination;
+    [FormerlySerializedAs("messageDestination")] public BaseQuestManager MessageDestination;
 
     // Nb item in UI
     private const int NbMailDisplayed = 6;
-    public List<MailListItem> mailItemUI;
+    [FormerlySerializedAs("mailItemUI")] public List<MailListItem> MailItemUI;
 
     // Current state of the application
     private Filter currentFilter;
@@ -28,22 +29,22 @@ public class MailApplication : BaseApplication
     private Mail mailSelected;
 
     // Display warning logo
-    public bool displayWarningLogo = false;
+    [FormerlySerializedAs("displayWarningLogo")] public bool DisplayWarningLogo = false;
 
     #region UI
-        public GameObject bodyCanvas;
-        public Text mailHeaderObjectText;
-        public Text mailHeaderDateText;
-        public Text mailHeaderSourceText;
-        public Text mailBodyText;
-        public Button mailLinkButton;
-        public Text mailLinkText;
-        public Image warningLogo;
+        [FormerlySerializedAs("bodyCanvas")] public GameObject BodyCanvas;
+        [FormerlySerializedAs("mailHeaderObjectText")] public Text MailHeaderObjectText;
+        [FormerlySerializedAs("mailHeaderDateText")] public Text MailHeaderDateText;
+        [FormerlySerializedAs("mailHeaderSourceText")] public Text MailHeaderSourceText;
+        [FormerlySerializedAs("mailBodyText")] public Text MailBodyText;
+        [FormerlySerializedAs("mailLinkButton")] public Button MailLinkButton;
+        [FormerlySerializedAs("mailLinkText")] public Text MailLinkText;
+        [FormerlySerializedAs("warningLogo")] public Image WarningLogo;
     #endregion
 
     private enum Filter
     {
-        newMail,
+        NewMail,
         ArchivedMail,
         DeletedMail
     };
@@ -55,10 +56,10 @@ public class MailApplication : BaseApplication
     private void Awake()
     {
         // Replace text by loca
-        const int nbFilter = 3;
-        for (int i = 1; i <= nbFilter; ++i)
+        const int NbFilter = 3;
+        for (int i = 1; i <= NbFilter; ++i)
         {
-            GameObject filterCanvas = GameObject.Find("Filter" + i.ToString() + "Button");
+            GameObject filterCanvas = GameObject.Find("Filter" + i + "Button");
             if (!filterCanvas) continue;
             Text t = filterCanvas.gameObject.GetComponentInChildren<Text>();
             switch (i)
@@ -79,8 +80,8 @@ public class MailApplication : BaseApplication
     // Start is called before the first frame update, set default state of the application
     void Start()
     {
-        currentFilter = Filter.newMail;
-        currentMailList = newMails;
+        currentFilter = Filter.NewMail;
+        currentMailList = NewMails;
         currentIndexInList = 0;
         LoadMailItem(currentMailList, currentIndexInList);
 
@@ -94,7 +95,7 @@ public class MailApplication : BaseApplication
         for (int i = 0; i < NbMailDisplayed; i++)
         {
             Mail mail = firstIndex + i < mails.Count ? mails[firstIndex + i] : null;
-            mailItemUI[i].ChangeMail(mail);
+            MailItemUI[i].ChangeMail(mail);
         }
     }
 
@@ -107,19 +108,19 @@ public class MailApplication : BaseApplication
 
         switch (newFilter)
         {
-            case Filter.newMail:
-                currentMailList = newMails;
-                LoadMailItem(newMails, 0);
+            case Filter.NewMail:
+                currentMailList = NewMails;
+                LoadMailItem(NewMails, 0);
                 break;
 
             case Filter.ArchivedMail:
-                currentMailList = archMails;
-                LoadMailItem(archMails, 0);
+                currentMailList = ArchMails;
+                LoadMailItem(ArchMails, 0);
                 break;
 
             case Filter.DeletedMail:
-                currentMailList = delMails;
-                LoadMailItem(delMails, 0);
+                currentMailList = DelMails;
+                LoadMailItem(DelMails, 0);
                 break;
             default:
                 // Todo use assert to avoid crash in production
@@ -134,38 +135,38 @@ public class MailApplication : BaseApplication
 
         if (mail != null)
         {
-            bodyCanvas.SetActive(true);
-            mailHeaderSourceText.text = mail.Source;
-            mailHeaderObjectText.text = mail.Object;
-            mailHeaderDateText.text = mail.DateTime.ToShortDateString();
-            mailBodyText.text = mail.Body;
+            BodyCanvas.SetActive(true);
+            MailHeaderSourceText.text = mail.Source;
+            MailHeaderObjectText.text = mail.Object;
+            MailHeaderDateText.text = mail.DateTime.ToShortDateString();
+            MailBodyText.text = mail.Body;
 
-            if (mail.isThereLink)
+            if (mail.IsThereLink)
             {
-                mailLinkButton.gameObject.SetActive(true);
-                mailLinkText.text = mail.Link;
+                MailLinkButton.gameObject.SetActive(true);
+                MailLinkText.text = mail.Link;
             }
             else
             {
-                mailLinkButton.gameObject.SetActive(false);
-                mailLinkText.text = "";
+                MailLinkButton.gameObject.SetActive(false);
+                MailLinkText.text = "";
             }
 
-            if (displayWarningLogo && mail.isFishingMail)
-                warningLogo.gameObject.SetActive(true);
+            if (DisplayWarningLogo && mail.IsFishingMail)
+                WarningLogo.gameObject.SetActive(true);
             else
-                warningLogo.gameObject.SetActive(false);
+                WarningLogo.gameObject.SetActive(false);
         }
         else
         {
-            bodyCanvas.SetActive(false);
-            mailHeaderSourceText.text = "";
-            mailHeaderObjectText.text = "";
-            mailHeaderDateText.text = "";
-            mailBodyText.text = "";
-            mailLinkButton.gameObject.SetActive(false);
-            mailLinkText.text = "";
-            warningLogo.gameObject.SetActive(false);
+            BodyCanvas.SetActive(false);
+            MailHeaderSourceText.text = "";
+            MailHeaderObjectText.text = "";
+            MailHeaderDateText.text = "";
+            MailBodyText.text = "";
+            MailLinkButton.gameObject.SetActive(false);
+            MailLinkText.text = "";
+            WarningLogo.gameObject.SetActive(false);
         }
     }
 
@@ -198,8 +199,8 @@ public class MailApplication : BaseApplication
 
     public void FilterButtonNewMail()
     {
-        if (currentFilter != Filter.newMail)
-            ChangeFilter(Filter.newMail);
+        if (currentFilter != Filter.NewMail)
+            ChangeFilter(Filter.NewMail);
     }
 
     public void FilterButtonArchive()
@@ -219,11 +220,11 @@ public class MailApplication : BaseApplication
         if (!mailSelected || currentFilter == Filter.ArchivedMail) return;
         
         currentMailList.Remove(mailSelected);
-        archMails.Add(mailSelected);
-        archMails.Sort((m1, m2) => m2.DateTime.CompareTo(m1.DateTime));
+        ArchMails.Add(mailSelected);
+        ArchMails.Sort((m1, m2) => m2.DateTime.CompareTo(m1.DateTime));
 
-        if (sendMessageOnArchiv)
-            messageDestination.gameObject.SendMessage("OnArchivedMail", mailSelected);
+        if (SendMessageOnArchiv)
+            MessageDestination.gameObject.SendMessage("OnArchivedMail", mailSelected);
 
         ChangeFilter(currentFilter);
     }
@@ -233,18 +234,18 @@ public class MailApplication : BaseApplication
         if (!mailSelected || currentFilter == Filter.DeletedMail) return;
         
         currentMailList.Remove(mailSelected);
-        delMails.Add(mailSelected);
-        delMails.Sort((m1, m2) => m2.DateTime.CompareTo(m1.DateTime));
+        DelMails.Add(mailSelected);
+        DelMails.Sort((m1, m2) => m2.DateTime.CompareTo(m1.DateTime));
 
-        if (sendMessageOnDelete)
-            messageDestination.gameObject.SendMessage("OnDeletedMail", mailSelected);
+        if (SendMessageOnDelete)
+            MessageDestination.gameObject.SendMessage("OnDeletedMail", mailSelected);
 
         ChangeFilter(currentFilter);
     }
 
     public void LinkButton()
     {
-        globalScreen.LinkClicked(mailSelected.Link);
+        GlobalScreen.LinkClicked(mailSelected.Link);
     }
     #endregion
 }

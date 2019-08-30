@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class WebApplication : BaseApplication
 {
-    public List<BaseWebSite> webSites;
-    public List<BaseWebSite> favoriteWebSites;
+    [FormerlySerializedAs("webSites")] public List<BaseWebSite> WebSites;
+    [FormerlySerializedAs("favoriteWebSites")] public List<BaseWebSite> FavoriteWebSites;
 
-    public List<FavoriteButton> favoriteButtons;
+    [FormerlySerializedAs("favoriteButtons")] public List<FavoriteButton> FavoriteButtons;
 
-    public Text urlText;
+    [FormerlySerializedAs("urlText")] public Text UrlText;
 
     private Dictionary<string, BaseWebSite> urlToWebSite;
     private BaseWebSite currentWebSite;
@@ -19,18 +20,18 @@ public class WebApplication : BaseApplication
         urlToWebSite = new Dictionary<string, BaseWebSite>();
         history = new List<string>();
 
-        foreach (var site in webSites)
+        foreach (BaseWebSite site in WebSites)
         {
             site.Load();
             urlToWebSite.Add(site.Url, site);
         }
 
-        for (int i = 0; i < favoriteButtons.Count; i++)
+        for (int i = 0; i < FavoriteButtons.Count; i++)
         {
-            favoriteButtons[i].ApplyWebSite(i < favoriteWebSites.Count ? favoriteWebSites[i] : null);
+            FavoriteButtons[i].ApplyWebSite(i < FavoriteWebSites.Count ? FavoriteWebSites[i] : null);
         }
 
-        urlText.text = "/";
+        UrlText.text = "/";
     }
 
     public override void ResetApplication()
@@ -52,7 +53,7 @@ public class WebApplication : BaseApplication
 
         currentWebSite = webSite;
         currentWebSite.ResetWebSite();
-        urlText.text = webSite.Url;
+        UrlText.text = webSite.Url;
         history.Add(webSite.Url);
 
         DisplayWebSite();
@@ -62,7 +63,7 @@ public class WebApplication : BaseApplication
 
     private void DisplayWebSite()
     {
-        foreach (var site in webSites)
+        foreach (var site in WebSites)
             site.gameObject.SetActive(site == currentWebSite);
     }
 

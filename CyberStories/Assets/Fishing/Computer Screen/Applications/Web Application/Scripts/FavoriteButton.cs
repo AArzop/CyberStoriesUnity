@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class FavoriteButton : MonoBehaviour
 {
-    public WebApplication app;
+    [FormerlySerializedAs("app")] public WebApplication App;
 
     public BaseWebSite Site { get; set; }
 
@@ -18,7 +19,7 @@ public class FavoriteButton : MonoBehaviour
         Image img = GetComponent<Image>();
         if (Site != null)
         {
-            img.sprite = Site.icon;
+            img.sprite = Site.Icon;
             Color c = Color.white;
             c.a = 1f;
             img.color = c;
@@ -34,6 +35,6 @@ public class FavoriteButton : MonoBehaviour
     public void ClickOnFavButton()
     {
         if (Site != null)
-            app.Redirect(Site);
+            App.Redirect(Site);
     }
 }

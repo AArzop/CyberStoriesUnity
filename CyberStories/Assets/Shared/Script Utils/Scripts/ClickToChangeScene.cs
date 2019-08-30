@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using Valve.VR.InteractionSystem;
 
 [RequireComponent(typeof(Interactable))]
 public class ClickToChangeScene : MonoBehaviour
 {
-    public string sceneName;
-    public bool lockButton = false;
+    [FormerlySerializedAs("sceneName")] public string SceneName;
+    [FormerlySerializedAs("lockButton")] public bool LockButton = false;
 
     private bool isClicked = false;
 
@@ -14,21 +15,21 @@ public class ClickToChangeScene : MonoBehaviour
     {
         GrabTypes startingGrabType = hand.GetGrabStarting();
 
-        if (startingGrabType != GrabTypes.None && !isClicked && !lockButton)
+        if (startingGrabType != GrabTypes.None && !isClicked && !LockButton)
         {
             isClicked = true;
-            SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene(SceneName);
         }
     }
 
     public void Unlock()
     {
-        lockButton = false;
+        LockButton = false;
     }
 
     public void Lock()
     {
-        lockButton = true;
+        LockButton = true;
     }
 
     private void Update()

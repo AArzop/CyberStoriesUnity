@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.Serialization;
 
 public class PhishingMainQuest : BaseQuest
 {
-    public MailApplication mailApp;
+    [FormerlySerializedAs("mailApp")] public MailApplication MailApp;
     private Dictionary<Mail, bool> mailTreated;
 
-    public List<BaseWebSite> webSites;
+    [FormerlySerializedAs("webSites")] public List<BaseWebSite> WebSites;
     private Dictionary<BaseWebSite, bool> siteConsulted;
     private List<string> fishingWebsiteConsulted;
 
@@ -22,7 +23,7 @@ public class PhishingMainQuest : BaseQuest
         fishingWebsiteConsulted = new List<string>();
 
         details = GlobalManager.Details as PhishingDetails;
-        foreach (var site in webSites)
+        foreach (var site in WebSites)
             siteConsulted[site] = false;
     }
 
@@ -32,7 +33,7 @@ public class PhishingMainQuest : BaseQuest
 
     public override void CheckQuest()
     {
-        if (mailApp.newMails.Count != 0)
+        if (MailApp.NewMails.Count != 0)
             return;
 
         if (siteConsulted.Any(pair => !pair.Value))
@@ -41,7 +42,7 @@ public class PhishingMainQuest : BaseQuest
         }
 
         EndQuest();
-        questManager.FulfillStep();
+        QuestManager.FulfillStep();
     }
 
     public override void EndQuest()
@@ -64,13 +65,13 @@ public class PhishingMainQuest : BaseQuest
 
     public void OnArchivedMail(Mail mail)
     {
-        mailTreated[mail] = !mail.isFishingMail;
+        mailTreated[mail] = !mail.IsFishingMail;
         CheckQuest();
     }
 
     public void OnDeletedMail(Mail mail)
     {
-        mailTreated[mail] = mail.isFishingMail;
+        mailTreated[mail] = mail.IsFishingMail;
         CheckQuest();
     }
 
@@ -94,6 +95,6 @@ public class PhishingMainQuest : BaseQuest
 
     public override string GetQuestInformation()
     {
-        return infoQuest;
+        return InfoQuest;
     }
 }

@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 public abstract class BaseApplication : MonoBehaviour
 {
-    public GlobalScreen globalScreen;
+    [FormerlySerializedAs("globalScreen")] public GlobalScreen GlobalScreen;
 
-    public Sprite icon;
+    [FormerlySerializedAs("icon")] public Sprite Icon;
 
     public abstract void ResetApplication();
 }

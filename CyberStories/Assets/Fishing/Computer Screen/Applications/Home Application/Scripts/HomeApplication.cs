@@ -1,8 +1,10 @@
-﻿using UnityEngine.UI;
+﻿using System;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class HomeApplication : BaseApplication
 {
-    public Text hourText;
+    [FormerlySerializedAs("hourText")] public Text HourText;
 
     public override void ResetApplication()
     {
@@ -11,15 +13,15 @@ public class HomeApplication : BaseApplication
     // Display hour on UI
     private void SetHour()
     {
-        var now = System.DateTime.Now;
+        DateTime now = DateTime.Now;
         int hour = now.Hour;
         int minute = now.Minute;
 
-        string hourStr = hour >= 10 ? hour.ToString() : "0" + hour.ToString();
+        string hourStr = hour >= 10 ? hour.ToString() : "0" + hour;
         hourStr += ":";
-        hourStr += minute >= 10 ? minute.ToString() : "0" + minute.ToString();
+        hourStr += minute >= 10 ? minute.ToString() : "0" + minute;
 
-        hourText.text = hourStr;
+        HourText.text = hourStr;
     }
 
     // Start is called before the first frame update
@@ -28,14 +30,14 @@ public class HomeApplication : BaseApplication
         SetHour();
     }
 
-    void Update()
+    private void Update()
     {
         SetHour();
     }
 
     public void PowerOff()
     {
-        globalScreen.PowerOff();
+        GlobalScreen.PowerOff();
     }
 
     public void LockButton()
@@ -44,6 +46,6 @@ public class HomeApplication : BaseApplication
 
     public void ChangeApplication(int index)
     {
-        globalScreen.SwitchApplication(index);
+        GlobalScreen.SwitchApplication(index);
     }
 }

@@ -1,22 +1,23 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace CartoonCar
 {
     public class Path : MonoBehaviour
     {
-        public Color lineColor;
+        [FormerlySerializedAs("lineColor")] public Color LineColor;
 
         private List<Transform> nodes = new List<Transform>();
 
         private void OnDrawGizmosSelected()
         {
-            Gizmos.color = lineColor;
+            Gizmos.color = LineColor;
 
             Transform[] pathTransforms = GetComponentsInChildren<Transform>();
             nodes = new List<Transform>();
 
-            foreach (var pathTransform in pathTransforms)
+            foreach (Transform pathTransform in pathTransforms)
             {
                 if (pathTransform != transform)
                 {

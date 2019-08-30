@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace CyberStories.Menu.Controllers
@@ -7,9 +8,9 @@ namespace CyberStories.Menu.Controllers
     {
         private bool isMenuButtonActive;
 
-        public bool isLevel;
-        public Sprite unselectedSprite;
-        public Sprite selectedSprite;
+        [FormerlySerializedAs("isLevel")] public bool IsLevel;
+        [FormerlySerializedAs("unselectedSprite")] public Sprite UnselectedSprite;
+        [FormerlySerializedAs("selectedSprite")] public Sprite SelectedSprite;
 
         public bool IsMenuButtonActive
         {
@@ -20,7 +21,7 @@ namespace CyberStories.Menu.Controllers
                     return;
                 isMenuButtonActive = value;
                 Image image = GetComponent<Image>();
-                Sprite currentSprite = isMenuButtonActive ? selectedSprite : unselectedSprite;
+                Sprite currentSprite = isMenuButtonActive ? SelectedSprite : UnselectedSprite;
                 image.sprite = currentSprite;
             }
         }

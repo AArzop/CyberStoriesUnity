@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 public abstract class BaseBasketPlay : MonoBehaviour
 {
     private PhishingGameplayManager game;
-    public BoxCollider goal;
+    [FormerlySerializedAs("goal")] public BoxCollider Goal;
 
     protected void Awake()
     {
@@ -14,7 +15,7 @@ public abstract class BaseBasketPlay : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
-            var obj = GameObject.Find(other.name);
+            GameObject obj = GameObject.Find(other.name);
             BasketGameBall ball = obj.GetComponent<BasketGameBall>();
             if (ball != null && !ball.IsGrabbed)
                 game.Mark(this, ball);
@@ -23,7 +24,7 @@ public abstract class BaseBasketPlay : MonoBehaviour
 
     public Vector3 GetGoalPosition()
     {
-        return goal.transform.position;
+        return Goal.transform.position;
     }
 
     protected abstract void Update();

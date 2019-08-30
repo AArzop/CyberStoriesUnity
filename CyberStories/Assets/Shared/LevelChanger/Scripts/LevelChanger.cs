@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace LevelChangerController
@@ -8,16 +9,16 @@ namespace LevelChangerController
     public class LevelChanger : MonoBehaviour
     {
         // For scene transition
-        public Animator animator;
+        [FormerlySerializedAs("animator")] public Animator Animator;
 
-        public Image fillImage;
+        [FormerlySerializedAs("fillImage")] public Image FillImage;
 
-        public string sceneToLoad;
+        [FormerlySerializedAs("sceneToLoad")] public string SceneToLoad;
 
         public void ChangeScene()
         {
-            fillImage.fillAmount = 0f;
-            animator.SetTrigger("FadeOut");
+            FillImage.fillAmount = 0f;
+            Animator.SetTrigger("FadeOut");
         }
 
         public void OnFadeComplete()
@@ -29,14 +30,14 @@ namespace LevelChangerController
         {
             yield return new WaitForSeconds(0.25f);
             // Begin to load the Scene you specify
-            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneToLoad);
+            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(SceneToLoad);
             // Let the Scene activate until you allow it to
             asyncOperation.allowSceneActivation = true;
             // When the load is still in progress, output the Text and progress bar
             while (!asyncOperation.isDone)
             {
                 // Output the current progress
-                fillImage.fillAmount = asyncOperation.progress / 0.9f;
+                FillImage.fillAmount = asyncOperation.progress / 0.9f;
                 yield return null;
             }
         }

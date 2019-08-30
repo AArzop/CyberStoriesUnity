@@ -1,36 +1,37 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class PhishingReview : MonoBehaviour
 {
-    public Canvas successCanvas;
-    public Canvas failCanvas;
+    [FormerlySerializedAs("successCanvas")] public Canvas SuccessCanvas;
+    [FormerlySerializedAs("failCanvas")] public Canvas FailCanvas;
 
-    public Text successText;
-    public Text noteTitle;
-    public Text noteInput;
-    public Text costText;
-    public Text tipsTitle;
-    public Text tipsText;
-    public Text gameplayTipsText;
+    [FormerlySerializedAs("successText")] public Text SuccessText;
+    [FormerlySerializedAs("noteTitle")] public Text NoteTitle;
+    [FormerlySerializedAs("noteInput")] public Text NoteInput;
+    [FormerlySerializedAs("costText")] public Text CostText;
+    [FormerlySerializedAs("tipsTitle")] public Text TipsTitle;
+    [FormerlySerializedAs("tipsText")] public Text TipsText;
+    [FormerlySerializedAs("gameplayTipsText")] public Text GameplayTipsText;
 
-    public ClickToChangeScene toMiniGame;
+    [FormerlySerializedAs("toMiniGame")] public ClickToChangeScene ToMiniGame;
 
     private void UnlockMiniGameScene()
     {
-        toMiniGame.Unlock();
-        gameplayTipsText.text = GlobalManager.GetLocalization("Review_UnlockGameplay");
+        ToMiniGame.Unlock();
+        GameplayTipsText.text = GlobalManager.GetLocalization("Review_UnlockGameplay");
     }
 
     private void GenerateSuccessCanvas()
     {
-        successCanvas.gameObject.SetActive(true);
-        failCanvas.gameObject.SetActive(false);
+        SuccessCanvas.gameObject.SetActive(true);
+        FailCanvas.gameObject.SetActive(false);
 
-        successText.text = GlobalManager.GetLocalization("PhishingReview_Success");
+        SuccessText.text = GlobalManager.GetLocalization("PhishingReview_Success");
 
-        noteInput.text = "100 / 100";
+        NoteInput.text = "100 / 100";
         UnlockMiniGameScene();
     }
 
@@ -49,25 +50,25 @@ public class PhishingReview : MonoBehaviour
 
     private void GenerateFailedCanvas(PhishingDetails detail)
     {
-        successCanvas.gameObject.SetActive(false);
-        failCanvas.gameObject.SetActive(true);
+        SuccessCanvas.gameObject.SetActive(false);
+        FailCanvas.gameObject.SetActive(true);
 
         const int note = 0;
         const int cost = 1;
 
         List<int> tab = GetEvaluationAndCost(detail);
 
-        noteTitle.text = GlobalManager.GetLocalization("Review_Note");
-        noteInput.text = tab[note].ToString() + " / 100";
-        tipsTitle.text = GlobalManager.GetLocalization("Review_Tips");
-        tipsText.text = GlobalManager.GetLocalization("PhishingReview_Tips");
-        costText.text = GlobalManager.GetLocalization("PhishingReview_Cost");
-        costText.text += " " + tab[cost].ToString() + "€";
+        NoteTitle.text = GlobalManager.GetLocalization("Review_Note");
+        NoteInput.text = tab[note].ToString() + " / 100";
+        TipsTitle.text = GlobalManager.GetLocalization("Review_Tips");
+        TipsText.text = GlobalManager.GetLocalization("PhishingReview_Tips");
+        CostText.text = GlobalManager.GetLocalization("PhishingReview_Cost");
+        CostText.text += " " + tab[cost].ToString() + "€";
 
         if (tab[note] > 75)
             UnlockMiniGameScene();
         else
-            gameplayTipsText.text = GlobalManager.GetLocalization("Review_LockGameplay");
+            GameplayTipsText.text = GlobalManager.GetLocalization("Review_LockGameplay");
     }
 
     private void Awake()
@@ -75,7 +76,7 @@ public class PhishingReview : MonoBehaviour
         if (!(GlobalManager.Details is PhishingDetails detail))
             return;
 
-        noteTitle.text = GlobalManager.GetLocalization("Review_Note");
+        NoteTitle.text = GlobalManager.GetLocalization("Review_Note");
 
         if (detail.WrongMail == 0 && detail.FishingWebSite == 0)
             GenerateSuccessCanvas();

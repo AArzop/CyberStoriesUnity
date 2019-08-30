@@ -15,7 +15,7 @@ public class LocalizationManager
     private Language currentLanguage;
     private readonly Dictionary<string, string> locaDictionary;
     private const string FileName = "loca.csv";
-    private bool loadSuccessfull = false;
+    private bool loadSuccessful = false;
 
     #endregion
 
@@ -26,7 +26,7 @@ public class LocalizationManager
         string path = Path.Combine(Application.dataPath + "/Shared/GlobalManager/LocalizationManager", FileName);
         if (!File.Exists(path))
         {
-            loadSuccessfull = false;
+            loadSuccessful = false;
             Debug.Assert(false, "Loca.csv is missing");
             return;
         }
@@ -51,7 +51,7 @@ public class LocalizationManager
             locaDictionary.Add(loc[0], loc[(int) currentLanguage]);
         }
 
-        loadSuccessfull = true;
+        loadSuccessful = true;
     }
 
     public void ChangeLanguage(Language language)

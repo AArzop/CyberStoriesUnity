@@ -1,18 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 namespace CyberStories.CyberstoriesNpc.Controllers
 {
     public class Patrol : MonoBehaviour
     {
-        public Transform[] points;
+        [FormerlySerializedAs("points")] public Transform[] Points;
         private int destPoint = 0;
         private NavMeshAgent agent;
 
-        [Min(0)] public float rotationSpeed = 3f;
+        [FormerlySerializedAs("rotationSpeed")] [Min(0)] public float RotationSpeed = 3f;
         private Animator animator;
 
-        public bool mustGoBack;
+        [FormerlySerializedAs("mustGoBack")] public bool MustGoBack;
         private bool isGoingBack = false;
 
         void Awake()
@@ -32,7 +33,7 @@ namespace CyberStories.CyberstoriesNpc.Controllers
             {
                 //transform.rotation = Quaternion.LookRotation(agent.velocity.normalized);
                 Quaternion lookRotation = Quaternion.LookRotation(agent.velocity.normalized);
-                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
+                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, RotationSpeed * Time.deltaTime);
             }
         }
 
@@ -40,23 +41,23 @@ namespace CyberStories.CyberstoriesNpc.Controllers
         void GotoNextPoint()
         {
             // Returns if no points have been set up
-            if (points.Length == 0)
+            if (Points.Length == 0)
                 return;
 
             // Set the agent to go to the currently selected destination.
-            agent.destination = points[destPoint].position;
+            agent.destination = Points[destPoint].position;
 
             // Choose the next point in the array as the destination,
             // cycling to the start if necessary.
-            if (!mustGoBack)
+            if (!MustGoBack)
             {
-                destPoint = (destPoint + 1) % points.Length;
+                destPoint = (destPoint + 1) % Points.Length;
             }
             else
             {
                 if (destPoint == 0)
                     isGoingBack = false;
-                if (destPoint + 1 == points.Length)
+                if (destPoint + 1 == Points.Length)
                     isGoingBack = true;
                 destPoint = destPoint + (isGoingBack ? -1 : 1);
             }

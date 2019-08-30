@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace CartoonCar
 {
     public class CarWheel : MonoBehaviour
     {
-        public WheelCollider targetWheel;
+        [FormerlySerializedAs("targetWheel")] public WheelCollider TargetWheel;
         private Vector3 wheelPosition = new Vector3();
         private Quaternion wheelRotation = new Quaternion();
 
         private void Update()
         {
-            targetWheel.GetWorldPose(out wheelPosition, out wheelRotation);
+            TargetWheel.GetWorldPose(out wheelPosition, out wheelRotation);
             transform.position = wheelPosition;
             transform.rotation = wheelRotation;
         }

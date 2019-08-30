@@ -1,20 +1,21 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Mail : MonoBehaviour
 {
     #region Keys
 
-    public string objectKey;
-    public string sourceKey;
-    public string bodyKey;
-    public string dateTimeStr;
-    public bool isThereLink;
-    public string linkKey;
+    [FormerlySerializedAs("objectKey")] public string ObjectKey;
+    [FormerlySerializedAs("sourceKey")] public string SourceKey;
+    [FormerlySerializedAs("bodyKey")] public string BodyKey;
+    [FormerlySerializedAs("dateTimeStr")] public string DateTimeStr;
+    [FormerlySerializedAs("isThereLink")] public bool IsThereLink;
+    [FormerlySerializedAs("linkKey")] public string LinkKey;
 
     #endregion
     
-    public bool isFishingMail;
+    [FormerlySerializedAs("isFishingMail")] public bool IsFishingMail;
 
     public DateTime DateTime { get; set; }
     public string Object { get; set; }
@@ -24,14 +25,14 @@ public class Mail : MonoBehaviour
 
     private void Awake()
     {
-        Object = GlobalManager.GetLocalization(objectKey);
-        Source = GlobalManager.GetLocalization(sourceKey);
-        Body = GlobalManager.GetLocalization(bodyKey);
-        if (isThereLink)
-            Link = GlobalManager.GetLocalization(linkKey);
+        Object = GlobalManager.GetLocalization(ObjectKey);
+        Source = GlobalManager.GetLocalization(SourceKey);
+        Body = GlobalManager.GetLocalization(BodyKey);
+        if (IsThereLink)
+            Link = GlobalManager.GetLocalization(LinkKey);
 
-        if (dateTimeStr != string.Empty)
-            DateTime = DateTime.ParseExact(dateTimeStr, "M/d/yyyy hh:mm",
+        if (DateTimeStr != string.Empty)
+            DateTime = DateTime.ParseExact(DateTimeStr, "M/d/yyyy hh:mm",
                 System.Globalization.CultureInfo.InvariantCulture);
     }
 }

@@ -1,17 +1,18 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public abstract class BaseQuestManager : MonoBehaviour
 {
-    public List<BaseQuest> stepsList;
-    public ClickToChangeScene nextSceneChanger;
-    protected BaseQuest currentStep;
-    protected int currentStepIndex;
+    [FormerlySerializedAs("stepsList")] public List<BaseQuest> StepsList;
+    [FormerlySerializedAs("nextSceneChanger")] public ClickToChangeScene NextSceneChanger;
+    protected BaseQuest CurrentStep;
+    protected int CurrentStepIndex;
 
     protected void Awake()
     {
-        if (nextSceneChanger != null)
-            nextSceneChanger.gameObject.SetActive(false);
+        if (NextSceneChanger != null)
+            NextSceneChanger.gameObject.SetActive(false);
 
         GlobalManager.Details = new PhishingDetails();
 
@@ -19,31 +20,31 @@ public abstract class BaseQuestManager : MonoBehaviour
         if (GlobalManager.QuestManager == null)
         {
             GlobalManager.QuestManager = this;
-            currentStep = stepsList[0];
-            currentStepIndex = 0;
+            CurrentStep = StepsList[0];
+            CurrentStepIndex = 0;
         }
     }
 
     public BaseQuest GetCurrentStep()
     {
-        return currentStep;
+        return CurrentStep;
     }
 
     public void FulfillStep()
     {
-        currentStep.EvaluateQuest();
-        ++currentStepIndex;
+        CurrentStep.EvaluateQuest();
+        ++CurrentStepIndex;
 
-        if (currentStepIndex < stepsList.Count)
+        if (CurrentStepIndex < StepsList.Count)
         {
-            currentStep = stepsList[currentStepIndex];
-            currentStep.SetupQuest();
+            CurrentStep = StepsList[CurrentStepIndex];
+            CurrentStep.SetupQuest();
         }
         else
         {
             EndLevel();
-            if (nextSceneChanger != null)
-                nextSceneChanger.gameObject.SetActive(true);
+            if (NextSceneChanger != null)
+                NextSceneChanger.gameObject.SetActive(true);
         }
     }
 

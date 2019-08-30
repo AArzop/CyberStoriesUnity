@@ -1,30 +1,34 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class MailListItem : MonoBehaviour
 {
-    public Mail mail;
-    public GameObject style;
-    public Text sourceText;
-    public Text dateText;
-    public Text objectText;
+    [FormerlySerializedAs("mail")] public Mail Mail;
+    [FormerlySerializedAs("style")] public GameObject Style;
+    [FormerlySerializedAs("sourceText")] public Text SourceText;
+    [FormerlySerializedAs("dateText")] public Text DateText;
+    [FormerlySerializedAs("objectText")] public Text ObjectText;
 
-    public MailApplication app;
+    [FormerlySerializedAs("app")] public MailApplication App;
 
     private void Start()
     {
-        ChangeMail(mail);
+        ChangeMail(Mail);
     }
 
     public void ChangeMail(Mail newMail)
     {
-        mail = newMail;
-        if (mail != null)
+        Mail = newMail;
+        if (Mail != null)
         {
             gameObject.SetActive(true);
-            sourceText.text = mail.Source.Substring(0, mail.Source.IndexOf('@')).Replace('.', ' ');
-            dateText.text = mail.DateTime.ToShortDateString() + ", " + mail.DateTime.ToShortTimeString();
-            objectText.text = mail.Object;
+            SourceText.text = Mail.Source.Substring(
+                0,
+                Mail.Source.IndexOf('@')
+            ).Replace('.', ' ');
+            DateText.text = Mail.DateTime.ToShortDateString() + ", " + Mail.DateTime.ToShortTimeString();
+            ObjectText.text = Mail.Object;
         }
         else
             gameObject.SetActive(false);
@@ -32,6 +36,6 @@ public class MailListItem : MonoBehaviour
 
     public void SelectMail()
     {
-        app.SelectMail(mail);
+        App.SelectMail(Mail);
     }
 }

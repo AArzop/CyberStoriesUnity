@@ -1,49 +1,50 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace CartoonCar
 {
     public class CarEngine : MonoBehaviour
     {
-        public Transform path;
-        public float maxSteerAngle = 45f;
-        public WheelCollider wheelFl;
-        public WheelCollider wheelFr;
-        public float maxMotorTorque = 80f;
-        public float currentSpeed;
-        public float maxSpeed = 100f;
-        public Vector3 centerOfMass;
+        [FormerlySerializedAs("path")] public Transform Path;
+        [FormerlySerializedAs("maxSteerAngle")] public float MaxSteerAngle = 45f;
+        [FormerlySerializedAs("wheelFl")] public WheelCollider WheelFl;
+        [FormerlySerializedAs("wheelFr")] public WheelCollider WheelFr;
+        [FormerlySerializedAs("maxMotorTorque")] public float MaxMotorTorque = 80f;
+        [FormerlySerializedAs("currentSpeed")] public float CurrentSpeed;
+        [FormerlySerializedAs("maxSpeed")] public float MaxSpeed = 100f;
+        [FormerlySerializedAs("centerOfMass")] public Vector3 CenterOfMass;
 
         private List<Transform> nodes;
         private int currectNode = 0;
 
-        [Min(0)]
-        public float delay = 0f;
+        [FormerlySerializedAs("delay")] [Min(0)]
+        public float Delay = 0f;
 
         private bool isCoroutineExecuting = false;
 
         private void Start()
         {
-            GetComponent<Rigidbody>().centerOfMass = centerOfMass;
+            GetComponent<Rigidbody>().centerOfMass = CenterOfMass;
 
-            Transform[] pathTransforms = path.GetComponentsInChildren<Transform>();
+            Transform[] pathTransforms = Path.GetComponentsInChildren<Transform>();
             nodes = new List<Transform>();
 
             foreach (var pathTransform in pathTransforms)
             {
-                if (pathTransform != path.transform)
+                if (pathTransform != Path.transform)
                     nodes.Add(pathTransform);
             }
 
-            if (delay > 0)
+            if (Delay > 0)
                 StartCoroutine(DelayObject());
         }
 
         private IEnumerator DelayObject()
         {
             isCoroutineExecuting = true;
-            yield return new WaitForSeconds(delay);
+            yield return new WaitForSeconds(Delay);
             isCoroutineExecuting = false;
         }
 
@@ -59,23 +60,23 @@ namespace CartoonCar
         private void ApplySteer()
         {
             Vector3 relativeVector = transform.InverseTransformPoint(nodes[currectNode].position);
-            float newSteer = (relativeVector.x / relativeVector.magnitude) * maxSteerAngle;
-            wheelFl.steerAngle = newSteer;
-            wheelFr.steerAngle = newSteer;
+            float newSteer = (relativeVector.x / relativeVector.magnitude) * MaxSteerAngle;
+            WheelFl.steerAngle = newSteer;
+            WheelFr.steerAngle = newSteer;
         }
 
         private void Drive()
         {
-            currentSpeed = 2 * Mathf.PI * wheelFl.radius * wheelFl.rpm * 60 / 1000;
-            if (currentSpeed < maxSpeed)
+            CurrentSpeed = 2 * Mathf.PI * WheelFl.radius * WheelFl.rpm * 60 / 1000;
+            if (CurrentSpeed < MaxSpeed)
             {
-                wheelFl.motorTorque = maxMotorTorque;
-                wheelFr.motorTorque = maxMotorTorque;
+                WheelFl.motorTorque = MaxMotorTorque;
+                WheelFr.motorTorque = MaxMotorTorque;
             }
             else
             {
-                wheelFl.motorTorque = 0;
-                wheelFr.motorTorque = 0;
+                WheelFl.motorTorque = 0;
+                WheelFr.motorTorque = 0;
             }
         }
 

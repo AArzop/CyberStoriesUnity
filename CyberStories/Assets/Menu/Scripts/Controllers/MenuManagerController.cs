@@ -3,6 +3,7 @@ using CyberStories.Menu.Controllers.Leaderboard;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace CyberStories.Menu.Controllers
@@ -16,15 +17,15 @@ namespace CyberStories.Menu.Controllers
             {"Level 1", "Fishing/Fishing"}
         };
         
-        public Canvas uiHeaderCanvas;
+        [FormerlySerializedAs("uiHeaderCanvas")] public Canvas UiHeaderCanvas;
         
-        public Text descriptionText;
+        [FormerlySerializedAs("descriptionText")] public Text DescriptionText;
         
-        public LeaderboardController leaderboardController;
+        [FormerlySerializedAs("leaderboardController")] public LeaderboardController LeaderboardController;
 
         private string currentTag;
 
-        public LevelChangerController.LevelChanger levelChanger;
+        [FormerlySerializedAs("levelChanger")] public LevelChangerController.LevelChanger LevelChanger;
 
         private PlayersDataAccess dataConnect;
 
@@ -42,7 +43,7 @@ namespace CyberStories.Menu.Controllers
             Button current = buttonController.GetComponent<Button>();
 
             // Get all active button controllers
-            List<MenuButtonController> buttons = uiHeaderCanvas.GetComponentsInChildren<Button>()
+            List<MenuButtonController> buttons = UiHeaderCanvas.GetComponentsInChildren<Button>()
                 .Where(button => button != current && button.GetComponent<MenuButtonController>() != null)
                 .Select(button => button.GetComponent<MenuButtonController>())
                 .Where(button => button.IsMenuButtonActive)
@@ -58,21 +59,21 @@ namespace CyberStories.Menu.Controllers
         private void UpdateLevelContentTag()
         {
             // Update description content
-            descriptionText.text = Level.GetDescriptionByTag(currentTag);
+            DescriptionText.text = Level.GetDescriptionByTag(currentTag);
 
             // Update leaderboard
             if (dataConnect.IsLoading)
             {
-                leaderboardController.DisplayError("Récupération des meilleurs agents en cours");
+                LeaderboardController.DisplayError("Récupération des meilleurs agents en cours");
             }
             else if (!dataConnect.IsError)
             {
                 IList<DBO.Player> players = Player.GetBestPlayersByLevel(currentTag, dataConnect.Response);
-                leaderboardController.UpdateLeaderboard(players);
+                LeaderboardController.UpdateLeaderboard(players);
             }
             else
             {
-                leaderboardController.DisplayError("Erreur de téléchargement.");
+                LeaderboardController.DisplayError("Erreur de téléchargement.");
             }
         }
 
@@ -81,8 +82,8 @@ namespace CyberStories.Menu.Controllers
             if (currentTag == null)
                 return;
             if (!ScenesByTag.TryGetValue(currentTag, out string sceneName)) return;
-            levelChanger.sceneToLoad = sceneName;
-            levelChanger.ChangeScene();
+            LevelChanger.SceneToLoad = sceneName;
+            LevelChanger.ChangeScene();
         }
     }
 }

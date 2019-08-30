@@ -1,41 +1,42 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 public abstract class BaseWebSite : MonoBehaviour
 {
-    public WebApplication app;
+    [FormerlySerializedAs("app")] public WebApplication App;
 
-    public Sprite icon;
+    [FormerlySerializedAs("icon")] public Sprite Icon;
 
-    public string urlKey;
-    public string nextUrlKey;
-    public bool isThereNextSite;
+    [FormerlySerializedAs("urlKey")] public string UrlKey;
+    [FormerlySerializedAs("nextUrlKey")] public string NextUrlKey;
+    [FormerlySerializedAs("isThereNextSite")] public bool IsThereNextSite;
 
     public string NextUrl { get; set; }
     public string Url { get; set; }
 
-    public bool sendMessageOnEnter = false;
-    public BaseQuestManager messageDestination;
+    [FormerlySerializedAs("sendMessageOnEnter")] public bool SendMessageOnEnter = false;
+    [FormerlySerializedAs("messageDestination")] public BaseQuestManager MessageDestination;
 
     public abstract void ResetWebSite();
 
     public void Load()
     {
-        Url = GlobalManager.GetLocalization(urlKey);
-        if (isThereNextSite)
-            NextUrl = GlobalManager.GetLocalization(nextUrlKey);
+        Url = GlobalManager.GetLocalization(UrlKey);
+        if (IsThereNextSite)
+            NextUrl = GlobalManager.GetLocalization(NextUrlKey);
 
         gameObject.SetActive(false);
     }
 
     public void SendMessageToQuestManager()
     {
-        if (sendMessageOnEnter)
-            messageDestination.gameObject.SendMessage("OnWebSiteEnter", this);
+        if (SendMessageOnEnter)
+            MessageDestination.gameObject.SendMessage("OnWebSiteEnter", this);
     }
 
     public void RedirectToNextWebSite()
     {
-        if (isThereNextSite)
-            app.Redirect(NextUrl);
+        if (IsThereNextSite)
+            App.Redirect(NextUrl);
     }
 }

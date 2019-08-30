@@ -20,21 +20,21 @@ public class DialogueSystem : MonoBehaviour
     public bool NextLine(int answer = -1)
     {
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(actualLine.name + ": " + actualLine.textLine));
+        StartCoroutine(TypeSentence(actualLine.Name + ": " + actualLine.TextLine));
 
-        if (actualLine.answers.Length == 0 || actualLine.nextLine.Length != actualLine.answers.Length)
+        if (actualLine.Answers.Length == 0 || actualLine.NextLine.Length != actualLine.Answers.Length)
         {
             return true;
         }
 
-        if (answer != -1 && answer < actualLine.nextLine.Length)
+        if (answer != -1 && answer < actualLine.NextLine.Length)
         {
-            actualLine = actualLine.nextLine[answer];
+            actualLine = actualLine.NextLine[answer];
             //set all buttons
         }
         else if (answer == -1)
         {
-            actualLine = actualLine.nextLine[0];
+            actualLine = actualLine.NextLine[0];
         }
 
         return false;

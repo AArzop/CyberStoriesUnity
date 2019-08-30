@@ -1,15 +1,16 @@
 ﻿using CyberStories.DBO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Valve.VR.InteractionSystem;
 
 [RequireComponent(typeof(Interactable))]
 public class DialogueTrigger : MonoBehaviour
 {
-    public DialogueLine firstLine;
-    public Canvas canvas;
-    public TextMeshProUGUI textMeshPro;
-    public Animator animator;
+    [FormerlySerializedAs("firstLine")] public DialogueLine FirstLine;
+    [FormerlySerializedAs("canvas")] public Canvas Canvas;
+    [FormerlySerializedAs("textMeshPro")] public TextMeshProUGUI TextMeshPro;
+    [FormerlySerializedAs("animator")] public Animator Animator;
     private bool isEnd = false;
     private bool isDialogue = false;
 
@@ -31,13 +32,13 @@ public class DialogueTrigger : MonoBehaviour
             {
                 isEnd = false;
                 isDialogue = false;
-                animator.SetBool("IsOpen", false);
+                Animator.SetBool("IsOpen", false);
             }
             else
             {
-                FindObjectOfType<DialogueSystem>().StartDialogue(firstLine, textMeshPro);
+                FindObjectOfType<DialogueSystem>().StartDialogue(FirstLine, TextMeshPro);
                 isDialogue = true;
-                animator.SetBool("IsOpen", true);
+                Animator.SetBool("IsOpen", true);
             }
         }
     }

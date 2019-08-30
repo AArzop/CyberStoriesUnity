@@ -17,15 +17,15 @@ namespace CyberStories.DataAccess
                 {
                     new DBO.Player
                     {
-                        id = 1,
-                        name = "Toto",
-                        score = 50
+                        Id = 1,
+                        Name = "Toto",
+                        Score = 50
                     },
                     new DBO.Player
                     {
-                        id = 2,
-                        name = "Bis",
-                        score = 7
+                        Id = 2,
+                        Name = "Bis",
+                        Score = 7
                     }
                 };
             else
@@ -33,21 +33,21 @@ namespace CyberStories.DataAccess
                 {
                     new DBO.Player
                     {
-                        id = 3,
-                        name = "Abc",
-                        score = 50
+                        Id = 3,
+                        Name = "Abc",
+                        Score = 50
                     },
                     new DBO.Player
                     {
-                        id = 4,
-                        name = "def",
-                        score = 7
+                        Id = 4,
+                        Name = "def",
+                        Score = 7
                     },
                     new DBO.Player
                     {
-                        id = 5,
-                        name = "last",
-                        score = 0
+                        Id = 5,
+                        Name = "last",
+                        Score = 0
                     }
                 };
         }

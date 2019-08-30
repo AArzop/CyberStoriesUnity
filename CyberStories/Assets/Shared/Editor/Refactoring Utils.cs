@@ -35,6 +35,7 @@ public class RefactoringUtils : MonoBehaviour
         foreach (string sceneFilename in allScenes)
         {
             Scene scene = EditorSceneManager.OpenScene(sceneFilename);
+            // ReSharper disable once CoVariantArrayConversion
             Object[] deps = EditorUtility.CollectDependencies(scene.GetRootGameObjects());
             foreach (Object dep in deps)
             {
