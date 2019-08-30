@@ -52,19 +52,19 @@ public class PhishingReview : MonoBehaviour
         SuccessCanvas.gameObject.SetActive(false);
         FailCanvas.gameObject.SetActive(true);
 
-        const int note = 0;
-        const int cost = 1;
+        const int Note = 0;
+        const int Cost = 1;
 
         List<int> tab = GetEvaluationAndCost(detail);
 
         NoteTitle.text = GlobalManager.GetLocalization("Review_Note");
-        NoteInput.text = tab[note].ToString() + " / 100";
+        NoteInput.text = tab[Note].ToString() + " / 100";
         TipsTitle.text = GlobalManager.GetLocalization("Review_Tips");
         TipsText.text = GlobalManager.GetLocalization("PhishingReview_Tips");
         CostText.text = GlobalManager.GetLocalization("PhishingReview_Cost");
-        CostText.text += " " + tab[cost].ToString() + "€";
+        CostText.text += " " + tab[Cost].ToString() + "€";
 
-        if (tab[note] > 75)
+        if (tab[Note] > 75)
             UnlockMiniGameScene();
         else
             GameplayTipsText.text = GlobalManager.GetLocalization("Review_LockGameplay");

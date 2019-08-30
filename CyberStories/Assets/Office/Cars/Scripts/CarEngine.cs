@@ -31,10 +31,10 @@ namespace CartoonCar
             Transform[] pathTransforms = Path.GetComponentsInChildren<Transform>();
             nodes = new List<Transform>();
 
-            for (int i = 0; i< pathTransforms.Length; i++)
+            foreach (Transform pathTransform in pathTransforms)
             {
-                if (pathTransforms[i] != Path.transform)
-                    nodes.Add(pathTransforms[i]);
+                if (pathTransform != Path.transform)
+                    nodes.Add(pathTransform);
             }
 
             if (Delay > 0)

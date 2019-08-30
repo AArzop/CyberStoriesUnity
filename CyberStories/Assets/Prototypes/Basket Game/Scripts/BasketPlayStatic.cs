@@ -1,4 +1,4 @@
-﻿public class BasketPlay_Static : BaseBasketPlay
+﻿public class BasketPlayStatic : BaseBasketPlay
 {
     protected override void Update()
     {

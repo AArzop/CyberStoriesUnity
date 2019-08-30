@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class BasketPlay_Linear : BaseBasketPlay
+public class BasketPlayLinear : BaseBasketPlay
 {
     private Vector3 speed;
     private Vector3 offset;

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class BasketPlay_Size : BaseBasketPlay
+public class BasketPlaySize : BaseBasketPlay
 {
     private float minSize;
     private float maxSize;
