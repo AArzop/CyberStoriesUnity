@@ -1,15 +1,13 @@
-﻿using UnityEngine.Serialization;
-
-namespace CyberStories.DBO
+﻿namespace CyberStories.DBO
 {
     [System.Serializable]
     public class DialogueLine
     {
-        [FormerlySerializedAs("name")] public string Name;
-        [FormerlySerializedAs("textLine")] public string TextLine;
+        public string Name;
+        public string TextLine;
 
         //answers and nextLine MUST have the same size (one answer and its corresponding nextLine)
-        [FormerlySerializedAs("answers")] public string[] Answers;
-        [FormerlySerializedAs("nextLine")] public DialogueLine[] NextLine;
+        public string[] Answers;
+        public DialogueLine[] NextLine;
     }
 }

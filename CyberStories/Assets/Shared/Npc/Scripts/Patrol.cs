@@ -1,19 +1,18 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Serialization;
 
 namespace CyberStories.CyberstoriesNpc.Controllers
 {
     public class Patrol : MonoBehaviour
     {
-        [FormerlySerializedAs("points")] public Transform[] Points;
+        public Transform[] Points;
         private int destPoint = 0;
         private NavMeshAgent agent;
 
-        [FormerlySerializedAs("rotationSpeed")] [Min(0)] public float RotationSpeed = 3f;
+        [Min(0)] public float RotationSpeed = 3f;
         private Animator animator;
 
-        [FormerlySerializedAs("mustGoBack")] public bool MustGoBack;
+        public bool MustGoBack;
         private bool isGoingBack = false;
 
         void Awake()

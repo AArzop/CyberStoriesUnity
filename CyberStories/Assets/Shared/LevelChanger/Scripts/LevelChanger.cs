@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace LevelChangerController
@@ -9,11 +8,11 @@ namespace LevelChangerController
     public class LevelChanger : MonoBehaviour
     {
         // For scene transition
-        [FormerlySerializedAs("animator")] public Animator Animator;
+        public Animator Animator;
 
-        [FormerlySerializedAs("fillImage")] public Image FillImage;
+        public Image FillImage;
 
-        [FormerlySerializedAs("sceneToLoad")] public string SceneToLoad;
+        public string SceneToLoad;
 
         public void ChangeScene()
         {

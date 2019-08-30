@@ -4,30 +4,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.Serialization;
 
 public class PhishingGameplayManager : MonoBehaviour
 {
-    [FormerlySerializedAs("nbGoal")] [Range(1, 15)] public int NbGoal;
+    [Range(1, 15)] public int NbGoal;
 
-    [FormerlySerializedAs("nbBall")] [Range(1, 5)] public int NbBall;
+    [Range(1, 5)] public int NbBall;
 
-    [FormerlySerializedAs("ballPrefab")] public BasketGameBall BallPrefab;
-    [FormerlySerializedAs("goalPrefab")] public List<BaseBasketPlay> GoalPrefab;
+    public BasketGameBall BallPrefab;
+    public List<BaseBasketPlay> GoalPrefab;
 
-    [FormerlySerializedAs("bonusTime")] public uint BonusTime = 10;
+    public uint BonusTime = 10;
 
-    [FormerlySerializedAs("prepareTimerText")] public Text PrepareTimerText;
+    public Text PrepareTimerText;
     
-    [FormerlySerializedAs("prepareTipsText")] public Text PrepareTipsText;
+    public Text PrepareTipsText;
 
-    [FormerlySerializedAs("prepareCanvas")] public Canvas PrepareCanvas;
+    public Canvas PrepareCanvas;
 
-    [FormerlySerializedAs("gameTimer")] public List<TextMeshPro> GameTimer;
+    public List<TextMeshPro> GameTimer;
 
-    [FormerlySerializedAs("platform")] public GameObject Platform;
+    public GameObject Platform;
 
-    [FormerlySerializedAs("nextSceneChanger")] public ClickToChangeScene NextSceneChanger;
+    public ClickToChangeScene NextSceneChanger;
 
     private List<BasketGameBall> ballList;
     private List<BaseBasketPlay> goalList;
@@ -43,9 +42,9 @@ public class PhishingGameplayManager : MonoBehaviour
 
     private State currentState;
 
-    [FormerlySerializedAs("goalSpawnArea")] public GameObject GoalSpawnArea;
+    public GameObject GoalSpawnArea;
     
-    [FormerlySerializedAs("ballSpawnPosition")] public GameObject BallSpawnPosition;
+    public GameObject BallSpawnPosition;
 
     private void GenerateBall()
     {

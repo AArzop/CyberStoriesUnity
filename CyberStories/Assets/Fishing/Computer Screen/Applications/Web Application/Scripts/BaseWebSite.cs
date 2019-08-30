@@ -1,21 +1,20 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 
 public abstract class BaseWebSite : MonoBehaviour
 {
-    [FormerlySerializedAs("app")] public WebApplication App;
+    public WebApplication App;
 
-    [FormerlySerializedAs("icon")] public Sprite Icon;
+    public Sprite Icon;
 
-    [FormerlySerializedAs("urlKey")] public string UrlKey;
-    [FormerlySerializedAs("nextUrlKey")] public string NextUrlKey;
-    [FormerlySerializedAs("isThereNextSite")] public bool IsThereNextSite;
+    public string UrlKey;
+    public string NextUrlKey;
+    public bool IsThereNextSite;
 
     public string NextUrl { get; set; }
     public string Url { get; set; }
 
-    [FormerlySerializedAs("sendMessageOnEnter")] public bool SendMessageOnEnter = false;
-    [FormerlySerializedAs("messageDestination")] public BaseQuestManager MessageDestination;
+    public bool SendMessageOnEnter = false;
+    public BaseQuestManager MessageDestination;
 
     public abstract void ResetWebSite();
 

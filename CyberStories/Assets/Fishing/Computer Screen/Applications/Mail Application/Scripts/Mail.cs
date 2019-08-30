@@ -1,21 +1,20 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class Mail : MonoBehaviour
 {
     #region Keys
 
-    [FormerlySerializedAs("objectKey")] public string ObjectKey;
-    [FormerlySerializedAs("sourceKey")] public string SourceKey;
-    [FormerlySerializedAs("bodyKey")] public string BodyKey;
-    [FormerlySerializedAs("dateTimeStr")] public string DateTimeStr;
-    [FormerlySerializedAs("isThereLink")] public bool IsThereLink;
-    [FormerlySerializedAs("linkKey")] public string LinkKey;
+    public string ObjectKey;
+    public string SourceKey;
+    public string BodyKey;
+    public string DateTimeStr;
+    public bool IsThereLink;
+    public string LinkKey;
 
     #endregion
     
-    [FormerlySerializedAs("isFishingMail")] public bool IsFishingMail;
+    public bool IsFishingMail;
 
     public DateTime DateTime { get; set; }
     public string Object { get; set; }

@@ -1,16 +1,15 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace CyberStories.Office.Controllers
 {
     public class SwitchMeshController : MonoBehaviour
     {
-        [FormerlySerializedAs("onMeshRenderer")] public Mesh OnMeshRenderer;
-        [FormerlySerializedAs("offMeshRenderer")] public Mesh OffMeshRenderer;
+        public Mesh OnMeshRenderer;
+        public Mesh OffMeshRenderer;
 
-        [FormerlySerializedAs("isOn")] public bool IsOn;
+        public bool IsOn;
 
-        [FormerlySerializedAs("targetGameObject")] public GameObject TargetGameObject;
+        public GameObject TargetGameObject;
 
         private MeshFilter currentMeshFilter;
 

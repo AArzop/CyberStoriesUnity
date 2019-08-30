@@ -1,10 +1,9 @@
 ﻿using System;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class HomeApplication : BaseApplication
 {
-    [FormerlySerializedAs("hourText")] public Text HourText;
+    public Text HourText;
 
     public override void ResetApplication()
     {

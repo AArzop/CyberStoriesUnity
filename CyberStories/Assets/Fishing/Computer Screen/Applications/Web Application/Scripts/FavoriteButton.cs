@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class FavoriteButton : MonoBehaviour
 {
-    [FormerlySerializedAs("app")] public WebApplication App;
+    public WebApplication App;
 
     public BaseWebSite Site { get; set; }
 

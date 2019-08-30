@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace CartoonCar
 {
     public class Path : MonoBehaviour
     {
-        [FormerlySerializedAs("lineColor")] public Color LineColor;
+        public Color LineColor;
 
         private List<Transform> nodes = new List<Transform>();
 

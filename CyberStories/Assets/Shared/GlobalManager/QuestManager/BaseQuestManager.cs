@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public abstract class BaseQuestManager : MonoBehaviour
 {
-    [FormerlySerializedAs("stepsList")] public List<BaseQuest> StepsList;
-    [FormerlySerializedAs("nextSceneChanger")] public ClickToChangeScene NextSceneChanger;
+    public List<BaseQuest> StepsList;
+    public ClickToChangeScene NextSceneChanger;
     protected BaseQuest CurrentStep;
     protected int CurrentStepIndex;
 

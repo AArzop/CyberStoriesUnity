@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using Valve.VR.InteractionSystem;
 
 [RequireComponent(typeof(Interactable))]
 public class ClickToChangeScene : MonoBehaviour
 {
-    [FormerlySerializedAs("sceneName")] public string SceneName;
-    [FormerlySerializedAs("lockButton")] public bool LockButton = false;
+    public string SceneName;
+    public bool LockButton = false;
 
     private bool isClicked = false;
 

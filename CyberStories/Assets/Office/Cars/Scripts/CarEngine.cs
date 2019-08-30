@@ -1,25 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace CartoonCar
 {
+    // TODO: fix bug: car engine don't follow the path accurately and sometimes crashes in walls 
     public class CarEngine : MonoBehaviour
     {
-        [FormerlySerializedAs("path")] public Transform Path;
-        [FormerlySerializedAs("maxSteerAngle")] public float MaxSteerAngle = 45f;
-        [FormerlySerializedAs("wheelFl")] public WheelCollider WheelFl;
-        [FormerlySerializedAs("wheelFr")] public WheelCollider WheelFr;
-        [FormerlySerializedAs("maxMotorTorque")] public float MaxMotorTorque = 80f;
-        [FormerlySerializedAs("currentSpeed")] public float CurrentSpeed;
-        [FormerlySerializedAs("maxSpeed")] public float MaxSpeed = 100f;    
-        [FormerlySerializedAs("centerOfMass")] public Vector3 CenterOfMass;
+        public Transform Path;
+        public float MaxSteerAngle = 45f;
+        public WheelCollider WheelFl;
+        public WheelCollider WheelFr;
+        public float MaxMotorTorque = 80f;
+        public float CurrentSpeed;
+        public float MaxSpeed = 100f;    
+        public Vector3 CenterOfMass;
 
         private List<Transform> nodes;
         private int currectNode = 0;
 
-        [FormerlySerializedAs("delay")] [Min(0)]
+        [Min(0)]
         public float Delay = 0f;
 
         private bool isCoroutineExecuting = false;

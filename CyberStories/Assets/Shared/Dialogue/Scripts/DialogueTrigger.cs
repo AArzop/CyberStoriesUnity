@@ -1,16 +1,15 @@
 ﻿using CyberStories.DBO;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Valve.VR.InteractionSystem;
 
 [RequireComponent(typeof(Interactable))]
 public class DialogueTrigger : MonoBehaviour
 {
-    [FormerlySerializedAs("firstLine")] public DialogueLine FirstLine;
-    [FormerlySerializedAs("canvas")] public Canvas Canvas;
-    [FormerlySerializedAs("textMeshPro")] public TextMeshProUGUI TextMeshPro;
-    [FormerlySerializedAs("animator")] public Animator Animator;
+    public DialogueLine FirstLine;
+    public Canvas Canvas;
+    public TextMeshProUGUI TextMeshPro;
+    public Animator Animator;
     private bool isEnd = false;
     private bool isDialogue = false;
 

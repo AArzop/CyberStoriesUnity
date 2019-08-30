@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace CyberStories.Menu.Controllers.Leaderboard
 {
     public class LeaderboardController : MonoBehaviour
     {
-        [FormerlySerializedAs("errorMessage")] public Text ErrorMessage;
+        public Text ErrorMessage;
 
         public void UpdateLeaderboard(IList<DBO.Player> players)
         {

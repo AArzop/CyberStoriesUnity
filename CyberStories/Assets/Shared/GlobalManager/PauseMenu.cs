@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
 
 public class PauseMenu : MonoBehaviour
 {
     public readonly SteamVR_Action_Boolean Action = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("PauseMenu");
-    [FormerlySerializedAs("menu")] public GameObject Menu;
+    public GameObject Menu;
 
     private Player player;
     private Hand currentHand;

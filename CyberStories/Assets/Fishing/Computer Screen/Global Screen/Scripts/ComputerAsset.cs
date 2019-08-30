@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 using Valve.VR.InteractionSystem;
 
 [RequireComponent(typeof(Interactable))]
 public class ComputerAsset : MonoBehaviour
 {
-    [FormerlySerializedAs("globalScreen")] public GlobalScreen GlobalScreen;
+    public GlobalScreen GlobalScreen;
 
     private void HandHoverUpdate(Hand hand)
     {

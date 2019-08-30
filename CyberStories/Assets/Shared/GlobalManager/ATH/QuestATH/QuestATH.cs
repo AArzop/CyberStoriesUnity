@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class QuestATH : MonoBehaviour
 {
-    [FormerlySerializedAs("listQuestText")] public Text ListQuestText;
+    public Text ListQuestText;
 
     public void UpdateQuestATH()
     {

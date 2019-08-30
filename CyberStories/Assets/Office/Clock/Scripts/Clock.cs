@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class Clock : MonoBehaviour
 {
@@ -9,15 +8,14 @@ public class Clock : MonoBehaviour
     private const int MaxHours = 12;
 
     // set start time 00:00
-    [FormerlySerializedAs("minutes")] public int Minutes = 0;
+    public int Minutes = 0;
 
-    [FormerlySerializedAs("hour")] public int Hour = 0;
+    public int Hour = 0;
 
     // If true, take hour, minutes and seconds will be updated according to DateTime.Now
-    [FormerlySerializedAs("isLocalTime")] public bool IsLocalTime;
+    public bool IsLocalTime;
 
     // time speed factor
-    [FormerlySerializedAs("clockSpeed")]
     public float ClockSpeed = 1.0f; // 1.0f = realtime, < 1.0f = slower, > 1.0f = faster
 
     // private vars

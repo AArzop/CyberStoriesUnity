@@ -3,7 +3,6 @@ using CyberStories.Menu.Controllers.Leaderboard;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace CyberStories.Menu.Controllers
@@ -17,15 +16,15 @@ namespace CyberStories.Menu.Controllers
             {"Level 1", "Fishing/Fishing"}
         };
         
-        [FormerlySerializedAs("uiHeaderCanvas")] public Canvas UiHeaderCanvas;
+        public Canvas UiHeaderCanvas;
         
-        [FormerlySerializedAs("descriptionText")] public Text DescriptionText;
+        public Text DescriptionText;
         
-        [FormerlySerializedAs("leaderboardController")] public LeaderboardController LeaderboardController;
+        public LeaderboardController LeaderboardController;
 
         private string currentTag;
 
-        [FormerlySerializedAs("levelChanger")] public LevelChangerController.LevelChanger LevelChanger;
+        public LevelChangerController.LevelChanger LevelChanger;
 
         private PlayersDataAccess dataConnect;
 

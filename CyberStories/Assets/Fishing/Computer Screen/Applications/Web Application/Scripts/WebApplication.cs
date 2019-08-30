@@ -1,15 +1,14 @@
 ﻿using System.Collections.Generic;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class WebApplication : BaseApplication
 {
-    [FormerlySerializedAs("webSites")] public List<BaseWebSite> WebSites;
-    [FormerlySerializedAs("favoriteWebSites")] public List<BaseWebSite> FavoriteWebSites;
+    public List<BaseWebSite> WebSites;
+    public List<BaseWebSite> FavoriteWebSites;
 
-    [FormerlySerializedAs("favoriteButtons")] public List<FavoriteButton> FavoriteButtons;
+    public List<FavoriteButton> FavoriteButtons;
 
-    [FormerlySerializedAs("urlText")] public Text UrlText;
+    public Text UrlText;
 
     private Dictionary<string, BaseWebSite> urlToWebSite;
     private BaseWebSite currentWebSite;

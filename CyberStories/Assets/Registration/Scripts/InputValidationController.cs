@@ -3,16 +3,15 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 using LevelChangerController;
-using UnityEngine.Serialization;
 
 namespace CyberStories.Registration.Controllers
 {
     public class InputValidationController : MonoBehaviour
     {
-        [FormerlySerializedAs("pseudoInput")] public InputField PseudoInput;
-        [FormerlySerializedAs("emailInput")] public InputField EmailInput;
-        [FormerlySerializedAs("errorLabel")] public Text ErrorLabel;
-        [FormerlySerializedAs("levelChanger")] public LevelChanger LevelChanger;
+        public InputField PseudoInput;
+        public InputField EmailInput;
+        public Text ErrorLabel;
+        public LevelChanger LevelChanger;
 
         // TODO: Localization
         private const string ErrorEmailMessage = "Email non valide";

@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class BanqueLogin : BaseWebSite
 {
-    [FormerlySerializedAs("isFishingWebSite")] public bool IsFishingWebSite;
-    [FormerlySerializedAs("sendFishingMessage")] public bool SendFishingMessage;
+    public bool IsFishingWebSite;
+    public bool SendFishingMessage;
 
     public override void ResetWebSite()
     {

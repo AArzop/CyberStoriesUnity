@@ -1,22 +1,21 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class PhishingReview : MonoBehaviour
 {
-    [FormerlySerializedAs("successCanvas")] public Canvas SuccessCanvas;
-    [FormerlySerializedAs("failCanvas")] public Canvas FailCanvas;
+    public Canvas SuccessCanvas;
+    public Canvas FailCanvas;
 
-    [FormerlySerializedAs("successText")] public Text SuccessText;
-    [FormerlySerializedAs("noteTitle")] public Text NoteTitle;
-    [FormerlySerializedAs("noteInput")] public Text NoteInput;
-    [FormerlySerializedAs("costText")] public Text CostText;
-    [FormerlySerializedAs("tipsTitle")] public Text TipsTitle;
-    [FormerlySerializedAs("tipsText")] public Text TipsText;
-    [FormerlySerializedAs("gameplayTipsText")] public Text GameplayTipsText;
+    public Text SuccessText;
+    public Text NoteTitle;
+    public Text NoteInput;
+    public Text CostText;
+    public Text TipsTitle;
+    public Text TipsText;
+    public Text GameplayTipsText;
 
-    [FormerlySerializedAs("toMiniGame")] public ClickToChangeScene ToMiniGame;
+    public ClickToChangeScene ToMiniGame;
 
     private void UnlockMiniGameScene()
     {

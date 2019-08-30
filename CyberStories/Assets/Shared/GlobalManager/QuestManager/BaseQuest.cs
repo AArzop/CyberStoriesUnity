@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 
 public abstract class BaseQuest : MonoBehaviour
 {
-    [FormerlySerializedAs("questManager")] public BaseQuestManager QuestManager;
+    public BaseQuestManager QuestManager;
     // ReSharper disable once UnusedAutoPropertyAccessor.Global
     public bool IsDone { get; set; }
 
-    [FormerlySerializedAs("questATHKey")] public string QuestAthKey;
+    public string QuestAthKey;
     protected string InfoQuest;
 
     protected void Awake()

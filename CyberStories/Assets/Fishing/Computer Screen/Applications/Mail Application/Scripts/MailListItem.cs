@@ -1,16 +1,15 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class MailListItem : MonoBehaviour
 {
-    [FormerlySerializedAs("mail")] public Mail Mail;
-    [FormerlySerializedAs("style")] public GameObject Style;
-    [FormerlySerializedAs("sourceText")] public Text SourceText;
-    [FormerlySerializedAs("dateText")] public Text DateText;
-    [FormerlySerializedAs("objectText")] public Text ObjectText;
+    public Mail Mail;
+    public GameObject Style;
+    public Text SourceText;
+    public Text DateText;
+    public Text ObjectText;
 
-    [FormerlySerializedAs("app")] public MailApplication App;
+    public MailApplication App;
 
     private void Start()
     {

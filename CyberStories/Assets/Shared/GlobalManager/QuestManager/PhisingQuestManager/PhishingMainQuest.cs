@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using UnityEngine.Serialization;
 
 public class PhishingMainQuest : BaseQuest
 {
-    [FormerlySerializedAs("mailApp")] public MailApplication MailApp;
+    public MailApplication MailApp;
     private Dictionary<Mail, bool> mailTreated;
 
-    [FormerlySerializedAs("webSites")] public List<BaseWebSite> WebSites;
+    public List<BaseWebSite> WebSites;
     private Dictionary<BaseWebSite, bool> siteConsulted;
     private List<string> fishingWebsiteConsulted;
 

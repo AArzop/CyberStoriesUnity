@@ -1,24 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class MailApplication : BaseApplication
 {
     // List of mails, one by filter
-    [FormerlySerializedAs("newMails")] public List<Mail> NewMails;
-    [FormerlySerializedAs("archMails")] public List<Mail> ArchMails;
-    [FormerlySerializedAs("delMails")] public List<Mail> DelMails;
+    public List<Mail> NewMails;
+    public List<Mail> ArchMails;
+    public List<Mail> DelMails;
 
-    [FormerlySerializedAs("sendMessageOnArchiv")] public bool SendMessageOnArchiv = false;
-    [FormerlySerializedAs("sendMessageOnDelete")] public bool SendMessageOnDelete = false;
+    public bool SendMessageOnArchiv = false;
+    public bool SendMessageOnDelete = false;
 
-    [FormerlySerializedAs("messageDestination")] public BaseQuestManager MessageDestination;
+    public BaseQuestManager MessageDestination;
 
     // Nb item in UI
     private const int NbMailDisplayed = 6;
-    [FormerlySerializedAs("mailItemUI")] public List<MailListItem> MailItemUI;
+    public List<MailListItem> MailItemUI;
 
     // Current state of the application
     private Filter currentFilter;
@@ -29,17 +28,17 @@ public class MailApplication : BaseApplication
     private Mail mailSelected;
 
     // Display warning logo
-    [FormerlySerializedAs("displayWarningLogo")] public bool DisplayWarningLogo = false;
+    public bool DisplayWarningLogo = false;
 
     #region UI
-        [FormerlySerializedAs("bodyCanvas")] public GameObject BodyCanvas;
-        [FormerlySerializedAs("mailHeaderObjectText")] public Text MailHeaderObjectText;
-        [FormerlySerializedAs("mailHeaderDateText")] public Text MailHeaderDateText;
-        [FormerlySerializedAs("mailHeaderSourceText")] public Text MailHeaderSourceText;
-        [FormerlySerializedAs("mailBodyText")] public Text MailBodyText;
-        [FormerlySerializedAs("mailLinkButton")] public Button MailLinkButton;
-        [FormerlySerializedAs("mailLinkText")] public Text MailLinkText;
-        [FormerlySerializedAs("warningLogo")] public Image WarningLogo;
+        public GameObject BodyCanvas;
+        public Text MailHeaderObjectText;
+        public Text MailHeaderDateText;
+        public Text MailHeaderSourceText;
+        public Text MailBodyText;
+        public Button MailLinkButton;
+        public Text MailLinkText;
+        public Image WarningLogo;
     #endregion
 
     private enum Filter
@@ -78,7 +77,7 @@ public class MailApplication : BaseApplication
     }
 
     // Start is called before the first frame update, set default state of the application
-    void Start()
+    private void Start()
     {
         currentFilter = Filter.NewMail;
         currentMailList = NewMails;

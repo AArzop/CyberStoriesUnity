@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class GlobalScreen : MonoBehaviour
 {
-    [FormerlySerializedAs("applications")] public List<BaseApplication> Applications;
+    public List<BaseApplication> Applications;
     private BaseApplication currentApplication;
     private int currentIndex;
 
