@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.Serialization;
 
 public class PhishingGameplayManager : MonoBehaviour
 {
@@ -166,7 +165,6 @@ public class PhishingGameplayManager : MonoBehaviour
         if (timer < TimeSpan.Zero)
         {
             NextState();
-            return;
         }
     }
 
@@ -177,7 +175,6 @@ public class PhishingGameplayManager : MonoBehaviour
         if (timer < TimeSpan.Zero)
         {
             NextState();
-            return;
         }
     }
 

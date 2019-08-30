@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -120,9 +121,9 @@ public class MailApplication : BaseApplication
                 currentMailList = delMails;
                 LoadMailItem(delMails, 0);
                 break;
-
             default:
-                break;
+                // Todo use assert to avoid crash in production
+                throw new ArgumentOutOfRangeException(nameof(newFilter), newFilter, null);
         }
     }
 

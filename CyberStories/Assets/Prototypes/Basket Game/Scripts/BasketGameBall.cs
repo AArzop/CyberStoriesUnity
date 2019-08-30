@@ -13,12 +13,12 @@ public class BasketGameBall : MonoBehaviour
         manager = FindObjectOfType<PhishingGameplayManager>();
     }
 
-    protected void OnAttachedToHand(Hand hand)
+    protected void OnAttachedToHand()
     {
         IsGrabbed = true;
     }
 
-    protected virtual void OnDetachedFromHand(Hand hand)
+    protected virtual void OnDetachedFromHand()
     {
         IsGrabbed = false;
     }

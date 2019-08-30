@@ -3,6 +3,7 @@
 public abstract class BaseQuest : MonoBehaviour
 {
     public BaseQuestManager questManager;
+    // ReSharper disable once UnusedAutoPropertyAccessor.Global
     public bool IsDone { get; set; }
 
     public string questATHKey;

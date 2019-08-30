@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +15,7 @@ namespace CyberStories.Menu.Controllers.Leaderboard
             int maxPlayer = playerControllers.Length;
             if (players.Count < playerControllers.Length)
             {
-                SetLeaderboardPlayerVisibility(players.Count, false);
+                SetLeaderboardPlayerVisibility(players.Count);
                 maxPlayer = players.Count;
             }
 
@@ -37,7 +36,7 @@ namespace CyberStories.Menu.Controllers.Leaderboard
             playerController.IsActive = true;
         }
 
-        private void SetLeaderboardPlayerVisibility(int rankMin, bool isVisible)
+        private void SetLeaderboardPlayerVisibility(int rankMin)
         {
             LeaderboardPlayerController[] playerControllers = GetComponentsInChildren<LeaderboardPlayerController>(true);
 
@@ -47,7 +46,7 @@ namespace CyberStories.Menu.Controllers.Leaderboard
 
         public void DisplayError(string errMsg)
         {
-            SetLeaderboardPlayerVisibility(0, false);
+            SetLeaderboardPlayerVisibility(0);
             errorMessage.text = errMsg;
         }
     }

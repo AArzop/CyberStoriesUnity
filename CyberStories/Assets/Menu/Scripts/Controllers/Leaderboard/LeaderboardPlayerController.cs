@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace CyberStories.Menu.Controllers.Leaderboard
@@ -11,10 +10,7 @@ namespace CyberStories.Menu.Controllers.Leaderboard
 
         public bool IsActive
         {
-            set
-            {
-                gameObject.SetActive(value);
-            }
+            set => gameObject.SetActive(value);
         }
     }
 }

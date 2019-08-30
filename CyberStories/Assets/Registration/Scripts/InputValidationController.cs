@@ -3,7 +3,6 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 using LevelChangerController;
-using UnityEngine.Serialization;
 
 namespace CyberStories.Registration.Controllers
 {

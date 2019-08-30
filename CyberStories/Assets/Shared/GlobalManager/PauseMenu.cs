@@ -4,7 +4,7 @@ using Valve.VR.InteractionSystem;
 
 public class PauseMenu : MonoBehaviour
 {
-    public SteamVR_Action_Boolean action = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("PauseMenu");
+    public readonly SteamVR_Action_Boolean action = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("PauseMenu");
     public GameObject menu;
 
     private Player player;

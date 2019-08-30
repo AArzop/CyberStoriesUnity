@@ -3,7 +3,6 @@ using CyberStories.Menu.Controllers.Leaderboard;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace CyberStories.Menu.Controllers
@@ -34,7 +33,6 @@ namespace CyberStories.Menu.Controllers
         // Start is called before the first frame update
         private void Start()
         {
-            Button[] buttons = uiHeaderCanvas.GetComponentsInChildren<Button>();
             dataConnect = GetComponent<PlayersDataAccess>();
         }
 

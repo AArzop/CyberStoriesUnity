@@ -4,7 +4,7 @@ using Valve.VR.InteractionSystem;
 [RequireComponent(typeof(Interactable))]
 public class EnableGravityOnFirstUse : MonoBehaviour
 {
-    protected void OnAttachedToHand(Hand hand)
+    protected void OnAttachedToHand()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
 
