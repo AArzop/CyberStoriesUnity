@@ -10,7 +10,7 @@ namespace CartoonCar
 
         private List<Transform> nodes = new List<Transform>();
 
-        private void OnDrawGizmosSelected()
+        void OnDrawGizmosSelected()
         {
             Gizmos.color = LineColor;
 

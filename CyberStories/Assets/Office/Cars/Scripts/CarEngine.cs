@@ -13,7 +13,7 @@ namespace CartoonCar
         [FormerlySerializedAs("wheelFr")] public WheelCollider WheelFr;
         [FormerlySerializedAs("maxMotorTorque")] public float MaxMotorTorque = 80f;
         [FormerlySerializedAs("currentSpeed")] public float CurrentSpeed;
-        [FormerlySerializedAs("maxSpeed")] public float MaxSpeed = 100f;
+        [FormerlySerializedAs("maxSpeed")] public float MaxSpeed = 100f;    
         [FormerlySerializedAs("centerOfMass")] public Vector3 CenterOfMass;
 
         private List<Transform> nodes;
@@ -31,10 +31,10 @@ namespace CartoonCar
             Transform[] pathTransforms = Path.GetComponentsInChildren<Transform>();
             nodes = new List<Transform>();
 
-            foreach (var pathTransform in pathTransforms)
+            for (int i = 0; i< pathTransforms.Length; i++)
             {
-                if (pathTransform != Path.transform)
-                    nodes.Add(pathTransform);
+                if (pathTransforms[i] != Path.transform)
+                    nodes.Add(pathTransforms[i]);
             }
 
             if (Delay > 0)

@@ -1438,6 +1438,10 @@ PrefabInstance:
       propertyPath: maxMotorTorque
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 1685638685, guid: 3ba472ef7a15b0e4b87a74ac768bba7e, type: 3}
+      propertyPath: Path
+      value: 
+      objectReference: {fileID: 207378317}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ba472ef7a15b0e4b87a74ac768bba7e, type: 3}
 --- !u!4 &434463159 stripped
@@ -2797,12 +2801,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88075a54c7fb1484ba25db394b612917, type: 3}
---- !u!1 &671926410 stripped
+--- !u!1 &671926410
 GameObject:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 1000014042078020, guid: 88075a54c7fb1484ba25db394b612917,
     type: 3}
   m_PrefabInstance: {fileID: 671926409}
   m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 671926412}
+  - component: {fileID: 671926411}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!114 &671926411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2816,6 +2832,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 888956537}
+--- !u!4 &671926412
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 671926409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671926410}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 976315676}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &690705640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2907,6 +2937,10 @@ PrefabInstance:
       propertyPath: Delay
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 1685638685, guid: 3ba472ef7a15b0e4b87a74ac768bba7e, type: 3}
+      propertyPath: Path
+      value: 
+      objectReference: {fileID: 207378317}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ba472ef7a15b0e4b87a74ac768bba7e, type: 3}
 --- !u!4 &690705641 stripped
@@ -4432,6 +4466,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &976315675
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 671926409}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 976315676}
+  m_Layer: 0
+  m_Name: Speaker Interuptor Button (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &976315676
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 671926409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976315675}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 671926412}
+  m_Father: {fileID: 888956536}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1000186975
 GameObject:
   m_ObjectHideFlags: 0
@@ -5477,6 +5542,10 @@ PrefabInstance:
       propertyPath: maxMotorTorque
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 1685638685, guid: 3ba472ef7a15b0e4b87a74ac768bba7e, type: 3}
+      propertyPath: Path
+      value: 
+      objectReference: {fileID: 372953229}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ba472ef7a15b0e4b87a74ac768bba7e, type: 3}
 --- !u!4 &1349346836 stripped
@@ -6220,6 +6289,10 @@ PrefabInstance:
       propertyPath: Delay
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1685638685, guid: 3ba472ef7a15b0e4b87a74ac768bba7e, type: 3}
+      propertyPath: Path
+      value: 
+      objectReference: {fileID: 372953229}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ba472ef7a15b0e4b87a74ac768bba7e, type: 3}
 --- !u!4 &1598371852 stripped
@@ -6973,6 +7046,10 @@ PrefabInstance:
       propertyPath: Delay
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 1685638685, guid: 3ba472ef7a15b0e4b87a74ac768bba7e, type: 3}
+      propertyPath: Path
+      value: 
+      objectReference: {fileID: 372953229}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ba472ef7a15b0e4b87a74ac768bba7e, type: 3}
 --- !u!4 &1820202626 stripped
