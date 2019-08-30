@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01cdc78162e229f4b9b4538d5f90ba6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goal: {fileID: 590394472}
+  Goal: {fileID: 590394472}
 --- !u!1 &858820440
 GameObject:
   m_ObjectHideFlags: 0

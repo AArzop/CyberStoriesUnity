@@ -240,26 +240,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3f3762e5403d8b45bb8a60b216a78d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nbGoal: 7
-  nbBall: 5
-  ballPrefab: {fileID: 2981341774956790552, guid: 78a671dd606fbba47a73f6bbdd0332ea,
+  NbGoal: 7
+  NbBall: 5
+  BallPrefab: {fileID: 2981341774956790552, guid: 78a671dd606fbba47a73f6bbdd0332ea,
     type: 3}
-  goalPrefab:
+  GoalPrefab:
   - {fileID: 343901280105128534, guid: 464372fecbfdade43b88b13c3085e92b, type: 3}
   - {fileID: 590394471, guid: 8348c651de4459249878e1a3ebab13ed, type: 3}
   - {fileID: 590394471, guid: 2b3f4e25cf456c7408a8994fcbc9dfc1, type: 3}
   - {fileID: 343901280105128534, guid: 464372fecbfdade43b88b13c3085e92b, type: 3}
-  bonusTime: 10
-  prepareTimerText: {fileID: 1000286447}
-  prepareTipsText: {fileID: 563725364}
-  prepareCanvas: {fileID: 1223131829}
-  gameTimer:
+  BonusTime: 10
+  PrepareTimerText: {fileID: 1000286447}
+  PrepareTipsText: {fileID: 563725364}
+  PrepareCanvas: {fileID: 1223131829}
+  GameTimer:
   - {fileID: 610606625}
   - {fileID: 588097079}
-  platform: {fileID: 2101035126}
-  nextSceneChanger: {fileID: 533225473}
-  goalSpawnArea: {fileID: 909036814}
-  ballSpawnPosition: {fileID: 1056354069}
+  Platform: {fileID: 2101035126}
+  NextSceneChanger: {fileID: 533225473}
+  GoalSpawnArea: {fileID: 909036814}
+  BallSpawnPosition: {fileID: 1056354069}
 --- !u!4 &509893149
 Transform:
   m_ObjectHideFlags: 0
@@ -309,8 +309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c506df348c5c14aa7e9cb0600af87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: MenuScene
-  lockButton: 0
+  SceneName: MenuScene
+  LockButton: 0
 --- !u!114 &533225474
 MonoBehaviour:
   m_ObjectHideFlags: 0

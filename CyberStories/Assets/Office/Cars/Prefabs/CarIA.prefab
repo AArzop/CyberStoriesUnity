@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a47d4078bd7bada408a0debd1a38a073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetWheel: {fileID: 1264757066}
+  TargetWheel: {fileID: 1264757066}
 --- !u!1 &192102793
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a47d4078bd7bada408a0debd1a38a073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetWheel: {fileID: 683045234}
+  TargetWheel: {fileID: 683045234}
 --- !u!1 &304559217
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,7 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a47d4078bd7bada408a0debd1a38a073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetWheel: {fileID: 1285708920}
+  TargetWheel: {fileID: 1285708920}
 --- !u!1 &587675008
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,7 +535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a47d4078bd7bada408a0debd1a38a073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetWheel: {fileID: 304559219}
+  TargetWheel: {fileID: 304559219}
 --- !u!1 &683045232
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,12 +940,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 105e3316feb448144b52e8aa0c9cc260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: {fileID: 0}
-  maxSteerAngle: 45
-  wheelFl: {fileID: 1285708920}
-  wheelFr: {fileID: 683045234}
-  maxMotorTorque: 80
-  currentSpeed: 0
-  maxSpeed: 100
-  centerOfMass: {x: 0, y: -0.2, z: 0}
-  delay: 0
+  Path: {fileID: 0}
+  MaxSteerAngle: 45
+  WheelFl: {fileID: 1285708920}
+  WheelFr: {fileID: 683045234}
+  MaxMotorTorque: 80
+  CurrentSpeed: 0
+  MaxSpeed: 100
+  CenterOfMass: {x: 0, y: -0.2, z: 0}
+  Delay: 0

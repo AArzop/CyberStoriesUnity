@@ -614,7 +614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7ee298164390b4bad7fb936c546b74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 1839821847}
+  AudioSource: {fileID: 1839821847}
 --- !u!1001 &404981652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1122,7 +1122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d19fce9b59bc44d88d8fd201654690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineColor: {r: 1, g: 0, b: 0, a: 1}
+  LineColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &593150507
 GameObject:
   m_ObjectHideFlags: 0
@@ -1963,7 +1963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d19fce9b59bc44d88d8fd201654690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineColor: {r: 0, g: 0.769243, b: 0.990566, a: 1}
+  LineColor: {r: 0, g: 0.769243, b: 0.990566, a: 1}
 --- !u!4 &1030750695
 Transform:
   m_ObjectHideFlags: 0

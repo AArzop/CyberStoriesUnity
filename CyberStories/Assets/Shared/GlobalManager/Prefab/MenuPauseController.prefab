@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21d6e1a38bcca904b9cbe4911ca1a532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listQuestText: {fileID: 354224548}
+  ListQuestText: {fileID: 354224548}
 --- !u!1 &1934116111
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,10 +865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53cc273cc41bbad46909bcb5d0cb2826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  action:
-    actionPath: /actions/default/in/PauseMenu
-    needsReinit: 0
-  menu: {fileID: 3303805655966887004}
+  Menu: {fileID: 3303805655966887004}
 --- !u!1 &3303805655966887004
 GameObject:
   m_ObjectHideFlags: 0

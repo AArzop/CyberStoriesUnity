@@ -332,10 +332,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbea75603d88acc438e3d7a430e7a8ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questManager: {fileID: 1369092346}
-  questATHKey: QuestInfo_MainPhishing
-  mailApp: {fileID: 1023568802}
-  webSites:
+  QuestManager: {fileID: 1369092346}
+  QuestAthKey: QuestInfo_MainPhishing
+  MailApp: {fileID: 1023568802}
+  WebSites:
   - {fileID: 1665786696}
 --- !u!4 &356297482
 Transform:
@@ -432,7 +432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dfac46063f178a4b9e1f01daa18adb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  globalScreen: {fileID: 872284978}
+  GlobalScreen: {fileID: 872284978}
 --- !u!4 &703930884
 Transform:
   m_ObjectHideFlags: 0
@@ -779,9 +779,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fc9f55be6a939246adf1bd448a762e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepsList:
+  StepsList:
   - {fileID: 356297481}
-  nextSceneChanger: {fileID: 0}
+  NextSceneChanger: {fileID: 0}
 --- !u!1001 &1451900725
 PrefabInstance:
   m_ObjectHideFlags: 0

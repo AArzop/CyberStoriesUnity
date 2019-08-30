@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7ee298164390b4bad7fb936c546b74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 1839821847}
+  AudioSource: {fileID: 1839821847}
 --- !u!1001 &404981652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -701,7 +701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dfac46063f178a4b9e1f01daa18adb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  globalScreen: {fileID: 641861378}
+  GlobalScreen: {fileID: 641861378}
 --- !u!114 &427450162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1158,9 +1158,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fc9f55be6a939246adf1bd448a762e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepsList:
+  StepsList:
   - {fileID: 1802742924}
-  nextSceneChanger: {fileID: 1116957660}
+  NextSceneChanger: {fileID: 1116957660}
 --- !u!4 &666805576
 Transform:
   m_ObjectHideFlags: 0
@@ -1721,8 +1721,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c506df348c5c14aa7e9cb0600af87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: PhishingReview
-  lockButton: 0
+  SceneName: PhishingReview
+  LockButton: 0
 --- !u!114 &1116957661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1901,10 +1901,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbea75603d88acc438e3d7a430e7a8ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questManager: {fileID: 666805575}
-  questATHKey: 
-  mailApp: {fileID: 641861379}
-  webSites:
+  QuestManager: {fileID: 666805575}
+  QuestAthKey: 
+  MailApp: {fileID: 641861379}
+  WebSites:
   - {fileID: 641861381}
 --- !u!4 &1802742925
 Transform:

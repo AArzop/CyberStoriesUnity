@@ -2010,10 +2010,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e61d59f24fb2f24bb57a6f307e54f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pseudoInput: {fileID: 687502422}
-  emailInput: {fileID: 1334897952}
-  errorLabel: {fileID: 1739413036}
-  levelChanger: {fileID: 275553900}
+  PseudoInput: {fileID: 687502422}
+  EmailInput: {fileID: 1334897952}
+  ErrorLabel: {fileID: 1739413036}
+  LevelChanger: {fileID: 275553900}
 --- !u!114 &1793289321
 MonoBehaviour:
   m_ObjectHideFlags: 0

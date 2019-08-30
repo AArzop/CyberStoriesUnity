@@ -385,16 +385,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 423386971291cc648a9dcdfa323283c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  successCanvas: {fileID: 801108596}
-  failCanvas: {fileID: 915353842}
-  successText: {fileID: 1043088415}
-  noteTitle: {fileID: 1265516673}
-  noteInput: {fileID: 1105402770}
-  costText: {fileID: 1133945496}
-  tipsTitle: {fileID: 1578598785}
-  tipsText: {fileID: 118060461}
-  gameplayTipsText: {fileID: 2001145977}
-  toMiniGame: {fileID: 413926094}
+  SuccessCanvas: {fileID: 801108596}
+  FailCanvas: {fileID: 915353842}
+  SuccessText: {fileID: 1043088415}
+  NoteTitle: {fileID: 1265516673}
+  NoteInput: {fileID: 1105402770}
+  CostText: {fileID: 1133945496}
+  TipsTitle: {fileID: 1578598785}
+  TipsText: {fileID: 118060461}
+  GameplayTipsText: {fileID: 2001145977}
+  ToMiniGame: {fileID: 413926094}
 --- !u!1 &209924233
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,8 +561,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c506df348c5c14aa7e9cb0600af87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: MenuScene
-  lockButton: 0
+  SceneName: MenuScene
+  LockButton: 0
 --- !u!114 &308780269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,8 +719,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c506df348c5c14aa7e9cb0600af87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: PhishingGameplayScene
-  lockButton: 1
+  SceneName: PhishingGameplayScene
+  LockButton: 1
 --- !u!114 &413926095
 MonoBehaviour:
   m_ObjectHideFlags: 0

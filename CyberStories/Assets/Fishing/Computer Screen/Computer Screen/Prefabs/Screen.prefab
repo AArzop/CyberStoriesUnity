@@ -48,13 +48,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aa02bcbd93183746a0f048054733edc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectKey: Mail_Obj1
-  sourceKey: Mail_From1
-  bodyKey: Mail_Body1
-  dateTimeStr: 05/08/2015 07:56
-  isThereLink: 1
-  linkKey: Mail_Url1
-  isFishingMail: 0
+  ObjectKey: Mail_Obj1
+  SourceKey: Mail_From1
+  BodyKey: Mail_Body1
+  DateTimeStr: 05/08/2015 07:56
+  IsThereLink: 1
+  LinkKey: Mail_Url1
+  IsFishingMail: 0
 --- !u!1 &563418546407710810
 GameObject:
   m_ObjectHideFlags: 0
@@ -3823,9 +3823,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16e97f9873c457d4fa30a6001a36db11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  globalScreen: {fileID: 1356930792604688855}
-  icon: {fileID: 21300000, guid: 3645370535921744fa9fd719d2ac8a77, type: 3}
-  hourText: {fileID: 1356930792598282363}
+  GlobalScreen: {fileID: 1356930792604688855}
+  Icon: {fileID: 21300000, guid: 3645370535921744fa9fd719d2ac8a77, type: 3}
+  HourText: {fileID: 1356930792598282363}
 --- !u!1 &1356930792315471701
 GameObject:
   m_ObjectHideFlags: 0
@@ -4977,7 +4977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a732a7e6080cea54facf44d52d3f7f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  applications:
+  Applications:
   - {fileID: 1356930792271646651}
   - {fileID: 1356930793226209093}
   - {fileID: 1356930793080843551}
@@ -5971,32 +5971,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d910863c277cea24b90d63fbbbc3c3ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  globalScreen: {fileID: 1356930792604688855}
-  icon: {fileID: 0}
-  newMails:
+  GlobalScreen: {fileID: 1356930792604688855}
+  Icon: {fileID: 0}
+  NewMails:
   - {fileID: 1094266310}
   - {fileID: 0}
-  archMails: []
-  delMails: []
-  sendMessageOnArchiv: 0
-  sendMessageOnDelete: 0
-  messageDestination: {fileID: 0}
-  mailItemUI:
+  ArchMails: []
+  DelMails: []
+  SendMessageOnArchiv: 0
+  SendMessageOnDelete: 0
+  MessageDestination: {fileID: 0}
+  MailItemUI:
   - {fileID: 1356930792016665868}
   - {fileID: 1329641127784414843}
   - {fileID: 1329641129432284405}
   - {fileID: 1329641129208093432}
   - {fileID: 1329641129086409791}
   - {fileID: 1329641128894649870}
-  displayWarningLogo: 0
-  bodyCanvas: {fileID: 1356930793096057600}
-  mailHeaderObjectText: {fileID: 1356930793295680981}
-  mailHeaderDateText: {fileID: 1356930792849301974}
-  mailHeaderSourceText: {fileID: 1356930791753844288}
-  mailBodyText: {fileID: 1356930792641692706}
-  mailLinkButton: {fileID: 1356930791810964030}
-  mailLinkText: {fileID: 1356930792633539235}
-  warningLogo: {fileID: 0}
+  DisplayWarningLogo: 0
+  BodyCanvas: {fileID: 1356930793096057600}
+  MailHeaderObjectText: {fileID: 1356930793295680981}
+  MailHeaderDateText: {fileID: 1356930792849301974}
+  MailHeaderSourceText: {fileID: 1356930791753844288}
+  MailBodyText: {fileID: 1356930792641692706}
+  MailLinkButton: {fileID: 1356930791810964030}
+  MailLinkText: {fileID: 1356930792633539235}
+  WarningLogo: {fileID: 0}
 --- !u!1 &1356930793090389111
 GameObject:
   m_ObjectHideFlags: 0
@@ -6888,14 +6888,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 984d73c0db778d04c8a09cdc570bd16e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  globalScreen: {fileID: 0}
-  icon: {fileID: 0}
-  webSites:
+  GlobalScreen: {fileID: 0}
+  Icon: {fileID: 0}
+  WebSites:
   - {fileID: 0}
   - {fileID: 0}
-  favoriteWebSites:
+  FavoriteWebSites:
   - {fileID: 0}
-  favoriteButtons:
+  FavoriteButtons:
   - {fileID: 5479289993769556671}
   - {fileID: 2270465573314078440}
   - {fileID: 2270465573266230460}
@@ -6904,7 +6904,7 @@ MonoBehaviour:
   - {fileID: 2270465573526121496}
   - {fileID: 2270465573827591577}
   - {fileID: 2270465571955439811}
-  urlText: {fileID: 1356930791593132705}
+  UrlText: {fileID: 1356930791593132705}
 --- !u!1 &1356930793295680971
 GameObject:
   m_ObjectHideFlags: 0
@@ -7200,6 +7200,11 @@ PrefabInstance:
       propertyPath: app
       value: 
       objectReference: {fileID: 1356930793080843551}
+    - target: {fileID: 47038010893104636, guid: 4220f08a88b770b41aba0dd5d8b29617,
+        type: 3}
+      propertyPath: App
+      value: 
+      objectReference: {fileID: 1356930793080843551}
     - target: {fileID: 47038010893104627, guid: 4220f08a88b770b41aba0dd5d8b29617,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -7432,6 +7437,11 @@ PrefabInstance:
       propertyPath: app
       value: 
       objectReference: {fileID: 1356930793080843551}
+    - target: {fileID: 47038010893104636, guid: 4220f08a88b770b41aba0dd5d8b29617,
+        type: 3}
+      propertyPath: App
+      value: 
+      objectReference: {fileID: 1356930793080843551}
     - target: {fileID: 47038010893104627, guid: 4220f08a88b770b41aba0dd5d8b29617,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -7644,6 +7654,11 @@ PrefabInstance:
       propertyPath: app
       value: 
       objectReference: {fileID: 1356930793226209093}
+    - target: {fileID: 961124025348943834, guid: ff6d9cad4dab65e4f90b1ad63774e858,
+        type: 3}
+      propertyPath: App
+      value: 
+      objectReference: {fileID: 1356930793226209093}
     - target: {fileID: 4811194392190643795, guid: ff6d9cad4dab65e4f90b1ad63774e858,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -7808,6 +7823,11 @@ PrefabInstance:
       propertyPath: app
       value: 
       objectReference: {fileID: 1356930793226209093}
+    - target: {fileID: 961124025348943834, guid: ff6d9cad4dab65e4f90b1ad63774e858,
+        type: 3}
+      propertyPath: App
+      value: 
+      objectReference: {fileID: 1356930793226209093}
     - target: {fileID: 4811194392190643795, guid: ff6d9cad4dab65e4f90b1ad63774e858,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -7970,6 +7990,11 @@ PrefabInstance:
     - target: {fileID: 961124025348943834, guid: ff6d9cad4dab65e4f90b1ad63774e858,
         type: 3}
       propertyPath: app
+      value: 
+      objectReference: {fileID: 1356930793226209093}
+    - target: {fileID: 961124025348943834, guid: ff6d9cad4dab65e4f90b1ad63774e858,
+        type: 3}
+      propertyPath: App
       value: 
       objectReference: {fileID: 1356930793226209093}
     - target: {fileID: 4811194392190643795, guid: ff6d9cad4dab65e4f90b1ad63774e858,
@@ -8154,6 +8179,11 @@ PrefabInstance:
     - target: {fileID: 47038010893104636, guid: 4220f08a88b770b41aba0dd5d8b29617,
         type: 3}
       propertyPath: app
+      value: 
+      objectReference: {fileID: 1356930793080843551}
+    - target: {fileID: 47038010893104636, guid: 4220f08a88b770b41aba0dd5d8b29617,
+        type: 3}
+      propertyPath: App
       value: 
       objectReference: {fileID: 1356930793080843551}
     - target: {fileID: 47038010893104627, guid: 4220f08a88b770b41aba0dd5d8b29617,
@@ -8368,6 +8398,11 @@ PrefabInstance:
       propertyPath: app
       value: 
       objectReference: {fileID: 1356930793226209093}
+    - target: {fileID: 961124025348943834, guid: ff6d9cad4dab65e4f90b1ad63774e858,
+        type: 3}
+      propertyPath: App
+      value: 
+      objectReference: {fileID: 1356930793226209093}
     - target: {fileID: 4811194392190643795, guid: ff6d9cad4dab65e4f90b1ad63774e858,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -8550,6 +8585,11 @@ PrefabInstance:
     - target: {fileID: 47038010893104636, guid: 4220f08a88b770b41aba0dd5d8b29617,
         type: 3}
       propertyPath: app
+      value: 
+      objectReference: {fileID: 1356930793080843551}
+    - target: {fileID: 47038010893104636, guid: 4220f08a88b770b41aba0dd5d8b29617,
+        type: 3}
+      propertyPath: App
       value: 
       objectReference: {fileID: 1356930793080843551}
     - target: {fileID: 47038010893104627, guid: 4220f08a88b770b41aba0dd5d8b29617,
@@ -8784,6 +8824,11 @@ PrefabInstance:
       propertyPath: app
       value: 
       objectReference: {fileID: 1356930793080843551}
+    - target: {fileID: 47038010893104636, guid: 4220f08a88b770b41aba0dd5d8b29617,
+        type: 3}
+      propertyPath: App
+      value: 
+      objectReference: {fileID: 1356930793080843551}
     - target: {fileID: 47038010893104627, guid: 4220f08a88b770b41aba0dd5d8b29617,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -8996,6 +9041,11 @@ PrefabInstance:
       propertyPath: app
       value: 
       objectReference: {fileID: 1356930793226209093}
+    - target: {fileID: 961124025348943834, guid: ff6d9cad4dab65e4f90b1ad63774e858,
+        type: 3}
+      propertyPath: App
+      value: 
+      objectReference: {fileID: 1356930793226209093}
     - target: {fileID: 4811194392190643795, guid: ff6d9cad4dab65e4f90b1ad63774e858,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -9178,6 +9228,11 @@ PrefabInstance:
     - target: {fileID: 47038010893104636, guid: 4220f08a88b770b41aba0dd5d8b29617,
         type: 3}
       propertyPath: app
+      value: 
+      objectReference: {fileID: 1356930793080843551}
+    - target: {fileID: 47038010893104636, guid: 4220f08a88b770b41aba0dd5d8b29617,
+        type: 3}
+      propertyPath: App
       value: 
       objectReference: {fileID: 1356930793080843551}
     - target: {fileID: 47038010893104627, guid: 4220f08a88b770b41aba0dd5d8b29617,
@@ -9550,6 +9605,11 @@ PrefabInstance:
       propertyPath: app
       value: 
       objectReference: {fileID: 1356930793226209093}
+    - target: {fileID: 961124025348943834, guid: ff6d9cad4dab65e4f90b1ad63774e858,
+        type: 3}
+      propertyPath: App
+      value: 
+      objectReference: {fileID: 1356930793226209093}
     - target: {fileID: 4811194392190643795, guid: ff6d9cad4dab65e4f90b1ad63774e858,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -9712,6 +9772,11 @@ PrefabInstance:
     - target: {fileID: 961124025348943834, guid: ff6d9cad4dab65e4f90b1ad63774e858,
         type: 3}
       propertyPath: app
+      value: 
+      objectReference: {fileID: 1356930793226209093}
+    - target: {fileID: 961124025348943834, guid: ff6d9cad4dab65e4f90b1ad63774e858,
+        type: 3}
+      propertyPath: App
       value: 
       objectReference: {fileID: 1356930793226209093}
     - target: {fileID: 4811194392190643795, guid: ff6d9cad4dab65e4f90b1ad63774e858,
@@ -10187,6 +10252,11 @@ PrefabInstance:
     - target: {fileID: 961124025348943834, guid: ff6d9cad4dab65e4f90b1ad63774e858,
         type: 3}
       propertyPath: app
+      value: 
+      objectReference: {fileID: 1356930793226209093}
+    - target: {fileID: 961124025348943834, guid: ff6d9cad4dab65e4f90b1ad63774e858,
+        type: 3}
+      propertyPath: App
       value: 
       objectReference: {fileID: 1356930793226209093}
     - target: {fileID: 4811194392190643795, guid: ff6d9cad4dab65e4f90b1ad63774e858,

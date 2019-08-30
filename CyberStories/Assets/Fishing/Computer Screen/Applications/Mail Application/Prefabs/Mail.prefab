@@ -43,10 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aa02bcbd93183746a0f048054733edc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectKey: 
-  sourceKey: 
-  bodyKey: 
-  dateTimeStr: 
-  isThereLink: 0
-  linkKey: 
-  isFishingMail: 0
+  ObjectKey: 
+  SourceKey: 
+  BodyKey: 
+  DateTimeStr: 
+  IsThereLink: 0
+  LinkKey: 
+  IsFishingMail: 0

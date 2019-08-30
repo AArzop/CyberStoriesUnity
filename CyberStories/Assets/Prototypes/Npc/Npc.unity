@@ -396,19 +396,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ed3e95a623d30746bf44c51941bbf1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstLine:
-    name: Bobby
-    textLine: Wesh alors cv?
-    answers:
+  FirstLine:
+    Name: Bobby
+    TextLine: Wesh alors cv?
+    Answers:
     - Next
-    nextLine:
-    - name: Bobby
-      textLine: Moi ca va en tous cas, le travail c'est important !
-      answers: []
-      nextLine: []
-  canvas: {fileID: 413929282}
-  textMeshPro: {fileID: 1170429215}
-  animator: {fileID: 8344666945626913226}
+    NextLine:
+    - Name: Bobby
+      TextLine: Moi ca va en tous cas, le travail c'est important !
+      Answers: []
+      NextLine: []
+  Canvas: {fileID: 413929282}
+  TextMeshPro: {fileID: 1170429215}
+  Animator: {fileID: 8344666945626913226}
 --- !u!114 &1824615887
 MonoBehaviour:
   m_ObjectHideFlags: 0

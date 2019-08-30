@@ -138,9 +138,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c160a1b910c8841bd229044caf9b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 8056364960011865669}
-  fillImage: {fileID: 8056364960450743972}
-  sceneToLoad: 
+  Animator: {fileID: 8056364960011865669}
+  FillImage: {fileID: 8056364960450743972}
+  SceneToLoad: 
 --- !u!1 &8056364960237983993
 GameObject:
   m_ObjectHideFlags: 0

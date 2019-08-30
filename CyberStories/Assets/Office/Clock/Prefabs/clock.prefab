@@ -171,10 +171,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a0db685f114bbf4e837ee81aae56661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minutes: 0
-  hour: 0
-  isLocalTime: 0
-  clockSpeed: 1
+  Minutes: 0
+  Hour: 0
+  IsLocalTime: 0
+  ClockSpeed: 1
 --- !u!1 &100004
 GameObject:
   m_ObjectHideFlags: 0

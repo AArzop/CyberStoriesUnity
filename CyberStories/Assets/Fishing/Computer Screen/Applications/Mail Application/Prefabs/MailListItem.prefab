@@ -423,12 +423,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 795d15a915830564f89921bae843c4e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mail: {fileID: 0}
-  style: {fileID: 47038009681352337}
-  sourceText: {fileID: 47038010186582001}
-  dateText: {fileID: 47038009894320497}
-  objectText: {fileID: 47038009454906055}
-  app: {fileID: 0}
+  Mail: {fileID: 0}
+  Style: {fileID: 47038009681352337}
+  SourceText: {fileID: 47038010186582001}
+  DateText: {fileID: 47038009894320497}
+  ObjectText: {fileID: 47038009454906055}
+  App: {fileID: 0}
 --- !u!1 &47038011031113933
 GameObject:
   m_ObjectHideFlags: 0
