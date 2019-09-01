@@ -1,2 +1,5 @@
 tests:
-        script: echo 'HELLO WORLD'
+        tags:
+                - windows
+        script:
+                - echo 'HELLO WORLD'
