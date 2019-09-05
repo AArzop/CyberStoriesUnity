@@ -2,4 +2,4 @@ tests:
         tags:
                 - windows
         script:
-                - echo 'HELLO WORLD'
+                - echo 'HELLO WORLD FROM AZURE'
