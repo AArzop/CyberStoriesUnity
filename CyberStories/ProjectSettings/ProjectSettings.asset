@@ -617,6 +617,7 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
+    Build: 1
     UNet: 1
   luminIcon:
     m_Name: 
@@ -637,10 +638,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 8dacb0ac-a6c3-4b81-882a-325a12edb2f7
+  cloudProjectId: a8c6b58e-a159-408a-8333-cfce9aede6e8
   framebufferDepthMemorylessMode: 0
-  projectName: CyberStories (2)
-  organizationId: arzop
+  projectName: CyberStories
+  organizationId: kirikirilife
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
