@@ -28,6 +28,8 @@ public class GameMasterManager : MonoBehaviour
 
     private bool isRunning = true;
 
+    public GameMasterNotification notificationManager;
+
 
     private float ComputeLocation(float min, float max, float value)
     {
@@ -68,7 +70,7 @@ public class GameMasterManager : MonoBehaviour
             WebSocketReceiveResult r = await ws.ReceiveAsync(buf, CancellationToken.None);
             string str = Encoding.UTF8.GetString(buf.Array, 0, r.Count);
 
-            Debug.Log("RECEIVE => " + str);
+            notificationManager.RequestNewNotification(str);
 
 
             //ReceiveNewMail(str);
