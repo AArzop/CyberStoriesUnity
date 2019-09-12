@@ -42,4 +42,12 @@ public class GlobalManager
         questManager = null;
         SceneManager.LoadScene(mainMenuSceneName);
     }
+
+    public static void AddNewLocalization(string key, string value)
+    {
+        if (locaManager == null)
+            locaManager = new LocalizationManager();
+
+        locaManager.AddNewLocalization(key, value);
+    }
 }
