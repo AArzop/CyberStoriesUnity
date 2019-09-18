@@ -4,5 +4,5 @@ tests:
         script:
                 - echo 'HELLO WORLD MY GOD THIS WORKS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
                 - cd CyberStories
-                - .\Users\Public\Resharper CLI\inspectcode.exe .\CyberStories.sln -o='inspection.xml'
+                - '".\Users\Public\Resharper CLI\inspectcode.exe\" .\CyberStories.sln -o="inspection.xml"'
                 - cat inspection.xml
