@@ -425,6 +425,12 @@ MonoBehaviour:
   notificationText: {fileID: 3731203561839247934}
   message: toto
   lifeTime: 5
+  slideTime: 1
+  standardColor: {r: 0.5294118, g: 0.36862746, b: 0.6784314, a: 1}
+  WarningColor: {r: 0.5471698, g: 0.04903879, b: 0.04903879, a: 1}
+  MailColor: {r: 0.12406549, g: 0.14379294, b: 0.6415094, a: 1}
+  headerBackground: {fileID: 3731203561335042528}
+  isSlidding: 0
 --- !u!225 &3731203562086626244
 CanvasGroup:
   m_ObjectHideFlags: 0

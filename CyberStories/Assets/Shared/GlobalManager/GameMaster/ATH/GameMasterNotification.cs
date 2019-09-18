@@ -11,7 +11,20 @@ public class GameMasterNotification : MonoBehaviour
     public Vector3 SpanwPoint;
 
     private List<GameMasterNotificationItem> currentNotification;
-    private List<string> buffer;
+
+    private class BufferItem
+    {
+        public BufferItem(string message, GameMasterNotificationItem.NotificationType type)
+        {
+            this.message = message;
+            this.type = type;
+        }
+
+        public string message;
+        public GameMasterNotificationItem.NotificationType type;
+    }
+
+    private List<BufferItem> buffer;
 
     private bool isAdding = false;
 
@@ -19,7 +32,7 @@ public class GameMasterNotification : MonoBehaviour
     void Start()
     {
         currentNotification = new List<GameMasterNotificationItem>();
-        buffer = new List<string>();
+        buffer = new List<BufferItem>();
     }
 
     // Update is called once per frame
@@ -27,18 +40,18 @@ public class GameMasterNotification : MonoBehaviour
     {
         if (buffer.Count != 0 && currentNotification.Count < maxNotification && !isAdding)
         {
-            string message = buffer[0];
+            BufferItem item = buffer[0];
             buffer.RemoveAt(0);
-            StartCoroutine(AddNewNotification(message));
+            StartCoroutine(AddNewNotification(item));
         }
     }
 
-    public void RequestNewNotification(string message)
+    public void RequestNewNotification(string message, GameMasterNotificationItem.NotificationType type = GameMasterNotificationItem.NotificationType.Standard)
     {
-        buffer.Add(message);
+        buffer.Add(new BufferItem(message, type));
     }
 
-    private IEnumerator AddNewNotification(string message)
+    private IEnumerator AddNewNotification(BufferItem bufferItem)
     {
         isAdding = true;
         if (currentNotification.Count != 0)
@@ -55,7 +68,8 @@ public class GameMasterNotification : MonoBehaviour
         {
             item.transform.SetParent(transform);
             item.transform.localPosition = SpanwPoint;
-            item.message = message;
+            item.message = bufferItem.message;
+            item.SetHeaderColor(bufferItem.type);
 
             currentNotification.Insert(0, item);
         }
@@ -70,5 +84,11 @@ public class GameMasterNotification : MonoBehaviour
         {
             currentNotification.Remove(item);
         }
+    }
+
+
+    public void TMPBUTTON(string message)
+    {
+        buffer.Add(new BufferItem(message, GameMasterNotificationItem.NotificationType.Warning));
     }
 }

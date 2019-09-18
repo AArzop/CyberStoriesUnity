@@ -70,7 +70,7 @@ public class GameMasterManager : MonoBehaviour
             WebSocketReceiveResult r = await ws.ReceiveAsync(buf, CancellationToken.None);
             string str = Encoding.UTF8.GetString(buf.Array, 0, r.Count);
 
-            notificationManager.RequestNewNotification(str);
+            notificationManager.RequestNewNotification(str, GameMasterNotificationItem.NotificationType.Standard);
 
 
             //ReceiveNewMail(str);

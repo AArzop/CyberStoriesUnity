@@ -10,11 +10,23 @@ public class GameMasterNotificationItem : MonoBehaviour
     public float lifeTime = 2f;
     public float slideTime = 1f;
 
+    public Color standardColor;
+    public Color WarningColor;
+    public Color MailColor;
+    public Image headerBackground;
+
     private GameMasterNotification manager;
     private CanvasGroup grp;
     private float currentLifeTime = 0f;
     private bool isDead = false;
     public bool isSlidding = false;
+
+    public enum NotificationType
+    {
+        Standard,
+        Warning,
+        Mail
+    };
 
     void Start()
     {
@@ -80,6 +92,27 @@ public class GameMasterNotificationItem : MonoBehaviour
             StopAllCoroutines();
             manager.RemoveNotification(this);
             Destroy(gameObject);
+        }
+    }
+
+    public void SetHeaderColor(NotificationType type)
+    {
+        switch (type)
+        {
+            case NotificationType.Standard:
+                headerBackground.color = standardColor;
+                break;
+
+            case NotificationType.Warning:
+                headerBackground.color = WarningColor;
+                break;
+
+            case NotificationType.Mail:
+                headerBackground.color = MailColor;
+                break;
+
+            default:
+                break;
         }
     }
 }
