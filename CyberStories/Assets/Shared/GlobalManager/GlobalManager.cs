@@ -8,6 +8,35 @@ public class GlobalManager
 
     const string mainMenuSceneName = "Menu/MenuScene";
 
+    private class PlayerInformation
+    {
+        public PlayerInformation(string pseudo, string mail)
+        {
+            this.pseudo = pseudo;
+            this.mail = mail;
+        }
+
+        public string pseudo;
+        public string mail;
+    }
+    private PlayerInformation playerInfo;
+
+    public enum Level
+    {
+        Phishing,
+        Other
+    };
+
+    public static void RegisterScore(Level level, float Score)
+    {
+        // Do some stuff
+    }
+
+    public void SetPlayerInformation(string pseudo, string mail)
+    {
+        playerInfo = new PlayerInformation(pseudo, mail);
+    }
+
     public static void SetupManager()
     {
         if (locaManager == null)

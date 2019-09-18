@@ -18,6 +18,8 @@ public class PhishingReview : MonoBehaviour
 
     public ClickToChangeScene toMinigame;
 
+    private int FinalNote;
+
     private void UnlockMinigameScene()
     {
         toMinigame.Unlock();
@@ -26,6 +28,7 @@ public class PhishingReview : MonoBehaviour
 
     private void GenerateSuccessCanvas()
     {
+        FinalNote = 100;
         successCanvas.gameObject.SetActive(true);
         failCanvas.gameObject.SetActive(false);
 
@@ -57,6 +60,7 @@ public class PhishingReview : MonoBehaviour
         const int cost = 1;
 
         List<int> tab = GetEvaluationAndCost(detail);
+        FinalNote = tab[note];
 
         noteTitle.text = GlobalManager.GetLocalization("Review_Note");
         noteInput.text = tab[note].ToString() + " / 100";
@@ -83,5 +87,7 @@ public class PhishingReview : MonoBehaviour
             GenerateSuccessCanvas();
         else
             GenerateFailedCanvas(detail);
+
+        GlobalManager.RegisterScore(GlobalManager.Level.Phishing, FinalNote);
     }
 }
