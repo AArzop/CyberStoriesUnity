@@ -2,4 +2,6 @@ tests:
         tags:
                 - windows
         script:
-                - echo 'HELLO WORLD FROM AZURE'
+                - echo 'HELLO WORLD MY GOD THIS WORKS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+                - & '.\Users\Public\Resharper CLI\inspectcode.exe' .\CyberStories.sln -o='inspection.xml'
+                - cat 'inspection.xml'
