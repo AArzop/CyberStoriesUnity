@@ -69,7 +69,6 @@ namespace CyberStories.CyberstoriesNpc.Controllers
         {
             // Choose the next destination point when the agent gets
             // close to the current one.
-            Debug.Log(agent.remainingDistance);
             if (!agent.pathPending && agent.remainingDistance < 0.5f)
                 GotoNextPoint();
         }
