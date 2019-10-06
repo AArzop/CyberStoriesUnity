@@ -56,7 +56,7 @@ public class GameMasterManager : MonoBehaviour
 
         await ws.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes(json)), WebSocketMessageType.Text, true, CancellationToken.None);
 
-        await Task.Delay(500);
+        await Task.Delay(3000);
 
         if (isRunning)
             SendLocationToWebsocketAsync();
@@ -70,7 +70,7 @@ public class GameMasterManager : MonoBehaviour
             WebSocketReceiveResult r = await ws.ReceiveAsync(buf, CancellationToken.None);
             string str = Encoding.UTF8.GetString(buf.Array, 0, r.Count);
 
-            notificationManager.RequestNewNotification(str, GameMasterNotificationItem.NotificationType.Standard);
+            notificationManager.RequestNewNotification("Position", GameMasterNotificationItem.NotificationType.Standard);
 
 
             //ReceiveNewMail(str);
