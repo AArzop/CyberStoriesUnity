@@ -50,11 +50,13 @@ namespace CyberStories.Shared.Player
             BaseInteractionIA currentDestination = points[newDestPoint - 1];
             if (agent.remainingDistance < currentDestination.MinRemainingDistance())
                 agent.isStopped = true;
-            if (!agent.pathPending && agent.isStopped && currentDestination.isDone())
+            if (!agent.pathPending && agent.isStopped && currentDestination.IsDone())
             {
-                agent.isStopped = false;
-                if (newDestPoint != points.Length)
+                if (newDestPoint < points.Length)
+                {
                     GotoNextPoint();
+                    agent.isStopped = false;
+                }
                 else
                     teleportArea.SetActive(true);
             }

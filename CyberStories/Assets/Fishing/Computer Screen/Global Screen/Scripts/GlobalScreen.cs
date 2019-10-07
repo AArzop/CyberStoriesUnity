@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,6 +37,11 @@ public class GlobalScreen : MonoBehaviour
     public void BackHomeButton()
     {
         SwitchApplication(0);
+    }
+
+    public void Lock()
+    {
+        // 
     }
 
     // Switch current application

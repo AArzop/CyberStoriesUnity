@@ -43,4 +43,9 @@ public class DialogueTrigger : MonoBehaviour
             }
         }
     }
+
+    public bool DialogueHasEnded
+    {
+        get => !isEnd && !isDialogue;
+    }
 }

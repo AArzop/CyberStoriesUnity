@@ -43,7 +43,7 @@ public class HomeApplication : BaseApplication
 
     public void LockButton()
     {
-
+        GlobalScreen.Lock();
     }
 
     public void ChangeApplication(int index)

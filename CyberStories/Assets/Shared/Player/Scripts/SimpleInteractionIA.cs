@@ -7,14 +7,14 @@ namespace CyberStories.Shared.Player
     public class SimpleInteractionIA : BaseInteractionIA
     {
         private Interactable interactable;
+        private DialogueTrigger dialogue;
 
-        [Min(1)]
-        public uint interactionRequired = 1;
-        private uint interactionDone = 0;
+        private bool interactionDone = false;
 
         private void Start()
         {
             interactable = GetComponent<Interactable>();
+            dialogue = GetComponent<DialogueTrigger>();
         }
 
         private void HandHoverUpdate(Hand hand)
@@ -23,7 +23,9 @@ namespace CyberStories.Shared.Player
 
             if (startingGrabType != GrabTypes.None)
             {
-                ++interactionDone;
+                if (LookAtPlayerOnIteraction)
+                    LookAtPlayer();
+                interactionDone = true;
             }
         }
 
@@ -31,9 +33,9 @@ namespace CyberStories.Shared.Player
         /// Check if the gameObject has been interacted once
         /// </summary>
         /// <returns>True if the user has ended an interaction with a gameObject. Else, false.</returns>
-        public override bool isDone()
+        public override bool IsDone()
         {
-            return interactionDone >= interactionRequired;
+            return interactionDone && dialogue.DialogueHasEnded;
         }
 
         public override float MinRemainingDistance()

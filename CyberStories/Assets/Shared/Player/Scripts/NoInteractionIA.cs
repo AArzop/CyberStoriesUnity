@@ -2,7 +2,7 @@
 {
     public class NoInteractionIA : BaseInteractionIA
     {
-        public override bool isDone()
+        public override bool IsDone()
         {
             return true;
         }
