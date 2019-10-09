@@ -18,6 +18,23 @@ public class GameMasterManager : MonoBehaviour
         public Position(float x, float y) { this.x = x; this.y = y; }
     }
 
+    [Serializable]
+    private class Message
+    {
+        public string message;
+
+        public Message(string message) { this.message = message; }
+    }
+
+    [Serializable]
+    private class ObjectToSend
+    {
+        public string type;
+        public string objJson;
+
+        public ObjectToSend(string type, string objJson) { this.type = type; this.objJson = objJson; }
+    }
+
     public GameObject botLeftPoint;
     public GameObject topRightPoint;
     public GameObject player;
@@ -30,6 +47,7 @@ public class GameMasterManager : MonoBehaviour
 
     public GameMasterNotification notificationManager;
 
+    private List<String> messageToSend;
 
     private float ComputeLocation(float min, float max, float value)
     {
@@ -52,7 +70,9 @@ public class GameMasterManager : MonoBehaviour
         Position p = new Position(x, y);
         string json = JsonUtility.ToJson(p).ToString();
 
-        //Debug.Log(json);
+        ObjectToSend o = new ObjectToSend("Position", json);
+        json = JsonUtility.ToJson(o).ToString();
+        Debug.Log(json);
 
         await ws.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes(json)), WebSocketMessageType.Text, true, CancellationToken.None);
 
@@ -60,6 +80,26 @@ public class GameMasterManager : MonoBehaviour
 
         if (isRunning)
             SendLocationToWebsocketAsync();
+    }
+
+    private async void SendMessageToGameMasterAsync()
+    {
+        if (messageToSend.Count != 0)
+        {
+            string message = messageToSend[0];
+            messageToSend.RemoveAt(0);
+
+            Message m = new Message(message);
+            string json = JsonUtility.ToJson(m).ToString();
+
+            ObjectToSend o = new ObjectToSend("Chat", json);
+            await ws.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes(JsonUtility.ToJson(o).ToString())), WebSocketMessageType.Text, true, CancellationToken.None);
+        }
+
+        await Task.Delay(1000);
+
+        if (isRunning)
+            SendMessageToGameMasterAsync();
     }
 
     private async void GetWebSocketResponseAsync()
@@ -70,10 +110,26 @@ public class GameMasterManager : MonoBehaviour
             WebSocketReceiveResult r = await ws.ReceiveAsync(buf, CancellationToken.None);
             string str = Encoding.UTF8.GetString(buf.Array, 0, r.Count);
 
-            notificationManager.RequestNewNotification(str, GameMasterNotificationItem.NotificationType.Standard);
+            ObjectToSend obj = JsonUtility.FromJson<ObjectToSend>(str);
+            if (obj != null)
+            {
+                switch (obj.type)
+                {
+                    case "Position":
+                        break;
 
+                    case "Chat":
+                        notificationManager.RequestNewNotification(str, GameMasterNotificationItem.NotificationType.Standard);
+                        break;
 
-            //ReceiveNewMail(str);
+                    case "Mail":
+                        //ReceiveNewMail(str);
+                        break;
+
+                    default:
+                        break;
+                }
+            }
 
             if (isRunning)
                 GetWebSocketResponseAsync();
@@ -97,6 +153,7 @@ public class GameMasterManager : MonoBehaviour
                 throw new Exception();
 
             SendLocationToWebsocketAsync();
+            SendMessageToGameMasterAsync();
             GetWebSocketResponseAsync();
         }
         catch (Exception e)
@@ -141,6 +198,8 @@ public class GameMasterManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        messageToSend = new List<string>();
+
         ConnectAsync();
     }
 
@@ -152,5 +211,9 @@ public class GameMasterManager : MonoBehaviour
         isRunning = false;
     }
 
+    public void MessageRequestToGameMaster(string message)
+    {
+        messageToSend.Add(message);
+    }
 }
 
