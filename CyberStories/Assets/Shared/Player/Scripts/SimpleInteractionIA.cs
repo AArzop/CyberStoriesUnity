@@ -23,7 +23,7 @@ namespace CyberStories.Shared.Player
 
             if (startingGrabType != GrabTypes.None)
             {
-                if (LookAtPlayerOnIteraction)
+                if (isLookingAtPlayerOnIteraction)
                     LookAtPlayer();
                 interactionDone = true;
             }

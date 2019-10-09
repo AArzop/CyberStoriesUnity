@@ -6,7 +6,7 @@ namespace CyberStories.Shared.Player
     {
         public Valve.VR.InteractionSystem.Player player;
 
-        public bool LookAtPlayerOnIteraction = false;
+        public bool isLookingAtPlayerOnIteraction = false;
 
         public abstract bool IsDone();
 
@@ -14,7 +14,7 @@ namespace CyberStories.Shared.Player
 
         public void LookAtPlayer()
         {
-            if (LookAtPlayerOnIteraction)
+            if (isLookingAtPlayerOnIteraction)
             {
                 Vector3 relativePos = player.transform.position - transform.position;
                 transform.rotation = Quaternion.LookRotation(relativePos, Vector3.up);
