@@ -6,6 +6,7 @@ namespace CyberStories.Shared.Player
     public class PlayerIA : MonoBehaviour
     {
         public BaseInteractionIA[] points;
+
         private int newDestPoint = 0;
         private NavMeshAgent agent;
         private readonly float rotationSpeed = 2.5f;
@@ -48,6 +49,7 @@ namespace CyberStories.Shared.Player
             // Choose the next destination point when the agent gets
             // close to the current one.
             BaseInteractionIA currentDestination = points[newDestPoint - 1];
+            Debug.Log($"{agent.remainingDistance - currentDestination.MinRemainingDistance()}/{agent.isStopped.ToString()}");
             if (agent.remainingDistance < currentDestination.MinRemainingDistance())
                 agent.isStopped = true;
             if (!agent.pathPending && agent.isStopped && currentDestination.IsDone())

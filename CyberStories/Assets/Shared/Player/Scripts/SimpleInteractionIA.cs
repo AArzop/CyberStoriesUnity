@@ -40,7 +40,7 @@ namespace CyberStories.Shared.Player
 
         public override float MinRemainingDistance()
         {
-            return 1.5f;
+            return 1f;
         }
     }
 }

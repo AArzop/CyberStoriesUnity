@@ -7,8 +7,7 @@ public class IddleNpcController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var test = GetComponents<Animator>();
-        animator = test[0];
+        animator = GetComponent<Animator>();
         animator.SetFloat("Horizontal", 0);
         animator.SetFloat("Vertical", 0);
     }

@@ -6106,7 +6106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1087584546}
-  LookAtPlayerOnIteraction: 1
+  isLookingAtPlayerOnIteraction: 1
 --- !u!1 &1447079082
 GameObject:
   m_ObjectHideFlags: 0
@@ -6980,7 +6980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  LookAtPlayerOnIteraction: 0
+  isLookingAtPlayerOnIteraction: 0
 --- !u!1001 &1738497220
 PrefabInstance:
   m_ObjectHideFlags: 0
