@@ -17,7 +17,7 @@ public class AnswerMenu : MonoBehaviour
     void Start()
     {
         player = Player.instance;
-        menu.SetActive(false);
+        //menu.SetActive(false);
 
         manager = FindObjectOfType<GameMasterManager>();
     }
@@ -51,6 +51,6 @@ public class AnswerMenu : MonoBehaviour
 
     public void SendMessageToGameMaster(string message)
     {
-
+        manager.MessageRequestToGameMaster(message);
     }
 }
