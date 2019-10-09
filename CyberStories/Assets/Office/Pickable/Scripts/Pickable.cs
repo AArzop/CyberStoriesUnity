@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Security.Cryptography;
+using UnityEngine;
 using Valve.VR.InteractionSystem;
 
 [RequireComponent( typeof( Throwable ) )]
@@ -8,7 +9,7 @@ public class Pickable : MonoBehaviour
     public Throwable throwable;
 
     public Inventory inventory;
-    
+
     // Start is called before the first frame update
     protected virtual void Awake()
     {
@@ -16,22 +17,20 @@ public class Pickable : MonoBehaviour
 
         if (!inventory)
         {
-            Debug.LogWarning(gameObject.ToString() + " is a pickable but does not have any inventory set.");
+            Debug.LogWarning(gameObject + " is a pickable but does not have any inventory set.");
         }
     }
 
     // Update is called once per frame
     protected void Update()
     {
-        if (throwable.attached && Input.GetKeyDown(KeyCode.Return))
+        if (throwable.attached && Input.GetKeyDown(KeyCode.P))
         {
-            GameObject o = gameObject;
-            
-            // deactivate itself like it was set in an inventory
-            o.SetActive(false);
+            // destroy itself like it was set in an inventory
+            Destroy(gameObject);
             
             // add to inventory
-            inventory.AddItem(o);
+            inventory.AddItem(this);
         }
     }
 }

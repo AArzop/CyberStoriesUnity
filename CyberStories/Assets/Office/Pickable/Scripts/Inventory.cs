@@ -3,14 +3,14 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public List<GameObject> items;
+    public List<Pickable> items;
 
     private void Start()
     {
-        items = new List<GameObject>();
+        items = new List<Pickable>();
     }
 
-    public void AddItem(GameObject item)
+    public void AddItem(Pickable item)
     {
         items.Add(item);
     }
