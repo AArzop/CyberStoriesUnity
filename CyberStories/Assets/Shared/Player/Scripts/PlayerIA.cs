@@ -49,7 +49,6 @@ namespace CyberStories.Shared.Player
             // Choose the next destination point when the agent gets
             // close to the current one.
             BaseInteractionIA currentDestination = points[newDestPoint - 1];
-            Debug.Log($"{agent.remainingDistance - currentDestination.MinRemainingDistance()}/{agent.isStopped.ToString()}");
             if (agent.remainingDistance < currentDestination.MinRemainingDistance())
                 agent.isStopped = true;
             if (!agent.pathPending && agent.isStopped && currentDestination.IsDone())
