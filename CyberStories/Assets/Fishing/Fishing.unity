@@ -1556,6 +1556,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: RedirectToNextWebSite
       objectReference: {fileID: 0}
+    - target: {fileID: 3179543326691299145, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 361733949, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a52d3b5e3cdb334b8ae4fb6e9daeaed, type: 3}
 --- !u!114 &641861378 stripped
@@ -2797,7 +2806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   action:
-    actionPath: 
+    actionPath: /actions/default/in/AnswerMenu
     needsReinit: 1
   menu: {fileID: 1082253311}
 --- !u!4 &1336679044
