@@ -45,6 +45,10 @@
       "type": "boolean"
     },
     {
+      "name": "/actions/default/in/AnswerMenu",
+      "type": "boolean"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },
@@ -147,7 +151,8 @@
       "/actions/default/in/Teleport": "Teleport",
       "/actions/default/out/Haptic": "Haptic",
       "/actions/platformer/in/Jump": "Jump",
-      "/actions/default/in/PauseMenu": "PauseMenu"
+      "/actions/default/in/PauseMenu": "PauseMenu",
+      "/actions/default/in/AnswerMenu": "AnswerMenu"
     }
   ]
 }
