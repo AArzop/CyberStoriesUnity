@@ -1,9 +1,9 @@
-﻿using System;
+﻿using CyberStories.Shared.ScriptUtils;
+using LevelChangerController;
+using System;
 using System.Text.RegularExpressions;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using LevelChangerController;
 
 namespace CyberStories.Registration.Controllers
 {
@@ -12,11 +12,18 @@ namespace CyberStories.Registration.Controllers
         public InputField PseudoInput;
         public InputField EmailInput;
         public Text ErrorLabel;
+        public Toggle SaveToggle;
         public LevelChanger levelChanger;
 
         // TODO: Localization
         private static readonly string ErrorEmailMessage = "Email non valide";
         private static readonly string ErrorPseudoMessage = "Pseudo non valide";
+
+        private void Awake()
+        {
+            EmailInput.text = Prefs.Email;
+            PseudoInput.text = Prefs.Pseudo;
+        }
 
         public void ValidateClick()
         {
@@ -29,9 +36,22 @@ namespace CyberStories.Registration.Controllers
             {
                 // Clear Error text display
                 ErrorLabel.text = "";
-
+                SaveUserData();
                 // TODO: Send pseudo & mail to database and save it as global
                 levelChanger.ChangeScene();
+            }
+        }
+
+        private void SaveUserData()
+        {
+            if (SaveToggle.isOn)
+            {
+                Prefs.Email = EmailInput.text;
+                Prefs.Pseudo = PseudoInput.text;
+            } else
+            {
+                Prefs.Email = string.Empty;
+                Prefs.Pseudo = string.Empty;
             }
         }
 
