@@ -67,7 +67,7 @@ namespace CyberStories.Menu.Controllers
             }
             else if (!dataConnect.IsError)
             {
-                IList<DBO.Player> players = Player.GetBestPlayersByLevel(_currentTag, dataConnect.Response);
+                IList<DBO.Player> players = Player.GetBestPlayersByLevel(_currentTag, dataConnect);
                 LeaderboardController.UpdateLeaderboard(players);
             }
             else

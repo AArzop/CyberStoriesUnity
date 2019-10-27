@@ -1,19 +1,23 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
+using System.Linq;
 
 namespace CyberStories.BusinessManagement
 {
     public static class Player
     {
+        private static readonly int PlayerLimit = 5;
+
         /// <summary>
         /// <see cref="DataAccess.Player.GetBestPlayersByLevel(string)"/>
         /// </summary>
         /// <param name="level">The level to get the players</param>
         /// <returns></returns>
-        public static IList<DBO.Player> GetBestPlayersByLevel(string level, string response)
+        public static IList<DBO.Player> GetBestPlayersByLevel(string level, PlayersDataAccess dataConnect)
         {
-            Debug.Log(response);
-            return DataAccess.Player.GetBestPlayersByLevel(level);
+            List<DBO.Player> playerModels = DataAccess.Player.GetPlayersScoreByLevel(dataConnect, level);
+            return playerModels.OrderByDescending(player => player.Score)
+                               .Take(PlayerLimit)
+                               .ToList();
         }
     }
 }

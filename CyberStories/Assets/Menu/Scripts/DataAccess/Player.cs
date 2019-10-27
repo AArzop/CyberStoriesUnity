@@ -1,56 +1,41 @@
-﻿using System;
+﻿using CyberStories.Shared.ScriptUtils;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CyberStories.DataAccess
 {
     public static class Player
     {
-        /// <summary>
-        /// Get the 3 best players from the server on the level <paramref name="level"/>
-        /// </summary>
-        /// <param name="level">The level to get the players</param>
-        /// <returns></returns>
-        public static IList<DBO.Player> GetBestPlayersByLevel(string level)
+        public static IDictionary<string, Func<PlayerModel, double>> ScoreDictionaryUtils { get; private set; }
+
+        static Player()
         {
-            // TODO : Get data from db
-            if (level == "Level 1")
-                return new List<DBO.Player>
-                {
-                    new DBO.Player
-                    {
-                        Id = 1,
-                        Name = "Toto",
-                        Score = 50
-                    },
-                    new DBO.Player
-                    {
-                        Id = 2,
-                        Name = "Bis",
-                        Score = 7
-                    }
-                };
-            else
-                return new List<DBO.Player>
-                {
-                    new DBO.Player
-                    {
-                        Id = 3,
-                        Name = "Abc",
-                        Score = 50
-                    },
-                    new DBO.Player
-                    {
-                        Id = 4,
-                        Name = "def",
-                        Score = 7
-                    },
-                    new DBO.Player
-                    {
-                        Id = 5,
-                        Name = "last",
-                        Score = 0
-                    }
-                };
+            // TODO: Must update the backend in order to reduce this code
+            ScoreDictionaryUtils = new Dictionary<string, Func<PlayerModel, double>>()
+            {
+                { "Level 1", (playerModel) => playerModel.gameResults.Max(x => x.stage1Score) },
+                { "Level 2", (playerModel) => playerModel.gameResults.Max(x => x.stage2Score) },
+                { "Level 3", (playerModel) => playerModel.gameResults.Max(x => x.stage3Score) },
+                { "Level 4", (playerModel) => playerModel.gameResults.Max(x => x.stage4Score) },
+            };
+        }
+
+        /// <summary>
+        /// Get the from the server
+        /// </summary>
+        /// <returns>The list of players</returns>
+        public static List<DBO.Player> GetPlayersScoreByLevel(PlayersDataAccess dataConnect, string level)
+        {
+            List<PlayerModel> playerModels = JsonHelper.FromJson<PlayerModel>(dataConnect.Response).ToList();
+            return playerModels.Select(playerModel => new DBO.Player
+                               {
+                                   Id = playerModel.id,
+                                   Score = ScoreDictionaryUtils[level](playerModel),
+                                   Name = playerModel.pseudo,
+                                   Email = playerModel.email
+                               })
+                               .ToList();
         }
     }
 }
