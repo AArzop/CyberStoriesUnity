@@ -67,6 +67,7 @@ public class GameMasterNotification : MonoBehaviour
         if (item != null)
         {
             item.transform.SetParent(transform);
+            item.transform.rotation = transform.rotation;
             item.transform.localPosition = SpanwPoint;
             item.message = bufferItem.message;
             item.SetHeaderColor(bufferItem.type);

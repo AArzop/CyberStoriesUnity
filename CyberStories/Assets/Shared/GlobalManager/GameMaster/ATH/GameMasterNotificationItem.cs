@@ -32,8 +32,6 @@ public class GameMasterNotificationItem : MonoBehaviour
     {
         grp = GetComponent<CanvasGroup>();
         manager = GameObject.Find("GameMasterNotifiacation")?.GetComponent<GameMasterNotification>();
-        if (manager == null)
-            Destroy(gameObject);
 
         notificationText.text = message;
     }

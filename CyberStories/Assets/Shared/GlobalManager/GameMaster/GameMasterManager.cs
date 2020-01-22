@@ -19,20 +19,50 @@ public class GameMasterManager : MonoBehaviour
     }
 
     [Serializable]
-    private class Message
+    private class EmailReceived
     {
+        public int id;
+        public string @object;
         public string message;
 
-        public Message(string message) { this.message = message; }
+        public EmailReceived(int id, string obj, string message) { this.id = id; this.@object = obj; this.message = message; }
     }
 
     [Serializable]
     private class ObjectToSend
     {
-        public string type;
-        public string objJson;
+        public string @namespace;
+        public string data;
 
-        public ObjectToSend(string type, string objJson) { this.type = type; this.objJson = objJson; }
+        public ObjectToSend(string type, string data) { this.@namespace = type; this.data = data; }
+    }
+
+    [Serializable]
+    private class LocationSender
+    {
+        public string @namespace = "position";
+
+        public string data;
+
+        public LocationSender(float x, float y) { Position p = new Position(x, y); data = JsonUtility.ToJson(p); }
+    }
+
+    [Serializable]
+    private class JsonToWebSowkcet
+    {
+        public string type;
+        public string payload;
+
+        public JsonToWebSowkcet(string payload) { this.type = "message"; this.payload = payload; }
+    }
+
+    [Serializable]
+    private class MessageToWebSocket
+    {
+        public string type = "message";
+        public LocationSender payload;
+
+        public MessageToWebSocket(float x, float y) { payload = new LocationSender(x, y); }
     }
 
     public GameObject botLeftPoint;
@@ -64,42 +94,26 @@ public class GameMasterManager : MonoBehaviour
 
     private async void SendLocationToWebsocketAsync()
     {
-        float x = ComputeLocation(botLeftPoint.transform.position.x, topRightPoint.transform.position.x, player.transform.position.x) * 600;
-        float y = (1 - ComputeLocation(botLeftPoint.transform.position.z, topRightPoint.transform.position.z, player.transform.position.z)) * 600;
+        float x = ComputeLocation(botLeftPoint.transform.position.x, topRightPoint.transform.position.x, player.transform.position.x) * 980;
+        float y = (1 - ComputeLocation(botLeftPoint.transform.position.z, topRightPoint.transform.position.z, player.transform.position.z)) * 322;
 
-        Position p = new Position(x, y);
-        string json = JsonUtility.ToJson(p).ToString();
+        MessageToWebSocket messageToWebSocket = new MessageToWebSocket(x, y);
+        string json = JsonUtility.ToJson(messageToWebSocket);
 
-        ObjectToSend o = new ObjectToSend("Position", json);
-        json = JsonUtility.ToJson(o).ToString();
-        Debug.Log(json);
-
-        await ws.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes(json)), WebSocketMessageType.Text, true, CancellationToken.None);
-
-        await Task.Delay(500);
-
-        if (isRunning)
-            SendLocationToWebsocketAsync();
-    }
-
-    private async void SendMessageToGameMasterAsync()
-    {
-        if (messageToSend.Count != 0)
+        try
         {
-            string message = messageToSend[0];
-            messageToSend.RemoveAt(0);
-
-            Message m = new Message(message);
-            string json = JsonUtility.ToJson(m).ToString();
-
-            ObjectToSend o = new ObjectToSend("Chat", json);
-            await ws.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes(JsonUtility.ToJson(o).ToString())), WebSocketMessageType.Text, true, CancellationToken.None);
+            await ws.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes(json)), WebSocketMessageType.Text, true, CancellationToken.None);
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+            return;
         }
 
         await Task.Delay(1000);
 
         if (isRunning)
-            SendMessageToGameMasterAsync();
+            SendLocationToWebsocketAsync();
     }
 
     private async void GetWebSocketResponseAsync()
@@ -113,17 +127,28 @@ public class GameMasterManager : MonoBehaviour
             ObjectToSend obj = JsonUtility.FromJson<ObjectToSend>(str);
             if (obj != null)
             {
-                switch (obj.type)
+                if (obj.@namespace != "position")
+                    Debug.Log("RECEIVE => " + str);
+
+                if (obj.data == "")
                 {
-                    case "Position":
+                    string dataJson = str.Substring(str.LastIndexOf('{'));
+                    dataJson = dataJson.Remove(dataJson.LastIndexOf('}'));
+                    obj.data = dataJson;
+                }
+
+                switch (obj.@namespace)
+                {
+                    case "position":
                         break;
 
-                    case "Chat":
-                        notificationManager.RequestNewNotification(str, GameMasterNotificationItem.NotificationType.Standard);
+                    case "chat":
+                        notificationManager.RequestNewNotification(obj.data, GameMasterNotificationItem.NotificationType.Standard);
                         break;
 
-                    case "Mail":
-                        //ReceiveNewMail(str);
+                    case "email_sent":
+                        ReceiveNewMail(obj.data);
+                        notificationManager.RequestNewNotification("Un email vient d'arriver", GameMasterNotificationItem.NotificationType.Mail);
                         break;
 
                     default:
@@ -146,14 +171,12 @@ public class GameMasterManager : MonoBehaviour
         ws = new ClientWebSocket();
         try
         {
-            //await ws.ConnectAsync(new Uri("wss://cyberstories.herokuapp.com/ws/game-master/"), CancellationToken.None);
-            await ws.ConnectAsync(new Uri("wss://echo.websocket.org"), CancellationToken.None);
+            await ws.ConnectAsync(new Uri("wss://cyberstories.herokuapp.com/ws/"), CancellationToken.None);
 
             if (ws.State != WebSocketState.Open)
                 throw new Exception();
 
             SendLocationToWebsocketAsync();
-            SendMessageToGameMasterAsync();
             GetWebSocketResponseAsync();
         }
         catch (Exception e)
@@ -168,22 +191,15 @@ public class GameMasterManager : MonoBehaviour
         }
     }
 
-    private void ReceiveNewMail(String input)
+    private void ReceiveNewMail(String json)
     {
-        // Parse input
-        string str = input.Substring(28, input.Length - 28);
-
-        int messageBegin = str.IndexOf("\\\"") + 19;
-
-        string obj = str.Substring(0, str.IndexOf("\\\""));
-        string message = str.Substring(messageBegin, str.Length - messageBegin - 5);
-
-        Debug.Log(obj);
-        Debug.Log(message);
+        EmailReceived er = JsonUtility.FromJson<EmailReceived>(json);
+        if (er == null)
+            return;
 
         const string senderKey = "GameMaster_mailName";
-        string mailObject = "";
-        string mailBody = "";
+        string mailObject = er.@object;
+        string mailBody = er.message;
         DateTime date = DateTime.Now;
 
         string objectKey = "GameMaster_" + date.ToString() + "_obj";
@@ -192,7 +208,7 @@ public class GameMasterManager : MonoBehaviour
         GlobalManager.AddNewLocalization(objectKey, mailObject);
         GlobalManager.AddNewLocalization(bodyKey, mailBody);
 
-        mailApp.ReceiveNewMail(senderKey, "Game Master", objectKey, obj, bodyKey, message, date);
+        mailApp.ReceiveNewMail(senderKey, "Game Master", objectKey, mailObject, bodyKey, mailBody, date);
     }
 
     // Start is called before the first frame update

@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.cyberstories.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "D:\\MTI\\CyberStoriesUnity\\CyberStories\\actions.json",
+      "action_manifest_path": "D:\\MTI\\CyberStories\\CyberStories\\actions.json",
       "strings": {
         "en_us": {
           "name": "CyberStories [Testing]"

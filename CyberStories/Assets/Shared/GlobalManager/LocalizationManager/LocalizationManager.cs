@@ -25,7 +25,7 @@ public class LocalizationManager
     {
         currentLanguage = Language.Francais;
         locaDictionnary = new Dictionary<string, string>();
-        string path = Path.Combine(Application.dataPath + innerPath, fileName);
+        string path = Path.Combine(Application.dataPath, fileName);
         Debug.Log(path);
         if (!File.Exists(path))
         {
@@ -39,7 +39,7 @@ public class LocalizationManager
     private void LoadLocalizationFile()
     {
         locaDictionnary.Clear();
-        string path = Path.Combine(Application.dataPath + innerPath, fileName);
+        string path = Path.Combine(Application.dataPath, fileName);
 
         string fileData = File.ReadAllText(path);
         string[] lines = fileData.Split("\n"[0]);

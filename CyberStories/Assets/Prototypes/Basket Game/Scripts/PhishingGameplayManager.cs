@@ -57,7 +57,8 @@ public class PhishingGameplayManager : MonoBehaviour
 
         int index = UnityEngine.Random.Range(0, goalPrefab.Count - 1);
 
-        goalList.Add(Instantiate(goalPrefab[index], position, new Quaternion(0, -90, 0, 0)));
+        BaseBasketPlay b = Instantiate(goalPrefab[index], position, Quaternion.Euler(0, -68, 0));
+        goalList.Add(b);
     }
 
     private IEnumerator BallGeneration()

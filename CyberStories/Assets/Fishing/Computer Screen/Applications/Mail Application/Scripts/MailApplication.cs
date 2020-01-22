@@ -91,6 +91,9 @@ public class MailApplication : BaseApplication
     // Assign a mail (or null) on each mail Item in list
     private void LoadMailItem(List<Mail> mails, int firstIndex)
     {
+        if (mails == null)
+            return;
+
         for (int i = 0; i < nbMailDisplayed; i++)
         {
             Mail mail = firstIndex + i < mails.Count ? mails[firstIndex + i] : null;

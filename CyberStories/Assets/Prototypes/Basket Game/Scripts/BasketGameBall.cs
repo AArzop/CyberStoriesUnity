@@ -27,7 +27,7 @@ public class BasketGameBall : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (transform.position.y < -5.0f)
+        if (transform.position.y < 2.0f)
             manager.Mark(null, this);
     }
 }

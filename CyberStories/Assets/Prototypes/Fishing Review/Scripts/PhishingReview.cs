@@ -77,10 +77,15 @@ public class PhishingReview : MonoBehaviour
 
     void Awake()
     {
+        /*
         PhishingDetails detail = GlobalManager.details as PhishingDetails;
         if (detail == null)
             return;
-
+        */
+        PhishingDetails detail = new PhishingDetails();
+        detail.wrongMail = 2;
+        detail.correctMail = 5;
+        detail.phishingWebSite = 1;
         noteTitle.text = GlobalManager.GetLocalization("Review_Note");
 
         if (detail.wrongMail == 0 && detail.phishingWebSite == 0)
